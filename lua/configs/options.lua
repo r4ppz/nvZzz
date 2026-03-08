@@ -2,31 +2,47 @@ local opt = vim.opt
 local o = vim.o
 local g = vim.g
 
+-- Session
 opt.shada = ""
 
+-- File Handling
 o.autoread = true
 o.confirm = false
-o.equalalways = false
 
+-- UI
 o.relativenumber = false
+o.number = true
+o.numberwidth = 2
+o.ruler = false
+o.laststatus = 3
+o.showmode = false
+o.splitkeep = "screen"
+o.equalalways = false
+o.clipboard = "unnamedplus"
+o.cursorline = true
+o.cursorlineopt = "number"
+o.signcolumn = "yes"
+o.splitbelow = true
+o.splitright = true
+o.cmdheight = 1
+o.termguicolors = true
+o.inccommand = "nosplit"
+o.hidden = true
+o.belloff = "all"
+opt.fillchars = { eob = " " }
+
+-- Scrolling
 o.scrolloff = 5
 o.sidescroll = 1
 o.sidescrolloff = 8
+
+-- Wrapping
 o.wrap = false
 o.linebreak = true
 o.breakindent = true
 o.showbreak = " "
 
-o.laststatus = 3
-o.showmode = false
-o.splitkeep = "screen"
-o.equalalways = false
-
-o.clipboard = "unnamedplus"
-o.cursorline = true
-o.cursorlineopt = "number"
-
--- Indenting
+-- Indentation
 o.expandtab = true
 o.shiftwidth = 2
 o.smartindent = true
@@ -34,48 +50,33 @@ o.autoindent = true
 o.tabstop = 2
 o.softtabstop = 2
 
-opt.fillchars = { eob = " " }
+-- Search
 o.ignorecase = true
 o.smartcase = true
+
+-- Mouse
 o.mouse = "a"
 
--- Numbers
-o.number = true
-o.numberwidth = 2
-o.ruler = false
-
--- disable nvim intro
-opt.shortmess:append("sI")
-
-o.signcolumn = "yes"
-o.splitbelow = true
-o.splitright = true
-o.timeoutlen = 300
-o.undofile = true
-
--- performance
+-- Performance
 o.updatetime = 300
 o.lazyredraw = true
 o.ttyfast = true
 o.fdo = "search,tag,insert,undo"
-o.termguicolors = true
-o.inccommand = "nosplit"
-o.hidden = true
-o.belloff = "all"
-o.cmdheight = 1
 o.synmaxcol = 200
+o.timeoutlen = 300
+o.undofile = true
 
--- go to previous/next line with h,l,left arrow and right arrow
--- when cursor reaches end/beginning of line
+-- Misc
+opt.shortmess:append("sI")
 opt.whichwrap:append("<>[]")
 
--- disable some default providers
+-- Disable default providers
 g.loaded_node_provider = 0
 g.loaded_python3_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 
--- add binaries installed by mason.nvim to path
+-- Add binaries installed by mason.nvim to PATH
 local is_windows = vim.fn.has("win32") ~= 0
 local sep = is_windows and "\\" or "/"
 local delim = is_windows and ";" or ":"
