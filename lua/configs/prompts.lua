@@ -69,6 +69,7 @@ local prompts = {
 
     ]]),
     description = "Beginner friendly docs",
+    system_prompt = system_prompt,
   },
 
   Concepts = {
@@ -88,6 +89,7 @@ local prompts = {
       ...
     ]]),
     description = "List foundational concepts",
+    system_prompt = system_prompt,
   },
 
   Explain = {
@@ -99,6 +101,7 @@ local prompts = {
       Make it practical. Explain the syntax if needed.
     ]]),
     description = "Simple and short explanation",
+    system_prompt = system_prompt,
   },
 
   ExplainDetailed = {
@@ -114,6 +117,7 @@ local prompts = {
       • Include relevant language-specific nuances or rules when they affect behavior.
     ]]),
     description = "Detailed and comprehensive explanation",
+    system_prompt = system_prompt,
   },
 
   ExplainHighLevel = {
@@ -128,6 +132,7 @@ local prompts = {
         • Reference syntax only when necessary to clarify conceptual behavior.
       ]]),
     description = "High-level/overview explanation",
+    system_prompt = system_prompt,
   },
 
   ExplainBalanced = {
@@ -142,6 +147,7 @@ local prompts = {
       • Behavioral Clarity: Clarify non-obvious behaviors that are syntactically evident but not self-explanatory.
     ]]),
     description = "Balanced explanation",
+    system_prompt = system_prompt,
   },
 
   ExplainLowLevel = {
@@ -156,6 +162,7 @@ local prompts = {
       • Identify language-specific behaviors that are syntactically mandated (evaluation rules, precedence, binding).
     ]]),
     description = "Low level explanation",
+    system_prompt = system_prompt,
   },
 
   Log = {
@@ -169,6 +176,7 @@ local prompts = {
       • Ensure logs provide meaningful context without exposing sensitive information.
     ]]),
     description = "Add logging",
+    system_prompt = system_prompt,
   },
 
   Review = {
@@ -184,6 +192,7 @@ local prompts = {
       • Provide concrete fixes or improvements with concise technical explanations.
     ]]),
     description = "Perform a detailed review",
+    system_prompt = system_prompt,
   },
 
   Fix = {
@@ -201,6 +210,7 @@ local prompts = {
       • Do not add features beyond what the original code intends.
     ]]),
     description = "Find, explain, and fix code issues",
+    system_prompt = system_prompt,
   },
 
   Optimize = {
@@ -215,6 +225,7 @@ local prompts = {
       • Ensure optimizations do not harm readability or maintainability.
     ]]),
     description = "Optimize code",
+    system_prompt = system_prompt,
   },
 
   Docs = {
@@ -232,6 +243,7 @@ local prompts = {
       - Output only the documentation comments, formatted exactly as they would appear in source code.
     ]]),
     description = "Generate documentation comments",
+    system_prompt = system_prompt,
   },
 
   Tests = {
@@ -245,6 +257,7 @@ local prompts = {
       • Include setup/teardown only when necessary.
     ]]),
     description = "Generate tests",
+    system_prompt = system_prompt,
   },
 
   Commit = {
@@ -279,6 +292,7 @@ local prompts = {
       Requirement: Output ONLY the commit message. No preamble, no post-explanation, and no markdown code blocks unless the diff dictates it.
     ]]),
     description = "Generate conventional commits",
+    system_prompt = system_prompt,
   },
 
   Idiomatic = {
@@ -296,6 +310,7 @@ local prompts = {
       • Base suggestions only on widely accepted conventions.
     ]]),
     description = "Suggest idiomatic improvements",
+    system_prompt = system_prompt,
   },
 
   Suggest = {
@@ -313,6 +328,7 @@ local prompts = {
       • Do not add features not present in the original intent.
     ]]),
     description = "Suggest alternative implementations",
+    system_prompt = system_prompt,
   },
 
   Diagnostic = {
@@ -327,6 +343,7 @@ local prompts = {
       • Suggest practices to prevent similar issues.
     ]]),
     description = "Analyze diagnostic data",
+    system_prompt = system_prompt,
   },
 
   Refactor = {
@@ -344,6 +361,7 @@ local prompts = {
       • Do not change semantics or add new features.
     ]]),
     description = "Refactor code",
+    system_prompt = system_prompt,
   },
 }
 
