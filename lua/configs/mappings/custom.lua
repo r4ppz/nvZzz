@@ -99,8 +99,8 @@ map("n", "s", "<nop>", { desc = "Disable s to avoid accidental edits" })
 map("v", "s", '"_s', { desc = "Substitute without yanking (visual)" })
 map("n", "S", '"_S', { desc = "Substitute line without yanking (normal)" })
 
-map("n", "q", "<Nop>", { desc = "Disable recording macro (q)" })
-map("n", "Q", "<Nop>", { desc = "Disable Ex mode (Q)" })
+map({ "n", "v" }, "q", "<Nop>", { desc = "Disable recording macro (q)" })
+map({ "n", "v" }, "Q", "<Nop>", { desc = "Disable Ex mode (Q)" })
 
 map("v", "p", '"_dP', { desc = "Paste without yanking replaced text" })
 map({ "n", "v" }, "x", '"_x', { desc = "Delete character without yanking" })
