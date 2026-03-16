@@ -53,7 +53,6 @@ return {
           max_concurrent_installers = 10,
         }
       end,
-      dependencies = "nvim-telescope/telescope.nvim",
     },
     {
       "mason-org/mason-lspconfig.nvim",
