@@ -37,58 +37,59 @@ The [keybinds](lua/configs/mappings/custom.lua) aren't really Vim-idiomatic sinc
 
 The tmux/hyprland/waybar config can be found in this repo: [Arch-dotfiles](https://github.com/r4ppz/Arch-dotfiles)
 
-## Plugins:
+## Plugins used:
 
-> its a lot 😬
+> it's a lot 😬 though I am still cleaning up and optimizing my workflow.
 
-Start up time is still below 1sec (`~23 miliseconds`) so I think it's still super duper fast compared to VSCode/IDE.
+Startup time is still under 1 second (`~23 milliseconds`), so it's super fast compared to VSCode or typical IDEs.
 
-- lazy.nvim
-- base46
-- ui
-- volt
-- menu
-- nvim-lspconfig
-- mason.nvim
-- mason-lspconfig.nvim
-- nvim-lsp-file-operations
-- lspsaga.nvim
-- typescript-tools.nvim
-- nvim-jdtls
-- nvim-lint
-- conform.nvim
-- nvim-treesitter
-- nvim-cmp
-- LuaSnip
-- cmp-nvim-lsp
-- cmp-nvim-lua
-- cmp_luasnip
-- cmp-buffer
-- cmp-async-path
-- friendly-snippets
-- nvim-autopairs
-- mini.surround
-- vim-matchup
-- indent-blankline.nvim
-- vim-illuminate
-- nvim-tree.lua
-- yazi.nvim
-- snacks.nvim
-- gitsigns.nvim
-- diffview.nvim
-- copilot.lua
-- CopilotChat.nvim
-- nvim-spectre
-- markdown-preview.nvim
-- render-markdown.nvim
-- dashboard-nvim
-- dropbar.nvim
-- outline.nvim
-- hover.nvim
-- which-key.nvim
-- nvim-web-devicons
-- gx.nvim
-- screenkey.nvim
-- todo-comments.nvim
-- plenary.nvim
-- telescope.nvim
+```bash
+- folke/lazy.nvim
+- nvchad/base46
+- nvchad/ui
+- nvzone/volt
+- nvzone/menu
+- neovim/nvim-lspconfig
+- williamboman/mason.nvim
+- williamboman/mason-lspconfig.nvim
+- antosha417/nvim-lsp-file-operations
+- nvimdev/lspsaga.nvim
+- pmizio/typescript-tools.nvim
+- mfussenegger/nvim-jdtls
+- mfussenegger/nvim-lint
+- stevearc/conform.nvim
+- nvim-treesitter/nvim-treesitter
+- hrsh7th/nvim-cmp
+- L3MON4D3/LuaSnip
+- hrsh7th/cmp-nvim-lsp
+- hrsh7th/cmp-nvim-lua
+- saadparwaiz1/cmp_luasnip
+- hrsh7th/cmp-buffer
+- FelipeSSantos/cmp-async-path
+- rafamadriz/friendly-snippets
+- windwp/nvim-autopairs
+- nvim-mini/mini.surround
+- andymass/vim-matchup
+- lukas-reineke/indent-blankline.nvim
+- RRethy/vim-illuminate
+- nvim-tree/nvim-tree.lua
+- mikavilpas/yazi.nvim
+- folke/snacks.nvim
+- lewis6991/gitsigns.nvim
+- sindrets/diffview.nvim
+- zbirenbaum/copilot.lua
+- CopilotC-Nvim/CopilotChat.nvim
+- nvim-pack/nvim-spectre
+- iamcco/markdown-preview.nvim
+- MeanderingProgrammer/render-markdown.nvim
+- nvimdev/dashboard-nvim
+- Bekaboo/dropbar.nvim
+- hedyhli/outline.nvim
+- lewis6991/hover.nvim
+- folke/which-key.nvim
+- nvim-tree/nvim-web-devicons
+- chrishrb/gx.nvim
+- NStefan002/screenkey.nvim
+- folke/todo-comments.nvim
+- nvim-lua/plenary.nvim
+```
