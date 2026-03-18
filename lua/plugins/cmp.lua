@@ -131,7 +131,10 @@ return {
         },
       },
 
-      completion = { completeopt = "menu,menuone,noselect" },
+      completion = {
+        autocomplete = false,
+        completeopt = "menu,menuone,noselect",
+      },
 
       enabled = function()
         return not disabled_ft[vim.bo.filetype]
