@@ -16,6 +16,7 @@ return {
 
       lua = { "stylua" },
       sh = { "shfmt" },
+      zsh = { "shfmt" },
       python = { "black" },
       rust = { "rustfmt" },
       xml = { "lemminx" },
