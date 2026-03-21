@@ -1,8 +1,8 @@
 # My Personal Neovim Configuration
 
 > [!WARNING]
-> This configuration will probably not work for you. I basically created my own editor and development environment (IDE). This
-> is not idiomatic or follows neovim/vim philosophy. I use a lot of plugins and arrow keys just because neovim let me :p
+> This configuration will probably not work for you. I basically created my own editor/development environment (IDE).
+> This is not idiomatic or follows neovim/vim philosophy. I use a lot of plugins and arrow keys just because neovim let me :p
 
 ---
 
@@ -12,38 +12,61 @@
 
 <img src="img/highlight2.png" >
 
-<img src="img/highlight3.png" >
-
 <details>
-<summary>More screenshots</summary>
+<summary>Some of the features I liked</summary>
 
-> Some of the things I liked:
+> click the link to see where is it configured.
 
-|                                                                         |                                                                             |
-| ----------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| <img src="img/ai.png" /><br><sub>Copilot AI</sub>                       | <img src="img/prompts.png" /><br><sub>AI Prompts</sub>                      |
-| <img src="img/git-client.png" /><br><sub>LazyGit</sub>                  | <img src="img/docker.png" /><br><sub>LazyDocker</sub>                       |
-| <img src="img/peek-definition.png" /><br><sub>Peek Definition</sub>     | <img src="img/hover.png" /><br><sub>Hover</sub>                             |
-| <img src="img/references.png" /><br><sub>References</sub>               | <img src="img/cmp.png" /><br><sub>Completion Menu</sub>                     |
-| <img src="img/picker.png" /><br><sub>Picker</sub>                       | <img src="img/horizontal-terminal.png" /><br><sub>Horizontal Terminal</sub> |
-| <img src="img/floating-terminal.png" /><br><sub>Floating Terminal</sub> | <img src="img/vertical-terminal.png" /><br><sub>Vertical Terminal</sub>     |
-| <img src="img/diff.png" /><br><sub>DiffView</sub>                       | <img src="img/inline-diff.png" /><br><sub>Inline Diff</sub>                 |
-| <img src="img/outline.png" /><br><sub>Symbols Outline</sub>             | <img src="img/file-manager.png" /><br><sub>File Manager</sub>               |
-| <img src="img/error.png" /><br><sub>Error Display</sub>                 | <img src="img/yazi.png" /><br><sub>Yazi</sub>                               |
+|                                                                                                             |                                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| <img src="img/ai.png" /><br><sub>[Copilot AI](lua/plugins/copilot.lua)</sub>                                | <img src="img/prompts.png" /><br><sub>[AI Prompts](lua/configs/prompts.lua)</sub>                               |
+| <img src="img/git-client.png" /><br><sub>[LazyGit](lua/plugins/git.lua)</sub>                               | <img src="img/docker.png" /><br><sub>[LazyDocker](lua/configs/mappings/plugins.lua)</sub>                       |
+| <img src="img/peek-definition.png" /><br><sub>[Peek Definition](lua/configs/mappings/lsp.lua)</sub>         | <img src="img/hover.png" /><br><sub>[Hover](lua/plugins/hover.lua)</sub>                                        |
+| <img src="img/references.png" /><br><sub>[References](lua/configs/mappings/lsp.lua)</sub>                   | <img src="img/cmp.png" /><br><sub>[Completion Menu](lua/plugins/cmp.lua)</sub>                                  |
+| <img src="img/picker.png" /><br><sub>[Picker](lua/plugins/snacks.lua)</sub>                                 | <img src="img/horizontal-terminal.png" /><br><sub>[Horizontal Terminal](lua/configs/mappings/plugins.lua)</sub> |
+| <img src="img/floating-terminal.png" /><br><sub>[Floating Terminal](lua/configs/mappings/plugins.lua)</sub> | <img src="img/vertical-terminal.png" /><br><sub>[Vertical Terminal](lua/configs/mappings/plugins.lua)</sub>     |
+| <img src="img/diff.png" /><br><sub>[DiffView](lua/plugins/git.lua)</sub>                                    | <img src="img/inline-diff.png" /><br><sub>[Inline Diff](lua/plugins/git.lua)</sub>                              |
+| <img src="img/outline.png" /><br><sub>[Symbols Outline](lua/plugins/outline.lua)</sub>                      | <img src="img/file-manager.png" /><br><sub>[File Manager](lua/plugins/nvim_tree.lua)</sub>                      |
+| <img src="img/error.png" /><br><sub>[Error Display](lua/configs/mappings/lsp.lua)</sub>                     | <img src="img/yazi.png" /><br><sub>[Yazi](lua/plugins/yazi.lua)</sub>                                           |
 
 </details>
 
+This repository is meant as a reference for me (for you too, to get inspiration maybe?) and to document my config.
+
+Keybinds are heavily configured and personalized. Many arrow-keys, alt-keys, and non-defaults are used.
+This is to maintain consistency with my compositor/WM, Shell, GUI programs, Tmux workflow, etc.
+
+Tmux/Hyprland/Waybar config can be found in this repo: [Arch-dotfiles](https://github.com/r4ppz/Arch-dotfiles)
+
 ---
 
-The tmux/hyprland/waybar config can be found in this repo: [Arch-dotfiles](https://github.com/r4ppz/Arch-dotfiles)
+### Install & Use:
+
+> I don't use Windows so this will probably not work well in there.
+
+```bash
+# Install & run
+git clone https://github.com/r4ppz/nvZzz.git ~/.config/nvim && nvim
+
+# inside, run
+# :MasonInstallAll
+
+# To uninstall
+rm -rf ~/.config/nvim
+rm -rf ~/.local/state/nvim
+rm -rf ~/.local/share/nvim
+```
 
 ## Plugins used:
 
 > it's a lot 😬 though I am still cleaning up and optimizing my workflow.
 
-Startup time is still under 1 second (`~23 milliseconds`), so it's still super duder fast compared to VSCode/typical IDEs.
+Startup time is still under 1 second (`~23 milliseconds`), so it's super duper fast compared to VSCode or typical IDEs.
 
-```bash
+Almost all plugins are lazy loaded, meaning they load only when used, not on startup.
+So having many plugins is not really that big of a deal imo.
+
+```
 - folke/lazy.nvim
 - nvchad/base46
 - nvchad/ui
@@ -95,10 +118,9 @@ Startup time is still under 1 second (`~23 milliseconds`), so it's still super d
 - nvim-lua/plenary.nvim
 ```
 
-## LSP's and Treesitters:
+### Tree-sitter Parsers
 
-```bash
-# treesitter
+```
 - luadoc
 - printf
 - vim
@@ -134,7 +156,11 @@ Startup time is still under 1 second (`~23 milliseconds`), so it's still super d
 - gitattributes
 - regex
 
-# LSP's
+```
+
+### LSP Servers
+
+```
 - html
 - cssls
 - jsonls
@@ -156,5 +182,4 @@ Startup time is still under 1 second (`~23 milliseconds`), so it's still super d
 - hyprls
 - clangd
 - asm_lsp
-}
 ```
