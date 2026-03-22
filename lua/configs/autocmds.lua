@@ -1,7 +1,10 @@
+local mygroup = vim.api.nvim_create_augroup("MyPersonalConfig", { clear = true })
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("BufReadPost", {
+  group = mygroup,
   pattern = { "*.png", "*.jpg", "*.jpeg", "*.webp", "*.gif", "*.bmp", "*.svg" },
+  desc = "Open images in imv and close buffer automatically",
   callback = function(args)
     vim.fn.jobstart({ "imv", args.file }, { detach = true })
 
@@ -12,8 +15,11 @@ autocmd("BufReadPost", {
     end)
   end,
 })
+
 autocmd("BufReadPost", {
+  group = mygroup,
   pattern = { "*.pdf", "*.epub" },
+  desc = "Open PDF/EPUB files in Okular and close buffer automatically",
   callback = function(args)
     vim.fn.jobstart({ "okular", args.file }, { detach = true })
     vim.schedule(function()
@@ -25,6 +31,8 @@ autocmd("BufReadPost", {
 })
 
 autocmd("WinEnter", {
+  group = mygroup,
+  desc = "Auto-close window if only special panel filetype remains",
   callback = function()
     local panels = {
       "copilot-chat",
@@ -45,6 +53,8 @@ autocmd({
   "CursorHoldI",
   "FocusGained",
 }, {
+  group = mygroup,
+  desc = "Check for file changes when entering buffer or regaining focus",
   callback = function()
     if vim.fn.getcmdwintype() == "" then
       vim.cmd("checktime")
@@ -52,8 +62,9 @@ autocmd({
   end,
 })
 
--- vertical help split
 autocmd("BufWinEnter", {
+  group = mygroup,
+  desc = "Move help buffers to the right window",
   pattern = "*.txt",
   callback = function()
     if vim.bo.buftype == "help" then
@@ -62,8 +73,9 @@ autocmd("BufWinEnter", {
   end,
 })
 
--- copilot chat
 autocmd("BufEnter", {
+  group = mygroup,
+  desc = "Window opts for copilot buffer",
   pattern = "copilot-*",
   callback = function()
     vim.wo.relativenumber = false
@@ -73,8 +85,9 @@ autocmd("BufEnter", {
   end,
 })
 
--- Wraping
 autocmd("FileType", {
+  group = mygroup,
+  desc = "Enable wrapping on text",
   pattern = { "text" },
   callback = function()
     vim.opt_local.wrap = true
@@ -83,10 +96,9 @@ autocmd("FileType", {
   end,
 })
 
--- Hightlight yanking
 autocmd("TextYankPost", {
+  group = mygroup,
   desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
     vim.hl.on_yank()
   end,
