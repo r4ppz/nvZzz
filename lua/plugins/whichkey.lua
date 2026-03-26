@@ -22,6 +22,7 @@ return {
     })
 
     return {
+      preset = "helix",
       icons = {
         group = "",
       },

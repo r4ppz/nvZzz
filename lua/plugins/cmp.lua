@@ -132,7 +132,6 @@ return {
       },
 
       completion = {
-        autocomplete = false,
         completeopt = "menu,menuone,noselect",
       },
 
@@ -168,15 +167,6 @@ return {
           select = false,
         }),
 
-        -- NOTE: might need later? idk
-        -- ["<fuckingannoyingpieceofshit>"] = cmp.mapping(function(fallback)
-        --   if require("luasnip").expand_or_jumpable() then
-        --     require("luasnip").expand_or_jump()
-        --   else
-        --     fallback()
-        --   end
-        -- end, { "i", "s" }),
-
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
@@ -195,11 +185,11 @@ return {
       },
 
       sources = cmp.config.sources({
-        { name = "nvim_lsp", priority = 10, max_item_count = 20 },
-        { name = "luasnip", priority = 9, max_item_count = 10 },
-        { name = "buffer", keyword_length = 3, max_item_count = 5 },
-        { name = "nvim_lua", priority = 7 },
-        { name = "async_path", priority = 6 },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "async_path" },
+        { name = "nvim_lua" },
       }),
 
       experimental = {

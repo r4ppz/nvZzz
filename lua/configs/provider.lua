@@ -52,10 +52,20 @@ return {
       local all_lines = {}
       local valid_result = false
 
-      for _, response in pairs(responses) do
+      for client_id, response in pairs(responses) do
         if response.result and response.result.contents then
           valid_result = true
+
+          local client = vim.lsp.get_client_by_id(client_id)
           local client_lines = vim.lsp.util.convert_input_to_markdown_lines(response.result.contents)
+
+          -- Only apply these filters to these servers
+          local servers = { "jdtls", "cssls" }
+          if client and vim.tbl_contains(servers, client.name) then
+            client_lines = strip_links(client_lines)
+            client_lines = decode_html_entities(client_lines)
+          end
+
           for _, line in ipairs(client_lines) do
             table.insert(all_lines, line)
           end
@@ -67,10 +77,8 @@ return {
         return
       end
 
-      all_lines = strip_links(all_lines)
-      all_lines = unescape_markdown(all_lines)
-      all_lines = decode_html_entities(all_lines)
       all_lines = pad_lines(all_lines)
+      all_lines = unescape_markdown(all_lines)
 
       if vim.tbl_isempty(all_lines) then
         done(false)

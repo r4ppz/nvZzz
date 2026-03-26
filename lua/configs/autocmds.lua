@@ -62,17 +62,6 @@ autocmd({
   end,
 })
 
-autocmd("BufWinEnter", {
-  group = mygroup,
-  desc = "Move help buffers to the right window",
-  pattern = "*.txt",
-  callback = function()
-    if vim.bo.buftype == "help" then
-      vim.cmd.wincmd("L")
-    end
-  end,
-})
-
 autocmd("BufEnter", {
   group = mygroup,
   desc = "Window opts for copilot buffer",

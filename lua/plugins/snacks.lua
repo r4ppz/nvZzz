@@ -42,6 +42,14 @@ return {
   },
   keys = {
     {
+      "<leader>Fc",
+      function()
+        Snacks.picker.colorschemes()
+      end,
+      desc = "Colorschemes",
+    },
+
+    {
       "<leader>fH",
       function()
         Snacks.picker.files({ dirs = { os.getenv("HOME") } })

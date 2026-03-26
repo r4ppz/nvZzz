@@ -44,6 +44,7 @@ return {
         "NvimTree",
         "",
         "copilot-chat",
+        "text",
       },
       buftypes = {
         "terminal",

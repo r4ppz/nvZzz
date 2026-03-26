@@ -21,6 +21,7 @@ return {
       rust = { "rustfmt" },
       xml = { "lemminx" },
       java = { "google-java-format" },
+      go = { "gofmt" },
 
       ["_"] = { "trim_whitespace" },
     },

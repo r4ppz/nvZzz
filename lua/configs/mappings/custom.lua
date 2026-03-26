@@ -4,6 +4,10 @@ local map = require("utils.map")
 -- Personal?!
 ----------------------------------------
 
+map({ "n", "v" }, "<leader>ob", "<cmd>BufInfo<CR>", {
+  desc = "Get BufInfo",
+})
+
 map("n", "<C-W>q", function()
   if vim.fn.winnr("$") > 1 then
     vim.cmd("q")
@@ -91,6 +95,9 @@ map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 --------------------------------------------------
 -- Disabled/Change defaults cause why not
 --------------------------------------------------
+map("n", "<C-r>", "<nop>", { desc = "Disable redo" })
+map("n", "u", "<nop>", { desc = "Disable undo" })
+
 map("n", "<C-z>", "<nop>", { desc = "Disable suspend" })
 map("n", "ZZ", "<nop>", { desc = "Disable accidental save and quit (ZZ)" })
 map("n", "ZQ", "<nop>", { desc = "Disable accidental quit (ZQ)" })

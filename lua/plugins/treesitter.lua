@@ -23,6 +23,10 @@ return {
       "asm",
       "cpp",
       "hyprlang",
+      "go",
+      "gomod",
+      "gowork",
+      "gosum",
 
       "yaml",
       "toml",

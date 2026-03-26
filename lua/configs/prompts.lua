@@ -267,7 +267,7 @@ local prompts = {
       Convention: Conventional Commits (Project Agnostic).
 
       Format:
-      <type>(<scope>): <summary> [MUST BE < 70 CHARACTER!]
+      <type>(<scope>): <summary>
       <BLANK LINE>
       <body>
       <BLANK LINE>
@@ -277,7 +277,7 @@ local prompts = {
       1. Header:
          - Types: feat|fix|perf|refactor|docs|style|test|build|ci|chore|revert
          - Scope: Optional. Use the specific module/package/filename name affected.
-         - Summary: Mandatory. Use imperative, present tense ("add" not "added"). Lowercase. No trailing period.
+         - Summary: Mandatory. Use imperative, present tense. Lowercase. No trailing period. Must be below 70 characters.
       2. Body:
          - Mandatory unless type is "docs". Must be > 20 characters.
          - Content: Focus on the "why" of the change. Compare previous vs. new behavior.

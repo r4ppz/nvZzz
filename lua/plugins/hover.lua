@@ -23,6 +23,16 @@ return {
 
     -- double-tap detection
     local last = 0
+    map("n", "<S-k>", function()
+      local now = vim.loop.now()
+      if now - last < 300 then
+        hover.enter()
+      else
+        hover.open()
+      end
+      last = now
+    end, { desc = "Hover (double tap enters docs)" })
+
     map("n", "<S-C-Up>", function()
       local now = vim.loop.now()
       if now - last < 300 then

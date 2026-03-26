@@ -29,12 +29,10 @@
 
 </details>
 
-<br>
-
 This repository is meant as a reference for me (for you too, to get inspiration maybe?) and to document my config.
 
 Keybinds are heavily configured and personalized. Many arrow-keys, alt-keys, and non-defaults are used.
-This is to maintain consistency with my compositor/WM, Shell, GUI programs, Tmux workflow, etc.
+This is to maintain consistency and compatibility with my compositor/WM, Shell, GUI programs, Tmux workflow, etc.
 
 Tmux/Hyprland/Waybar config can be found in this repo: [Arch-dotfiles](https://github.com/r4ppz/Arch-dotfiles)
 
@@ -65,6 +63,8 @@ Startup time is still under 1 second (`~23 milliseconds`), so it's super duper f
 
 Almost all plugins are lazy loaded, meaning they load only when used, not on startup.
 So having many plugins is not really that big of a deal imo.
+
+_UI powered by [NvChad](https://nvchad.com/)_
 
 ```
 - folke/lazy.nvim
@@ -139,6 +139,10 @@ So having many plugins is not really that big of a deal imo.
 - asm
 - cpp
 - hyprlang
+- go
+- gomod
+- gowork
+- gosum
 - yaml
 - toml
 - xml
@@ -174,6 +178,7 @@ So having many plugins is not really that big of a deal imo.
 - dockerls
 - lemminx
 - postgres_lsp
+- gopls
 - taplo
 - lua_ls
 - pyright

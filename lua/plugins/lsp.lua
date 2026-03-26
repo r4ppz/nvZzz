@@ -21,6 +21,7 @@ local servers = {
   "dockerls",
   "lemminx",
   "postgres_lsp",
+  "gopls",
 
   "taplo",
   "lua_ls",

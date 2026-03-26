@@ -3,3 +3,4 @@
 require("configs.mappings.custom")
 require("configs.mappings.lsp")
 require("configs.mappings.plugins")
+require("configs.mappings.terminal")
