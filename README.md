@@ -1,11 +1,5 @@
 # My Personal Neovim Configuration
 
-> [!WARNING]
-> This configuration will probably not work for you. I basically created my own editor/development environment (IDE).
-> This is not idiomatic or follows neovim/vim philosophy. I use a lot of plugins and arrow keys just because neovim let me :p
-
----
-
 <img src="img/startup.png" >
 
 <img src="img/highlight1.png" >
@@ -31,7 +25,7 @@
 
 This repository is meant as a reference for me (for you too, to get inspiration maybe?) and to document my config.
 
-Keybinds are heavily configured and personalized. Many arrow-keys, alt-keys, and non-defaults are used.
+[Keybinds](lua/configs/mappings/) are heavily configured and personalized. Many arrow-keys, alt-keys, and non-defaults are used.
 This is to maintain consistency and compatibility with my compositor/WM, Shell, GUI programs, Tmux workflow, etc.
 
 Tmux/Hyprland/Waybar config can be found in this repo: [Arch-dotfiles](https://github.com/r4ppz/Arch-dotfiles)
@@ -62,7 +56,7 @@ rm -rf ~/.local/share/nvim
 Startup time is still under 1 second (`~23 milliseconds`), so it's super duper fast compared to VSCode or typical IDEs.
 
 Almost all plugins are lazy loaded, meaning they load only when used, not on startup.
-So having many plugins is not really that big of a deal imo.
+So having many plugins is not really that big of a deal.
 
 _UI powered by [NvChad](https://nvchad.com/)_
 
@@ -120,6 +114,10 @@ _UI powered by [NvChad](https://nvchad.com/)_
 
 ### Tree-sitter Parsers
 
+Parsers that understand code structure, mainly used for syntax highlighting, text objects, folding, and other syntax-aware features.
+
+Defined in [treesitter.lua](lua/plugins/treesitter.lua)
+
 ```
 - luadoc
 - printf
@@ -159,10 +157,14 @@ _UI powered by [NvChad](https://nvchad.com/)_
 - gitignore
 - gitattributes
 - regex
-
 ```
 
 ### LSP Servers
+
+Language-aware backends that provide references, go-to-definition, diagnostics, autocomplete,
+and most of what makes the editor feel like an IDE via the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/).
+
+Configured in [lsp.lua](lua/plugins/lsp.lua) and [servers.lua](lua/configs/servers.lua).
 
 ```
 - html

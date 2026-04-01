@@ -55,13 +55,8 @@ return {
       group = vim.api.nvim_create_augroup("TreesitterSetup", { clear = true }),
       callback = function(args)
         local buf = args.buf
-        -- Check if we have a parser for the current filetype
         local lang = vim.treesitter.language.get_lang(vim.bo[buf].filetype) or vim.bo[buf].filetype
-
-        -- Try to start highlighting
         local ok, _ = pcall(vim.treesitter.start, buf, lang)
-
-        -- If highlighting started successfully, set up indentation
         if ok then
           vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end
