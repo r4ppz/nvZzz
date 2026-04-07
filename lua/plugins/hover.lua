@@ -25,7 +25,7 @@ return {
     vim.api.nvim_set_hl(0, "HoverBorder", { fg = "#4F4F4F" })
 
     local hover = require("hover")
-    local map = require("utils.map")
+    local map = vim.keymap.set
 
     -- double-tap detection
     local last = 0

@@ -1,42 +1,9 @@
-local function decode_html_entities(lines)
-  local out = {}
-  for _, line in ipairs(lines) do
-    local cleaned = line:gsub("&lt;", "<"):gsub("&gt;", ">"):gsub("&amp;", "&"):gsub("&quot;", '"')
-    table.insert(out, cleaned)
-  end
-  return out
-end
+local string = require("utils.string")
 
-local function unescape_markdown(lines)
-  local out = {}
-  for _, line in ipairs(lines) do
-    local cleaned = line:gsub("\\([%-%._%*%[%]%(%)%{%}])", "%1")
-    table.insert(out, cleaned)
-  end
-  return out
-end
-
-local function strip_links(lines)
-  local out = {}
-  for _, line in ipairs(lines) do
-    local cleaned = line:gsub("%[(.-)%]%(jdt://.-%)", "`%1`")
-    cleaned = cleaned:gsub("%[(.-)%]%b()", "`%1`")
-    table.insert(out, cleaned)
-  end
-  return out
-end
-
-local function pad_lines(lines)
-  if #lines == 0 then
-    return {}
-  end
-  local out = { "" }
-  for _, l in ipairs(lines) do
-    table.insert(out, " " .. l .. " ")
-  end
-  table.insert(out, "")
-  return out
-end
+local decode_html_entities = string.decode_html_entities
+local unescape_markdown = string.unescape_markdown
+local strip_links = string.strip_links
+local pad_lines = string.pad_lines
 
 return {
   name = "Hover Docs",

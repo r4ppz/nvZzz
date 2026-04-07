@@ -35,7 +35,7 @@ return {
       under_cursor = true,
     })
 
-    local map = require("utils.map")
+    local map = vim.keymap.set
     map("n", "[r", function()
       require("illuminate").goto_prev_reference()
     end, { desc = "Prev reference" })

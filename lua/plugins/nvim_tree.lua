@@ -62,12 +62,10 @@ return {
       },
 
       on_attach = function(bufnr)
-        local map = require("utils.map")
-        local on_attach = require("utils/nvim_tree_copilot")
+        local map = vim.keymap.set
         local api = require("nvim-tree.api")
 
         require("nvim-tree.api").config.mappings.default_on_attach(bufnr)
-        on_attach(bufnr)
 
         map("n", "<ESC>", "<nop>", { buffer = bufnr, desc = "fucking nothing" })
         map("n", "<C-S-Up>", api.node.show_info_popup, { buffer = bufnr, desc = "Info" })
@@ -79,5 +77,12 @@ return {
 
   keys = {
     { "<M-e>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle NvimTree " },
+    {
+      "<leader>a",
+      function()
+        require("utils.tree_chat").add_to_copilot()
+      end,
+      desc = "Add to CopilotChat",
+    },
   },
 }

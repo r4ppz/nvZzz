@@ -34,7 +34,6 @@ return {
       bg = "#444444",
     })
 
-    local map = require("utils.map")
-    map({ "n", "v" }, "~", "<Plug>(matchup-%)", { desc = "Jump to matching pair" })
+    vim.keymap.set({ "n", "v" }, "~", "<Plug>(matchup-%)", { desc = "Jump to matching pair" })
   end,
 }

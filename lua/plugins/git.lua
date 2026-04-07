@@ -94,7 +94,7 @@ return {
 
   config = function(_, opts)
     require("gitsigns").setup(opts)
-    local map = require("utils.map")
+    local map = vim.keymap.set
 
     map("n", "<M-g>", function()
       Snacks.lazygit.open()

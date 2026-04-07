@@ -1,6 +1,6 @@
-local dedent = require("utils.dedent")
+local string = require("utils.string")
 
-local system_prompt = dedent([[
+local system_prompt = string.dedent([[
   Role: Jarvis, Senior Software Engineer & Engineering Lead.
   Mentee: r4ppz (BSIT Student, Arch/Hyprland/Tmux/Neovim power user).
 
@@ -40,7 +40,7 @@ local system_prompt = dedent([[
 
 local prompts = {
   BetterDocs = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       Rewrite this hover documentation in a clearer and more readable way,
       but DO NOT remove or hide the original type signature.
 
@@ -76,7 +76,7 @@ local prompts = {
   },
 
   Concepts = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #selection
       Identify **all foundational concepts** required to understand this code snippet.
 
@@ -96,7 +96,7 @@ local prompts = {
   },
 
   Explain = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #selection
 
       Provide a brief, accurate explanation of the selected code.
@@ -108,7 +108,7 @@ local prompts = {
   },
 
   ExplainDeep = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #selection
       Mode B
 
@@ -121,7 +121,7 @@ local prompts = {
   },
 
   Log = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #selection
       Add logging statements to the selected code to aid in debugging and monitoring.
 
@@ -135,7 +135,7 @@ local prompts = {
   },
 
   Review = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #selection (preferred)
       #buffer:active (additional context)
       Perform a **comprehensive code review**.
@@ -151,7 +151,7 @@ local prompts = {
   },
 
   Fix = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #buffer:active
       Identify and fix all issues in the given code.
 
@@ -169,7 +169,7 @@ local prompts = {
   },
 
   Optimize = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #selection
       Optimize the given code for performance and clarity.
 
@@ -184,7 +184,7 @@ local prompts = {
   },
 
   Docs = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #selection
       Generate concise, accurate documentation comments for the selected code.
 
@@ -202,7 +202,7 @@ local prompts = {
   },
 
   Tests = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #selection
       Generate tests for the given code using the standard testing framework for [language/framework].
 
@@ -216,7 +216,7 @@ local prompts = {
   },
 
   Commit = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #gitdiff:staged
       Task: Generate a deterministic commit message based on the provided diff.
       Convention: Conventional Commits (Project Agnostic).
@@ -251,7 +251,7 @@ local prompts = {
   },
 
   Idiomatic = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #selection (preferred)
       #buffer:active (additional context)
       Review the code for idiomatic style and conventions.
@@ -269,7 +269,7 @@ local prompts = {
   },
 
   Suggest = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #selection (preferred)
       #buffer:active (additional context)
       Propose alternative implementations or designs for the given code.
@@ -287,7 +287,7 @@ local prompts = {
   },
 
   Diagnostic = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #buffer:active
       Analyze diagnostics and source code.
 
@@ -302,7 +302,7 @@ local prompts = {
   },
 
   Refactor = {
-    prompt = dedent([[
+    prompt = string.dedent([[
       #selection
       Refactor the given code for better structure and maintainability.
 

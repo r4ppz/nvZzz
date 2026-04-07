@@ -1,4 +1,4 @@
-local map = require("utils.map")
+local map = vim.keymap.set
 
 --------------------------------------------------------
 -- Personal?!
@@ -110,7 +110,7 @@ map({ "n", "v" }, "Q", "<Nop>", { desc = "Disable Ex mode (Q)" })
 map("v", "p", '"_dP', { desc = "Paste without yanking replaced text" })
 map({ "n", "v" }, "x", '"_x', { desc = "Delete character without yanking" })
 map("n", "c", '"_c', { desc = "Change text without yanking" })
--- map("n", "d", '"_d', { desc = "Delete text without yanking" })
+-- keymap.map("n", "d", '"_d', { desc = "Delete text without yanking" })
 
 -- Highlights the word without jumping to the next occurrence.
 -- Uses case-insensitive search and enables 'hlsearch'.

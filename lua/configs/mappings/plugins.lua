@@ -1,10 +1,10 @@
-local map = require("utils.map")
+local window = require("utils.window")
+local map = vim.keymap.set
 
 -- Uses plugins? (other keybinds are in the plugin Lua files)
 
 ---------------------------------------------------------------------
 -- BUFFERS MANAGEMENT
-local safe_buf_action = require("utils.safe_buf_action")
 
 map("n", "<leader>n", "<cmd>enew<CR>", { desc = "Buffer new" })
 
@@ -12,7 +12,7 @@ map("n", "<leader>n", "<cmd>enew<CR>", { desc = "Buffer new" })
 map(
   { "n", "v" },
   "<M-Right>",
-  safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").next()
   end),
   { desc = "Buffer goto next" }
@@ -20,7 +20,7 @@ map(
 map(
   { "n", "v" },
   "<M-Left>",
-  safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").prev()
   end),
   { desc = "Buffer goto prev" }
@@ -30,7 +30,7 @@ map(
 map(
   { "n", "v" },
   "<C-M-Right>",
-  safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").move_buf(1)
   end),
   { desc = "move buffer to the right" }
@@ -38,7 +38,7 @@ map(
 map(
   { "n", "v" },
   "<C-M-Left>",
-  safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").move_buf(-1)
   end),
   { desc = "move buffer to the left" }
@@ -48,7 +48,7 @@ map(
 map(
   "n",
   "<leader>q",
-  safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").close_buffer()
   end),
   { desc = "Buffer close" }
@@ -57,7 +57,7 @@ map(
 map(
   "n",
   "<M-q>",
-  safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").close_buffer()
   end),
   { desc = "Buffer close" }
@@ -66,7 +66,7 @@ map(
 map(
   "n",
   "<S-M-Q>",
-  safe_buf_action(function()
+  window.safe_buf_action(function()
     require("nvchad.tabufline").closeAllBufs(false)
   end),
   { desc = "Close all buffers except current" }
@@ -106,20 +106,16 @@ map("n", "<leader>ui", "<cmd>MasonInstallAll<cr>", { desc = "Mason Install ALl" 
 
 ---------------------------------------------------------------------
 -- TERMINAL MANAGEMENT
-local focus_main_window = require("utils.focus_main_window")
 
 map({ "n", "t" }, "<A-w>", function()
-  focus_main_window()
-  require("nvchad.term").toggle({
+  window.toggle_terminal({
     pos = "float",
     id = "float_term",
   })
 end, { desc = "Toggle Floating Terminal" })
 
 map({ "n", "t" }, "<M-b>", function()
-  focus_main_window()
-  local term = require("nvchad.term")
-  term.toggle({
+  window.toggle_terminal({
     pos = "float",
     id = "btop_float",
     float_opts = {
@@ -131,51 +127,25 @@ map({ "n", "t" }, "<M-b>", function()
     },
     cmd = "btop",
   })
-
-  -- map q to close/toggle the terminal
-  local buf = vim.api.nvim_get_current_buf()
-  map("t", "q", function()
-    term.toggle({ id = "btop_float" })
-  end, { buffer = buf })
+  window.map_close_terminal("btop_float")
 end, { desc = "Toggle Btop" })
 
 -- Docker floating terminal
 map({ "n", "t" }, "<M-S-d>", function()
-  local function is_process_running(name)
-    local handle = io.popen("pgrep -x " .. name)
-    if not handle then
-      return false
-    end
-    local result = handle:read("*a")
-    handle:close()
-    return result ~= ""
-  end
-
-  local function is_file_exists(file, dir)
-    local path = dir .. "/" .. file
-    local f = io.open(path, "r")
-    if f ~= nil then
-      f:close()
-      return true
-    end
-    return false
-  end
-
+  local system = require("utils.system")
   local cwd = vim.fn.getcwd()
 
-  if not is_process_running("dockerd") then
+  if not system.is_process_running("dockerd") then
     vim.notify("dockerd is not running", vim.log.levels.WARN)
     return
   end
 
-  if not is_file_exists("docker-compose.yml", cwd) then
+  if not system.is_file_exists("docker-compose.yml", cwd) then
     vim.notify("docker-compose.yml doesn't exist in CWD", vim.log.levels.WARN)
     return
   end
 
-  focus_main_window()
-  local term = require("nvchad.term")
-  term.toggle({
+  window.toggle_terminal({
     pos = "float",
     id = "lazydocker_float",
     float_opts = {
@@ -187,17 +157,11 @@ map({ "n", "t" }, "<M-S-d>", function()
     },
     cmd = "lazydocker",
   })
-
-  -- map q to close/toggle the terminal
-  local buf = vim.api.nvim_get_current_buf()
-  map("t", "q", function()
-    term.toggle({ id = "lazydocker_float" })
-  end, { buffer = buf })
+  window.map_close_terminal("lazydocker_float")
 end, { desc = "Toggle LazyDocker" })
 
 map({ "n", "t" }, "<A-s>", function()
-  focus_main_window()
-  require("nvchad.term").toggle({
+  window.toggle_terminal({
     pos = "sp",
     id = "horizontal_term",
     size = 0.5,
@@ -205,8 +169,7 @@ map({ "n", "t" }, "<A-s>", function()
 end, { desc = "Toggle Horizontal Terminal" })
 
 map({ "n", "t" }, "<A-v>", function()
-  focus_main_window()
-  require("nvchad.term").toggle({
+  window.toggle_terminal({
     pos = "vsp",
     id = "vertical_term",
     size = 0.5,

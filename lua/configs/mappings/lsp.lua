@@ -1,6 +1,6 @@
 ---@diagnostic disable: undefined-global
 
-local map = require("utils.map")
+local map = vim.keymap.set
 
 --------------------------------------------------
 -- LSP related
