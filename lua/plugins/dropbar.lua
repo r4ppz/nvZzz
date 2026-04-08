@@ -29,7 +29,9 @@ return {
           "copilot-chat",
           "snacks_picker_input",
           "snacks_picker_preview",
+          "snacks_picker_list",
           "snacks_dashboard",
+          "spectre_panel",
         }
 
         if vim.tbl_contains(ignored_filetypes, vim.bo[buf].ft) then
