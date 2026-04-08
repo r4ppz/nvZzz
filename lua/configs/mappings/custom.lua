@@ -2,10 +2,6 @@ local map = vim.keymap.set
 
 --------------------------------------------------------
 -- Personal?!
-
--- My keybinds are not idiomatic. I prefer arrow keys
--- for my navigation and not hjkl cause I like it more :(
-
 --------------------------------------------------------
 
 map({ "n", "v" }, "<leader>ob", "<cmd>BufInfo<CR>", {
