@@ -10,14 +10,23 @@ function M.setup(capabilities)
   local lombok_jar = vim.fn.expand(mason .. "/share/jdtls/lombok.jar")
 
   -- Find the Equinox launcher once; abort early if not found
-  local launcher = vim.fn.glob(mason .. "/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar")
+  local launcher =
+    vim.fn.glob(mason .. "/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar")
   if launcher == "" then
     vim.notify("JDT LS launcher not found under Mason. Is jdtls installed?", vim.log.levels.ERROR)
   end
 
   vim.lsp.config("jdtls", {
     capabilities = capabilities,
-    root_markers = { "pom.xml", "build.gradle", "build.gradle.kts", "settings.gradle", "gradlew", "mvnw", ".git" },
+    root_markers = {
+      "pom.xml",
+      "build.gradle",
+      "build.gradle.kts",
+      "settings.gradle",
+      "gradlew",
+      "mvnw",
+      ".git",
+    },
 
     cmd = {
       "java",

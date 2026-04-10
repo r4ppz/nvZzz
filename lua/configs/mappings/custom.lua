@@ -30,8 +30,12 @@ map("v", "<M-d>", "<C-r>", { desc = "Redo (Visual)" })
 -- Scroll half page and center
 map("n", "<S-Up>", "<C-u>zz", { desc = "Scroll half a page up and center" })
 map("n", "<S-Down>", "<C-d>zz", { desc = "Scroll half a page down and center" })
-map("i", "<S-Up>", "<C-o><C-u><C-o>zz", { desc = "Scroll half a page up and center in insert mode" })
-map("i", "<S-Down>", "<C-o><C-d><C-o>zz", { desc = "Scroll half a page down and center in insert mode" })
+map("i", "<S-Up>", "<C-o><C-u><C-o>zz", {
+  desc = "Scroll half a page up and center in insert mode",
+})
+map("i", "<S-Down>", "<C-o><C-d><C-o>zz", {
+  desc = "Scroll half a page down and center in insert mode",
+})
 
 -- Ctrl+Left and Right (like VSCode)
 map({ "n", "v" }, "<C-Left>", "b", { desc = "Move to the beginning of the word" })

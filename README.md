@@ -51,6 +51,16 @@ rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 ```
 
+Current Neovim version (locked in for now)
+
+```bash
+❯ nvim -v
+
+NVIM v0.11.7
+Build type: RelWithDebInfo
+LuaJIT 2.1.1774896198
+```
+
 ## Plugins used:
 
 > it's a lot 😬 though I am still cleaning up and optimizing my workflow.

@@ -53,19 +53,31 @@ return {
   end,
 
   keys = {
-    { "<leader>ci", "<cmd>CopilotChatIdiomatic<cr>", mode = { "n", "v" }, desc = "Check if code is idiomatic" },
+    {
+      "<leader>ci",
+      "<cmd>CopilotChatIdiomatic<cr>",
+      mode = { "n", "v" },
+      desc = "Check if code is idiomatic",
+    },
     { "<leader>ce", "<cmd>CopilotChatExplain<cr>", mode = { "n", "v" }, desc = "Explain code" },
-    { "<leader>cs", "<cmd>CopilotChatSuggest<cr>", mode = { "n", "v" }, desc = "Suggest alternatives" },
-    { "<leader>cm", "<cmd>CopilotChatModels<cr>", mode = { "n", "v" }, desc = "View/select available models" },
+    {
+      "<leader>cs",
+      "<cmd>CopilotChatSuggest<cr>",
+      mode = { "n", "v" },
+      desc = "Suggest alternatives",
+    },
+    {
+      "<leader>cm",
+      "<cmd>CopilotChatModels<cr>",
+      mode = { "n", "v" },
+      desc = "View/select available models",
+    },
     {
       "<M-c>",
       function()
-        require("utils.window").close_other_panels_and_toggle(
-          function()
-            require("CopilotChat").toggle()
-          end,
-          "copilot-chat"
-        )
+        require("utils.window").close_other_panels_and_toggle(function()
+          require("CopilotChat").toggle()
+        end, "copilot-chat")
       end,
       mode = { "n", "v" },
       desc = "Toggle CopilotChat",
@@ -181,7 +193,10 @@ return {
 
         local prompts = require("configs.prompts")
 
-        chat.ask(prompts.prompts.BetterDocs.prompt .. "\n\n" .. hover_text, { clear_chat_on_new_prompt = true })
+        chat.ask(
+          prompts.prompts.BetterDocs.prompt .. "\n\n" .. hover_text,
+          { clear_chat_on_new_prompt = true }
+        )
       end,
       desc = "Explain hover with Copilot",
       mode = { "n", "v" },
