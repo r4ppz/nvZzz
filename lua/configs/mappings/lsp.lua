@@ -5,9 +5,9 @@ local map = vim.keymap.set
 --------------------------------------------------
 -- LSP related
 
-map("n", "<leader>Lr", "<cmd>LspRestart<cr>", { desc = "Restart LSP" })
-map("n", "<leader>Li", "<cmd>LspInfo<cr>", { desc = "LSP Info" })
-map("n", "<leader>Ls", "<cmd>LspStop<cr>", { desc = "LSP Stop" })
+map("n", "<leader>Lr", "<cmd>lsp restart<cr>", { desc = "Restart LSP" })
+map("n", "<leader>Li", "<cmd>checkhealth vim.lsp<cr>", { desc = "LSP Info" })
+map("n", "<leader>Ls", "<cmd>lsp stop<cr>", { desc = "LSP Stop" })
 
 map("n", "gR", "<cmd>Lspsaga finder ref+def+imp<CR>", {
   desc = "Find References (including def and imp)",

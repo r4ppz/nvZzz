@@ -1,6 +1,6 @@
 local win_util = require("utils.window")
 
-local exclude_filetypes = {
+local EXCLUDED_FILETYPES = {
   "NvimTree",
   "markdown",
   "gitcommit",
@@ -15,7 +15,7 @@ local exclude_filetypes = {
   "snacks_dashboard",
 }
 
-local function has_valid_source(buf)
+local function is_valid_source(buf)
   return pcall(vim.treesitter.get_parser, buf)
     or not vim.tbl_isempty(vim.lsp.get_clients({
       bufnr = buf,
@@ -23,19 +23,29 @@ local function has_valid_source(buf)
     }))
 end
 
+local function is_enable(buf, win)
+  if win_util.is_empty_scratch_buf(buf) then
+    if win and vim.api.nvim_win_is_valid(win) then
+      vim.wo[win].winbar = ""
+    end
+    return false
+  end
+
+  return not win_util.is_ft_excluded(buf, EXCLUDED_FILETYPES)
+    and win_util.is_buf_win_valid(buf, win)
+    and win_util.is_win_standard(win)
+    and is_valid_source(buf)
+end
+
 return {
   "Bekaboo/dropbar.nvim",
+  dev = false,
   event = "BufReadPost",
   opts = {
     bar = {
       truncate = false,
       padding = { left = 2, right = 5 },
-      enable = function(buf, win, _)
-        return not win_util.is_ft_excluded(buf, exclude_filetypes)
-          and win_util.is_buf_win_valid(buf, win)
-          and win_util.is_win_standard(win)
-          and has_valid_source(buf)
-      end,
+      enable = is_enable,
     },
     icons = {
       ui = {

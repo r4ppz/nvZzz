@@ -59,7 +59,7 @@ M.lsp = {
 }
 
 M.colorify = {
-  enabled = true,
+  enabled = false, -- 0.12 support this natively
   mode = "virtual",
   virt_text = "󱓻 ",
   highlight = { hex = true, lspvars = true },
