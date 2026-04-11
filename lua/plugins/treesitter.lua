@@ -50,6 +50,8 @@ return {
       "javascript",
       "typescript",
       "tsx",
+      "astro",
+      "svelte",
     }
 
     require("nvim-treesitter").install(languages)

@@ -76,18 +76,11 @@ return {
   end,
 
   keys = {
-    {
-      "<M-e>",
-      function()
-        require("utils.window").close_other_panels_and_toggle(function()
-          vim.cmd("NvimTreeToggle")
-        end, "NvimTree")
-      end,
-      desc = "Toggle NvimTree",
-    },
+    { "<M-e>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle NvimTree" },
     {
       "<leader>a",
       function()
+        require("utils.window").focus_main_window()
         require("utils.tree_chat").add_to_copilot()
       end,
       desc = "Add to CopilotChat",

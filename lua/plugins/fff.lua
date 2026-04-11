@@ -16,7 +16,7 @@ return {
       preview_size = 0.5,
       flex = {
         size = 130,
-        wrap = "top",
+        wrap = "bottom",
       },
       show_scrollbar = false,
       path_shorten_strategy = "middle_number",

@@ -171,6 +171,8 @@ Defined in [treesitter.lua](lua/plugins/treesitter.lua)
 - javascript
 - typescript
 - tsx
+- astro
+- svelte
 ```
 
 ## [LSP](https://microsoft.github.io/language-server-protocol/) Servers
@@ -189,6 +191,8 @@ Configured in [lsp.lua](lua/plugins/lsp.lua) and [servers/](lua/configs/servers/
 - eslint
 - cssmodules_ls
 - css_variables
+- astro
+- svelte
 - jdtls
 - docker_language_server
 - dockerls

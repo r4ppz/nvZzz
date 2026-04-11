@@ -143,6 +143,13 @@ function M.is_win_standard(win)
   return win_config.relative == "" and not win_config.external
 end
 
+--- Checks if a buffer is an empty scratch buffer (no name, no buftype).
+--- @param buf number: The buffer ID to check.
+--- @return boolean: `true` if the buffer is an empty scratch buffer.
+function M.is_empty_scratch_buf(buf)
+  return vim.api.nvim_buf_get_name(buf) == "" and vim.bo[buf].buftype == ""
+end
+
 --- Determines if a buffer's filetype matches any in the exclusion list.
 --- Splits the filetype by dots and checks each part against the list.
 --- @param buf number: The buffer ID to check.

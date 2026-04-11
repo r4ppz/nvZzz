@@ -16,6 +16,8 @@ M.server_list = {
   "cssmodules_ls",
   "css_variables",
   -- "emmet_ls",
+  "astro",
+  "svelte",
 
   -- BACKEND
   "jdtls",

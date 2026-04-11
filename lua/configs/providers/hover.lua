@@ -23,7 +23,7 @@ return {
       local client_lines = vim.lsp.util.convert_input_to_markdown_lines(response.result.contents)
 
       -- Apply filters for specific servers
-      local filtered_servers = { "jdtls", "cssls" }
+      local filtered_servers = { "jdtls", "cssls", "astro" }
       if client and vim.tbl_contains(filtered_servers, client.name) then
         client_lines = strip_links(client_lines)
         client_lines = decode_html_entities(client_lines)

@@ -4,7 +4,6 @@ return {
 
   dev = {
     path = "/home/r4ppz/Repositories/nvim-plug/",
-    patterns = {},
     fallback = false,
   },
 
