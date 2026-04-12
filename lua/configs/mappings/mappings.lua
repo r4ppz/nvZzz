@@ -1,6 +1,81 @@
--- I use arrow keys not hjkl cause I am a fucking weirdo
+-- I am a fucking weirdo
 
 require("configs.mappings.custom")
 require("configs.mappings.lsp")
 require("configs.mappings.plugins")
 require("configs.mappings.git")
+
+-- Concepts:
+-- C = Control key
+-- S = Shift key
+-- M = Alt key
+-- Leader = Space
+
+---------------------------------------------
+-- SUMMARY (not complete)
+-- MAJOR CHANGES:
+--
+-- (this is more consistent?!)
+-- p = paste only
+-- y = yank only
+-- d = delete only
+-- x = cut only
+--
+-- Arrow keys are the main navigation not hjkl
+-- hjkl                =  Left/Down/Up/Right
+-- Insert below/above  =  M-down/M-Up
+-- Hover               =  C-S-Up
+-- Peek Def            =  C-S-Down(n)
+-- Completion          =  C-S-Down(i)
+-- Switch buf          =  M-Left/M-Right
+-- Move buf            =  C-M-Left/C-M-Right
+-- Scroll half a page (C-d/C-u + zz(center))     =  S-Down/S-Up
+-- Scroll down one line (C-e/C-y)                =  C-Down/C-Up
+-- Move to current/next/previous word (b/e/W/B)  =  C-Right/C-Left, S-Left/S-Right
+-- Jump last and first char of the line(^/g_)    =  C-S-Left/C-S-Right
+--
+-- Jump last and first char of the line(^/g_)             =  !/@
+-- Jump to matching bracket/parenthesis(%)                =  ~
+-- Highlights the word without jumping(case-insensitive)  =  #
+-- Smart tab: N/n if search active, else switch Tabs      =  Tab/S-Tab
+--
+-- (its closer to my right)
+-- Mark          =  ;
+-- Jump to mark  =  '
+--
+-- Alt key is underated!
+-- M-f = File Picker (Snacks)
+-- M-g = Git Client (LazyGit)
+-- M-e = File manager (NvimTree)
+-- M-b = Task Manager (Btop)
+-- M-c = AI (CopilotChat)
+-- M-v = Vertical terminal
+-- M-s = Horizontal terminal
+-- M-w = Floating terminal
+-- M-a = Undo
+-- M-d = Redo
+--
+-- Nice to have:
+-- Copy all    = C-c
+-- Select all  = C-a
+-- Save+format = C-s
+-- Comment     = leader+/
+--
+-- LSP:
+-- Reference           =  gr
+-- Definition          =  gd
+-- Implementation      =  gi
+-- More lsp related    =  leader+l
+--
+-- alot more... (leader)
+--
+-- Disabled defaults:
+--  - Macros (skill issue)
+--  - Undo/Redo (u/C-r)
+--
+-- Vim motions, objects and other features are still working and heavily used (ciw, daw, yi(, ci{, etc.)
+-- I like the modal editing way but I try to make work for me.
+--
+-- I am using 60% QUERTY mechanical keyboard (and sometimes laptop).
+-- WM(Hyprland), GUI(Brave), TUI(Yazi), Tmux, Kitty
+-- So the design choices are tied to these reason.

@@ -27,7 +27,7 @@ _UI powered by [NvChad](https://nvchad.com/)_
 
 This repository is meant as a reference for me (for you too, to get inspiration maybe?) and to document my config.
 
-[Keybinds](lua/configs/mappings/) are heavily configured and personalized. Many arrow-keys, Alt keys, and non-defaults are used.
+[Keybinds](lua/configs/mappings/mappings.lua) are heavily configured and personalized.
 This is to maintain consistency and compatibility with my compositor/WM, shell, terminal emulator, tmux, TUI apps, etc.
 
 Tmux/Hyprland/Waybar config can be found in this repo: [Arch-dotfiles](https://github.com/r4ppz/Arch-dotfiles)
@@ -180,7 +180,7 @@ Defined in [treesitter.lua](lua/plugins/treesitter.lua)
 Language-aware backends that provide references, go-to-definition, diagnostics, autocomplete,
 and most of what makes the editor feel like an IDE.
 
-Configured in [lsp.lua](lua/plugins/lsp.lua) and [servers/](lua/configs/servers/).
+Configured in [lsp.lua](lua/plugins/lsp.lua) and [servers/](lua/configs/servers/servers.lua).
 
 ```
 - html

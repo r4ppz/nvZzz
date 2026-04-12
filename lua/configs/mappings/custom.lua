@@ -2,19 +2,6 @@ local map = vim.keymap.set
 
 --------------------------------------------------------
 -- Personal?!!
-
--- Major changes:
--- y = yank only
--- d = delete only
--- x = cut only
--- C-a = undo
--- C-d = redo
--- M-down = insert below
--- M-up = insert above
--- Tab/S-Tab: N/n if search active, else switch tabs
---
--- No macros (its annoying)
--- alot...
 --------------------------------------------------------
 
 map("n", "<C-A-Up>", ":m .-2<CR>==<C-l>", { desc = "Move line up" })
@@ -89,6 +76,8 @@ map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 -- Jump last and first char of the line
 map({ "n", "v" }, "!", "^", { desc = "Jump to first non-blank character of the line" })
 map({ "n", "v" }, "@", "g_", { desc = "Jump to last non-blank character of line" })
+map({ "n", "v" }, "<C-S-Left>", "^", { desc = "Jump to first non-blank character of the line" })
+map({ "n", "v" }, "<C-S-Right>", "g_", { desc = "Jump to last non-blank character of line" })
 
 -- Others
 map({ "n", "v" }, "<leader>ob", "<cmd>BufInfo<CR>", { desc = "Get BufInfo" })

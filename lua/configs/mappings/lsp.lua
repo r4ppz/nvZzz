@@ -44,7 +44,7 @@ map("n", "gd", function()
   Snacks.picker.lsp_definitions()
 end, { desc = "Goto [d]efinition (Snacks)" })
 
-map("n", "gI", function()
+map("n", "gi", function()
   Snacks.picker.lsp_implementations()
 end, { desc = "Goto [I]mplementation (Snacks)" })
 
