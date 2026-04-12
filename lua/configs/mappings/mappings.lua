@@ -1,6 +1,94 @@
--- I use arrow keys not hjkl cause I am a fucking weirdo
+-- I am a fucking weirdo
 
 require("configs.mappings.custom")
 require("configs.mappings.lsp")
 require("configs.mappings.plugins")
 require("configs.mappings.git")
+
+-- Concepts:
+-- C = Control
+-- S = Shift
+-- M = Alt
+-- Leader = Space
+--
+-- e.g.
+-- C-S-Up = Ctrl+Shift+UpArrowKey
+--
+-- Modes:
+-- n = normal
+-- v = visual
+-- i = insert
+
+---------------------------------------------
+-- SUMMARY (not complete)
+-- MAJOR CHANGES:
+--
+-- p = Paste only
+-- y = Yank only
+-- d = Delete only
+-- x = Cut only
+--
+-- c, s, d, p = no yanking
+--
+-- Arrow keys are the primary navigation, not hjkl.
+-- hjkl                 = Left/Down/Up/Right
+-- Insert below/above   = M-Down / M-Up
+-- Hover                = C-S-Up
+-- Peek Definition      = C-S-Down (n)
+-- Completion           = C-S-Down (i)
+-- Switch buffer        = M-Left / M-Right
+-- Move buffer          = C-M-Left / C-M-Right
+-- Scroll half-page     = S-Down / S-Up        = (C-d/C-u + zz)
+-- Scroll one line      = C-Down / C-Up        = (C-e/C-y)
+-- Word navigation      = C-Right / C-Left     = (b/e)
+-- WORD navigation      = S-Left / S-Right     = (W/B)
+-- Jump to line ends    = C-S-Left / C-S-Right = (^/g_)
+--
+-- Jump to line ends    = ! / @   =  (^/g_)
+-- Match bracket        = ~       =  (%)
+-- Highlight (no jump)  = #         (Case-insensitive, works on n, v)
+-- Smart Tab            = Tab/S-Tab (N/n if search is active, else switch tabs)
+--
+-- Mark                 = ;
+-- Jump to mark         = '
+--
+-- Alt is underrated:
+-- M-f = File Picker (Snacks/fff)
+-- M-g = Git Client (LazyGit)
+-- M-e = File Manager (NvimTree)
+-- M-b = Task Manager (Btop)
+-- M-c = AI (CopilotChat)
+-- M-v = Vertical Terminal
+-- M-s = Horizontal Terminal
+-- M-w = Floating Terminal
+-- M-a = Undo
+-- M-d = Redo
+--
+-- Nice to have:
+-- Copy all        = C-c
+-- Select all      = C-a
+-- Save + Format   = C-s
+-- Comment         = leader + /
+--
+-- LSP:
+-- Reference       = gr
+-- Definition      = gd
+-- Implementation  = gi
+-- more lsp stuff  = leader + l
+--
+-- ...and many more (leader)
+--
+-- Disabled Defaults:
+-- - Macros (Skill issue)
+-- - Undo/Redo (u / C-r)
+--
+-- Standard Vim motions and text objects still works fine and heavily used (ciw, daw, yi(, ci{, etc.).
+--
+-- I use a 60% QWERTY mechanical keyboard (and sometimes a laptop).
+-- Environment: Hyprland (WM), Brave (GUI), Yazi (TUI), Tmux, and Kitty.
+-- These design choices are shaped by my hardware and software stack
+-- to maintain consistency throughout my workflow.
+--
+-- System-wide rebinds (via keyd):
+-- Esc      = Grave (`)
+-- CapsLock = Esc

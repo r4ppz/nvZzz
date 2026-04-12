@@ -2,32 +2,80 @@
 
 _UI powered by [NvChad](https://nvchad.com/)_
 
-<img src="img/startup.png" >
+![Neovim Startup](img/startup.png)
 
-<img src="img/highlight1.png" >
+![Neovim Highlight](img/highlight1.png)
 
-<img src="img/highlight2.png" >
+![Neovim Highlight](img/highlight2.png)
+
+---
 
 <details>
-<summary>Some of the features I liked</summary>
+<summary>Features</summary>
 
-|                                                                         |                                                                             |
-| ----------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| <img src="img/ai.png" /><br><sub>Copilot AI</sub>                       | <img src="img/prompts.png" /><br><sub>AI Prompts</sub>                      |
-| <img src="img/git-client.png" /><br><sub>LazyGit</sub>                  | <img src="img/docker.png" /><br><sub>LazyDocker</sub>                       |
-| <img src="img/peek-definition.png" /><br><sub>Peek Definition</sub>     | <img src="img/hover.png" /><br><sub>Hover</sub>                             |
-| <img src="img/references.png" /><br><sub>References</sub>               | <img src="img/cmp.png" /><br><sub>Completion Menu</sub>                     |
-| <img src="img/picker.png" /><br><sub>Picker</sub>                       | <img src="img/horizontal-terminal.png" /><br><sub>Horizontal Terminal</sub> |
-| <img src="img/floating-terminal.png" /><br><sub>Floating Terminal</sub> | <img src="img/vertical-terminal.png" /><br><sub>Vertical Terminal</sub>     |
-| <img src="img/diff.png" /><br><sub>DiffView</sub>                       | <img src="img/inline-diff.png" /><br><sub>Inline Diff</sub>                 |
-| <img src="img/outline.png" /><br><sub>Symbols Outline</sub>             | <img src="img/file-manager.png" /><br><sub>File Manager</sub>               |
-| <img src="img/error.png" /><br><sub>Error Display</sub>                 | <img src="img/yazi.png" /><br><sub>Yazi</sub>                               |
+> This is just some of the many features
+
+AI Integration (Copilot)
+![AI Integration (Copilot)](img/ai.png)
+
+AI Predefined [Prompts](lua/configs/prompts.lua)
+![AI Prompts](img/prompts.png)
+
+Git Client (LazyGit)
+![Git Client](img/git-client.png)
+
+Git DiffView
+![Git DiffView](img/diff.png)
+
+Git Inline Diff
+![Git Inline Diff](img/inline-diff.png)
+
+Docker Integration (LazyDocker)
+![Docker Integration](img/docker.png)
+
+LSP References
+![LSP References](img/references.png)
+
+LSP Peek Definition
+![LSP Peek Definition](img/peek-definition.png)
+
+File Picker (Snacks)
+![File Picker](img/picker.png)
+
+Symbols Outline
+![Symbols Outline](img/outline.png)
+
+Error Display
+![Error Display](img/error.png)
+
+Docs Hover
+![Docs Hover](img/hover.png)
+
+Completion Menu
+![Completion Menu](img/cmp.png)
+
+File Manager (NvimTree)
+![File Manager](img/file-manager.png)
+
+File Manager 2 (Yazi)
+![Yazi File Manager](img/yazi.png)
+
+Floating Terminal
+![Floating Terminal](img/floating-terminal.png)
+
+Horizontal Terminal
+![Horizontal Terminal](img/horizontal-terminal.png)
+
+Vertical Terminal
+![Vertical Terminal](img/vertical-terminal.png)
 
 </details>
 
+---
+
 This repository is meant as a reference for me (for you too, to get inspiration maybe?) and to document my config.
 
-[Keybinds](lua/configs/mappings/) are heavily configured and personalized. Many arrow-keys, Alt keys, and non-defaults are used.
+[Keybinds](lua/configs/mappings/mappings.lua) are heavily configured and personalized.
 This is to maintain consistency and compatibility with my compositor/WM, shell, terminal emulator, tmux, TUI apps, etc.
 
 Tmux/Hyprland/Waybar config can be found in this repo: [Arch-dotfiles](https://github.com/r4ppz/Arch-dotfiles)
@@ -122,7 +170,9 @@ So having many plugins is not really that big of a deal.
 - nvim-lua/plenary.nvim
 ```
 
-## Tree-sitter Parsers
+## Languages supported/configured
+
+#### Tree-sitter Parsers
 
 Parsers that understand code structure, mainly used for syntax highlighting, text objects, folding, and other syntax-aware features.
 
@@ -175,12 +225,12 @@ Defined in [treesitter.lua](lua/plugins/treesitter.lua)
 - svelte
 ```
 
-## [LSP](https://microsoft.github.io/language-server-protocol/) Servers
+#### [LSP](https://microsoft.github.io/language-server-protocol/) Servers
 
 Language-aware backends that provide references, go-to-definition, diagnostics, autocomplete,
 and most of what makes the editor feel like an IDE.
 
-Configured in [lsp.lua](lua/plugins/lsp.lua) and [servers/](lua/configs/servers/).
+Configured in [lsp.lua](lua/plugins/lsp.lua) and [servers/](lua/configs/servers/servers.lua).
 
 ```
 - html

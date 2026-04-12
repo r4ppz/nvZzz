@@ -20,11 +20,11 @@ return {
       require("marks").next()
     end, { desc = "Cycle next mark" })
 
-    map("n", ";X", function()
+    map("n", ";D", function()
       require("marks").delete_buf()
     end, { desc = "Delete all marks in buffer" })
 
-    map("n", ";D", function()
+    map("n", ";X", function()
       require("marks").delete_line()
     end, { desc = "Delete all marks on line" })
 
@@ -37,7 +37,7 @@ return {
 
     -- Five globals (A–E)
     -- Limit to 5 cause my brain cant handle that many anyway.
-    -- It kinda like global bookmark or something like that.
+    -- It kinda like global bookmark.
     local marks = { "A", "B", "C", "D", "E" }
     for i, mark in ipairs(marks) do
       map("n", ";" .. i, "m" .. mark, { desc = "which_key_ignore" })
