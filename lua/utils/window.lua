@@ -28,6 +28,7 @@ local side_panel_fts = {
   "NvTerm_vsp",
   "NvTerm_float",
   "help",
+  "spectre_panel",
 }
 
 --- Closes all side panel windows in the current tabpage.

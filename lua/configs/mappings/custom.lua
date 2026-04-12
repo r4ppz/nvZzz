@@ -93,6 +93,7 @@ map({ "n", "v" }, "@", "g_", { desc = "Jump to last non-blank character of line"
 -- Others
 map({ "n", "v" }, "<leader>ob", "<cmd>BufInfo<CR>", { desc = "Get BufInfo" })
 map({ "n", "v" }, "<leader>oc", "<CMD>OpenConfig<CR>", { desc = "Open Neovim Config" })
+map({ "n", "v" }, "<leader>oh", "<cmd>checkhealth<cr>", { desc = "Check Health" })
 
 map("n", "<leader>ow", function()
   vim.wo.wrap = not vim.wo.wrap

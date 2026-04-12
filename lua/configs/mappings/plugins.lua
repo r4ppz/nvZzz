@@ -103,7 +103,6 @@ end, {})
 map("n", "<leader>um", "<cmd>Mason<CR>", { desc = "Mason UI" })
 map("n", "<leader>ul", "<cmd>Lazy<CR>", { desc = "Lazy UI" })
 map("n", "<leader>ui", "<cmd>MasonInstallAll<cr>", { desc = "Mason Install ALl" })
-map("n", "<leader>uh", "<cmd>checkhealth<cr>", { desc = "Check Health" })
 
 ---------------------------------------------------------------------
 -- TERMINAL MANAGEMENT

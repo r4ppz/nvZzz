@@ -1,5 +1,3 @@
----@diagnostic disable: undefined-global
-
 local map = vim.keymap.set
 
 --------------------------------------------------
