@@ -151,7 +151,6 @@ So having many plugins is not really that big of a deal.
 - nvim-tree/nvim-tree.lua
 - mikavilpas/yazi.nvim
 - folke/snacks.nvim
-- dmtrKovalenko/fff.nvim
 - lewis6991/gitsigns.nvim
 - sindrets/diffview.nvim
 - zbirenbaum/copilot.lua

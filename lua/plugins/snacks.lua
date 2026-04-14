@@ -30,30 +30,29 @@ return {
     },
   },
   keys = {
-    -- Trying out fff.nvim
-    -- {
-    --   "<M-f>",
-    --   function()
-    --     Snacks.picker.files()
-    --   end,
-    --   desc = "Find Files (Snacks)",
-    -- },
+    {
+      "<M-f>",
+      function()
+        Snacks.picker.files()
+      end,
+      desc = "Find Files (Snacks)",
+    },
 
-    -- {
-    --   "<leader>ff",
-    --   function()
-    --     Snacks.picker.smart()
-    --   end,
-    --   desc = "Smart Find Files (Snacks)",
-    -- },
+    {
+      "<leader>ff",
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = "Smart Find Files (Snacks)",
+    },
 
-    -- {
-    --   "<leader>fg",
-    --   function()
-    --     Snacks.picker.grep()
-    --   end,
-    --   desc = "Grep (Snacks)",
-    -- },
+    {
+      "<leader>fg",
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = "Grep (Snacks)",
+    },
 
     {
       "<leader>fc",

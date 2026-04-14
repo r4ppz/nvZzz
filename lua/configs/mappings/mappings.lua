@@ -18,6 +18,7 @@ require("configs.mappings.git")
 -- n = normal
 -- v = visual
 -- i = insert
+-- t = terminal
 
 ---------------------------------------------
 -- SUMMARY (not complete)
@@ -84,10 +85,8 @@ require("configs.mappings.git")
 --
 -- Standard Vim motions and text objects still works fine and heavily used (ciw, daw, yi(, ci{, etc.).
 --
--- I use a 60% QWERTY mechanical keyboard (and sometimes a laptop).
--- Environment: Hyprland (WM), Brave (GUI), Yazi (TUI), Tmux, and Kitty.
--- These design choices are shaped by my hardware and software stack
--- to maintain consistency throughout my workflow.
+-- Btw I use a 60% QWERTY mechanical keyboard (and sometimes a laptop).
+-- Imo this mapping is more comfy then the defaults.
 --
 -- System-wide rebinds (via keyd):
 -- Esc      = Grave (`)

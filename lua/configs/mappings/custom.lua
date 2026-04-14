@@ -38,6 +38,10 @@ map("i", "<S-Down>", "<C-o><C-d><C-o>zz", {
   desc = "Scroll half a page down and center in insert mode",
 })
 
+-- Jump by paragraph
+map("v", "<S-Up>", "{", { desc = "Jump to previous paragraph" })
+map("v", "<S-Down>", "}", { desc = "Jump to next paragraph" })
+
 -- Ctrl+Left and Right (like VSCode)
 map({ "n", "v" }, "<C-Left>", "b", { desc = "Move to the beginning of the word" })
 map({ "n", "v" }, "<C-Right>", "e", { desc = "Move to the end of the word" })
@@ -47,9 +51,6 @@ map("i", "<C-Right>", "<C-o>e", { desc = "Move to the end of the word in insert 
 -- Same but with Shift
 map({ "n", "v" }, "<S-Right>", "W", { desc = "Move Right like E" })
 map({ "n", "v" }, "<S-Left>", "B", { desc = "Move Left like B" })
-
-map("v", "<S-Up>", "{", { desc = "Jump to previous paragraph" })
-map("v", "<S-Down>", "}", { desc = "Jump to next paragraph" })
 
 -- Ctrl+Up and Down like (like VSCode)
 map({ "n", "v" }, "<C-Down>", "<C-e>", { desc = "Scroll window down one line" })
