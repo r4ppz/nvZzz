@@ -20,7 +20,7 @@ function M.map_close_terminal(config, extra_key)
 end
 
 -- Filetypes that should not be open at the same time
-local side_panel_fts = {
+local SIDE_PANEL_FTS = {
   "copilot-chat",
   "Outline",
   "terminal",
@@ -42,7 +42,7 @@ function M.close_existing_side_panels_first()
     local ft = vim.bo[buf].filetype
 
     -- Check if the window's filetype is in our restricted list
-    for _, panel_ft in ipairs(side_panel_fts) do
+    for _, panel_ft in ipairs(SIDE_PANEL_FTS) do
       if ft == panel_ft then
         vim.api.nvim_win_close(win, true)
         break
@@ -51,7 +51,7 @@ function M.close_existing_side_panels_first()
   end
 end
 
-local excluded_filetypes = {
+local EXCLUDED_FILETYPES = {
   "copilot-chat",
   "NvimTree",
   "neo-tree",
@@ -68,7 +68,7 @@ function M.safe_buf_action(action)
       return
     end
 
-    if M.is_ft_excluded(0, excluded_filetypes) then
+    if M.is_ft_excluded(0, EXCLUDED_FILETYPES) then
       return
     end
 
@@ -81,7 +81,7 @@ end
 --- switches to the first standard window.
 function M.focus_main_window()
   local current_buf = vim.api.nvim_get_current_buf()
-  local is_sidebar = vim.tbl_contains(excluded_filetypes, vim.bo[current_buf].filetype)
+  local is_sidebar = vim.tbl_contains(EXCLUDED_FILETYPES, vim.bo[current_buf].filetype)
   local is_term = vim.bo[current_buf].buftype == "terminal"
 
   if is_sidebar or is_term then
@@ -91,7 +91,7 @@ function M.focus_main_window()
       local ft = vim.bo[b].filetype
       local bt = vim.bo[b].buftype
 
-      if not vim.tbl_contains(excluded_filetypes, ft) and bt ~= "terminal" and bt ~= "nofile" then
+      if not vim.tbl_contains(EXCLUDED_FILETYPES, ft) and bt ~= "terminal" and bt ~= "nofile" then
         vim.api.nvim_set_current_win(w)
         return
       end

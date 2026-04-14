@@ -24,6 +24,8 @@ return {
             ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<C-Up>"] = { "preview_scroll_up", mode = { "i", "n" } },
             ["<C-Down>"] = { "preview_scroll_down", mode = { "i", "n" } },
+            ["<S-UP>"] = { "list_scroll_up", mode = { "i", "n" } },
+            ["<S-Down>"] = { "list_scroll_down", mode = { "i", "n" } },
           },
         },
       },

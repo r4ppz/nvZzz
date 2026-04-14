@@ -112,17 +112,17 @@ LuaJIT 2.1.1774896198
 ## Languages & File Types Supported/Configured
 
 > See [treesitter.lua](lua/plugins/treesitter.lua), [lsp.lua](lua/plugins/lsp.lua)
-> and [servers/](lua/configs/servers/) for more info
+> and [servers/](lua/configs/servers/) for more info.
 
-```bash
+```
 # Programming Languages (LSP + Treesitter + Formatter)
-- Lua
 - C
-- C++
-- Java
-- Python
 - Go
+- C++
+- Lua
+- Java
 - Rust
+- Python
 - Assembly
 - TypeScript
 - JavaScript
@@ -134,8 +134,8 @@ LuaJIT 2.1.1774896198
 - HTML
 - Astro
 - Svelte
-- CSS / SCSS / Less
-- TSX / JSX
+- CSS/SCSS/Less
+- React (JSX/TSX)
 
 # Config & Data Formats
 - YAML
@@ -143,8 +143,8 @@ LuaJIT 2.1.1774896198
 - TOML
 - XML
 - Markdown
-- Docker / Docker Compose
 - Hyprland
+- Docker/Docker Compose
 
 # Editor & System (Treesitter only)
 - Vim script, Vimdoc, Luadoc, printf, query
@@ -165,7 +165,7 @@ Startup time is still under 1 second (`~23 milliseconds`), so it's super duper f
 Almost all plugins are lazy loaded, meaning they load only when used, not on startup.
 So having many plugins is not really that big of a deal.
 
-```txt
+```
 - folke/lazy.nvim
 - nvchad/base46
 - nvchad/ui
