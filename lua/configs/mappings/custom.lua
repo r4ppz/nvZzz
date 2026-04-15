@@ -107,6 +107,7 @@ map({ "n", "v" }, "Q", "<Nop>", { desc = "Disable Ex mode (Q)" })
 
 map("v", "p", '"_dP', { desc = "Paste without yanking replaced text" })
 map({ "n", "v" }, "c", '"_c', { desc = "Change text without yanking" })
+map({ "n", "v" }, "C", '"_C', { desc = "Change to end of line without yanking" })
 
 map({ "n", "v" }, "d", '"_d', { desc = "Delete without yanking" })
 map({ "n", "v" }, "D", '"_D', { desc = "Delete to end of line without yanking" })

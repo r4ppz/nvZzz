@@ -42,6 +42,12 @@ return {
   dev = false,
   event = "BufReadPost",
   opts = {
+    menu = {
+      win_configs = {
+        border = "single",
+      },
+    },
+
     bar = {
       truncate = false,
       padding = { left = 2, right = 5 },
