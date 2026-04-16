@@ -6,7 +6,7 @@ return {
   cmd = "Spectre",
   keys = {
     {
-      "<leader>S",
+      "<leader>/",
       function()
         require("utils.window").toggle_panel(function()
           require("spectre").toggle()
@@ -15,7 +15,7 @@ return {
       desc = "Toggle Spectre",
     },
     {
-      "<leader>Sw",
+      "<leader>/w",
       function()
         require("utils.window").toggle_panel(function()
           require("spectre").open_visual({ select_word = true })
@@ -24,7 +24,7 @@ return {
       desc = "Search current word",
     },
     {
-      "<leader>Sw",
+      "<leader>/w",
       function()
         require("utils.window").toggle_panel(function()
           require("spectre").open_visual()
@@ -34,7 +34,7 @@ return {
       desc = "Search current word",
     },
     {
-      "<leader>Sp",
+      "<leader>/p",
       function()
         require("utils.window").toggle_panel(function()
           require("spectre").open_file_search({ select_word = true })

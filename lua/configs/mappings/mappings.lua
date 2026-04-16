@@ -70,7 +70,7 @@ require("configs.mappings.git")
 -- Copy all        = C-c
 -- Select all      = C-a
 -- Save + Format   = C-s
--- Comment         = leader + /
+-- Comment         = C-/
 --
 -- LSP:
 -- Reference       = gr

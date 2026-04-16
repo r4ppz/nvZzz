@@ -71,8 +71,8 @@ map("n", "<M-Esc>", "<cmd>noh<CR>", { desc = "Clear highlights" })
 map("t", "<C-q>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
 
 -- Comment
-map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
-map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
+map("n", "<C-_>", "gcc", { desc = "toggle comment", remap = true })
+map("v", "<C-_>", "gc", { desc = "toggle comment", remap = true })
 
 -- Jump last and first char of the line
 map({ "n", "v" }, "!", "^", { desc = "Jump to first non-blank character of the line" })
