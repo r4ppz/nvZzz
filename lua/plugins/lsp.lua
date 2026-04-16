@@ -86,7 +86,11 @@ return {
       })
 
     -- This tells the lsp that nvim can handle file renaming/moving
-    capabilities = require("lsp-file-operations").default_capabilities(capabilities)
+    capabilities = vim.tbl_deep_extend(
+      "force",
+      capabilities,
+      require("lsp-file-operations").default_capabilities()
+    )
 
     -- colorify replacement
     vim.lsp.document_color.enable(true, nil, { style = "virtual" })

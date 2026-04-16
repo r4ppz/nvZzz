@@ -65,7 +65,7 @@ return {
         local map = vim.keymap.set
         local api = require("nvim-tree.api")
 
-        require("nvim-tree.api").config.mappings.default_on_attach(bufnr)
+        api.map.on_attach.default(bufnr)
 
         map("n", "<ESC>", "<nop>", { buffer = bufnr, desc = "fucking nothing" })
         map("n", "<C-S-Up>", api.node.show_info_popup, { buffer = bufnr, desc = "Info" })
