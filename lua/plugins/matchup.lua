@@ -34,6 +34,6 @@ return {
       bg = "#444444",
     })
 
-    vim.keymap.set({ "n", "v" }, "~", "<Plug>(matchup-%)", { desc = "Jump to matching pair" })
+    vim.keymap.set({ "n", "x", "o" }, "~", "<Plug>(matchup-%)", { desc = "Jump to matching pair" })
   end,
 }
