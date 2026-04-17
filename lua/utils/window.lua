@@ -17,6 +17,7 @@ local EXCLUDED_FILETYPES = {
   "NvimTree",
   "neo-tree",
   "Outline",
+  "spectre_panel",
 }
 
 local EXCLUDED_BUFTYPES = {

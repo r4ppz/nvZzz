@@ -1,5 +1,4 @@
 return {
-
   "nvim-pack/nvim-spectre",
   dependencies = { "nvim-lua/plenary.nvim" },
   event = "VeryLazy",
@@ -12,34 +11,17 @@ return {
           require("spectre").toggle()
         end, "spectre_panel")
       end,
+      mode = { "v", "n" },
       desc = "Toggle Spectre",
     },
     {
-      "<leader>/w",
+      "<leader>?",
       function()
         require("utils.window").toggle_panel(function()
-          require("spectre").open_visual({ select_word = true })
+          require("spectre").open_file_search()
         end, "spectre_panel")
       end,
-      desc = "Search current word",
-    },
-    {
-      "<leader>/w",
-      function()
-        require("utils.window").toggle_panel(function()
-          require("spectre").open_visual()
-        end, "spectre_panel")
-      end,
-      mode = "v",
-      desc = "Search current word",
-    },
-    {
-      "<leader>/p",
-      function()
-        require("utils.window").toggle_panel(function()
-          require("spectre").open_file_search({ select_word = true })
-        end, "spectre_panel")
-      end,
+      mode = { "n", "v" },
       desc = "Search on current file",
     },
   },

@@ -217,34 +217,41 @@ local prompts = {
 
   Commit = {
     prompt = string.dedent([[
+      #selection
       #gitdiff:staged
-      Task: Generate a deterministic commit message based on the provided diff.
-      Convention: Conventional Commits (Project Agnostic).
+      Generate a deterministic Conventional Commit message from the staged diff only.
+
+      Rules:
+      - Same diff = same message.
+      - Use only visible changes. Do not guess intent.
+      - Ignore unstaged/untracked files.
 
       Format:
       <type>(<scope>): <summary>
-      <BLANK LINE>
-      <body>
-      <BLANK LINE>
-      <footer>
 
-      Constraints:
-      1. Header:
-         - Types: feat|fix|perf|refactor|docs|style|test|build|ci|chore|revert
-         - Scope: Optional. Use the specific module/package/filename name affected.
-         - Summary: Mandatory. Use imperative, present tense. Lowercase. No trailing period. Must be below 70 characters.
-      2. Body:
-         - Mandatory unless type is "docs". Must be > 20 characters.
-         - Content: Focus on the "why" of the change. Compare previous vs. new behavior.
-         - Style: Imperative, present tense.
-      3. Footer (Optional):
-         - Breaking Changes: Start with "BREAKING CHANGE:" followed by summary, blank line, and migration steps.
-         - Issues: Use "Fixes #<id>" or "Closes #<id>".
-      4. Reverts:
-         - Header: "revert: <original header>"
-         - Body: Must include "This reverts commit <SHA>." and the specific reason for revert.
+      Types:
+      feat, fix, perf, refactor, docs, style, test, build, ci, chore, revert
 
-      Requirement: Output ONLY the commit message. No preamble, no post-explanation, and no markdown code blocks unless the diff dictates it.
+      Priority:
+      revert > feat > fix > perf > refactor > docs > test > build > ci > style > chore
+
+      Scope:
+      - Use one clear target from package, folder, or filename.
+      - Lowercase kebab-case.
+      - Omit if unclear.
+
+      Summary:
+      - Imperative, present tense.
+      - Lowercase.
+      - No period.
+      - Max 70 chars.
+      - Describe primary change only.
+
+      Body:
+      - Add only if needed.
+      - Use bullet lines: - change
+
+      Output only the commit message.
     ]]),
     description = "Generate conventional commits",
     system_prompt = system_prompt,

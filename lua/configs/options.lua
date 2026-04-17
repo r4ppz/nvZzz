@@ -2,9 +2,6 @@ local opt = vim.opt
 local o = vim.o
 local g = vim.g
 
-o.winborder = "single"
-opt.pumheight = 15
-
 -- Session
 opt.shada = ""
 
@@ -19,20 +16,22 @@ o.numberwidth = 2
 o.ruler = false
 o.laststatus = 3
 o.showmode = false
-o.splitkeep = "screen"
 o.equalalways = true
-o.clipboard = "unnamedplus"
 o.cursorline = true
-o.cursorlineopt = "number"
-o.signcolumn = "yes"
 o.splitbelow = true
 o.splitright = true
 o.cmdheight = 1
 o.termguicolors = true
-o.inccommand = "nosplit"
 o.hidden = true
+o.signcolumn = "yes"
 o.belloff = "all"
+o.splitkeep = "screen"
+o.winborder = "single"
+o.clipboard = "unnamedplus"
+o.cursorlineopt = "number"
+o.inccommand = "nosplit"
 opt.fillchars = { eob = " " }
+opt.pumheight = 15
 
 -- Scrolling
 o.scrolloff = 5

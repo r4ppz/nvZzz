@@ -1,6 +1,15 @@
 local mygroup = vim.api.nvim_create_augroup("MyPersonalConfig", { clear = true })
 local autocmd = vim.api.nvim_create_autocmd
 
+autocmd("FileType", {
+  pattern = "spectre_panel",
+  group = mygroup,
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+  end,
+})
+
 autocmd("BufReadPost", {
   group = mygroup,
   pattern = { "*.png", "*.jpg", "*.jpeg", "*.webp", "*.gif", "*.bmp", "*.svg" },

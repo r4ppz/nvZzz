@@ -114,12 +114,12 @@ LuaJIT 2.1.1774896198
 I mostly work on config files and scripting (`Lua`/`sh`), as well as frontend and backend development
 (`React`, `CSS`, `TS`, `Java`) for schoolwork and learning purposes.
 
-My setup is great for fullstack development (I think).
+My setup is great for fullstack development.
 
 > See [treesitter.lua](lua/plugins/treesitter.lua), [lsp.lua](lua/plugins/lsp.lua)
 > and [servers/](lua/configs/servers/) for more info.
 
-```
+```ini
 # Programming Languages (LSP + Treesitter + Formatter)
 - C
 - Go

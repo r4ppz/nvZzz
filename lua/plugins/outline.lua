@@ -9,6 +9,12 @@ return {
         auto_jump = true,
         jump_highlight_duration = 500,
       },
+
+      keymaps = {
+        fold = "<Left>",
+        unfold = "<Right>",
+        hover_symbol = "<C-S-Up>",
+      },
     })
   end,
 }
