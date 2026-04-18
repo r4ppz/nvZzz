@@ -78,16 +78,19 @@ require("configs.mappings.git")
 -- Implementation  = gi
 -- more lsp stuff  = leader + l
 --
--- ...and many more (leader)
+-- ...and many more (leader, see plugins/)
 --
--- Disabled Defaults:
+-- Disabled feature:
 -- - Macros (Skill issue)
--- - Undo/Redo (u / C-r)
+-- - Shada (clean)
 --
--- Standard Vim motions and text objects still works fine and heavily used (ciw, daw, yi(, ci{, etc.).
+-- Standard Vim motions/text objects still works fine (ciw, daw, yi(, ci{, etc.).
+-- I try to not remove the default mappings as much as possible for compatibility.
 --
--- Btw I use a 60% QWERTY mechanical keyboard (and sometimes a laptop).
--- Imo this mapping is more comfy then the defaults.
+-- The way I edit is this: selecting first(v) then do something to it, kinda like helix.
+-- My setup is basically vim+helix+vscode inspired + personal preference.
+--
+-- Btw I use a 60% QWERTY mechanical keyboard (and sometimes a laptop). So the arrow keys are not that inefficient (or is it?).
 --
 -- System-wide rebinds (via keyd):
 -- Esc      = Grave (`)

@@ -20,7 +20,7 @@ map("n", "gr", function()
         box = "vertical",
         row = -1,
         width = 0,
-        height = 0.4,
+        height = 0.5,
         border = "top",
         {
           box = "horizontal",
