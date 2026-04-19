@@ -84,7 +84,7 @@ Tmux/Hyprland/Waybar config can be found in this repo: [Arch-dotfiles](https://g
 
 ## Install & Use:
 
-> Only works on Linux (I think)
+> Only works on Linux
 
 ```bash
 # Install & run
@@ -111,10 +111,10 @@ LuaJIT 2.1.1774896198
 
 ## Languages & File Types Supported/Configured
 
-I mostly work on config files and scripting (`Lua`/`sh`), as well as frontend and backend development
+I mostly work on scripts and configs (`Lua`/`sh`), as well as frontend and backend development
 (`React`, `CSS`, `TS`, `Java`) for schoolwork and learning purposes.
 
-My setup is great for fullstack development.
+My setup is great for fullstack development (I think).
 
 > See [treesitter.lua](lua/plugins/treesitter.lua), [lsp.lua](lua/plugins/lsp.lua)
 > and [servers/](lua/configs/servers/) for more info.

@@ -74,6 +74,7 @@ map("t", "<C-q>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
 -- Comment
 map("n", "<C-_>", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<C-_>", "gc", { desc = "toggle comment", remap = true })
+map("i", "<C-_>", "<Esc>gccA", { desc = "toggle comment", remap = true })
 
 -- Jump last and first char of the line
 map({ "n", "v" }, "!", "0", { desc = "Jump to first non-blank character of the line" })
