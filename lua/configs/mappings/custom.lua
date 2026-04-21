@@ -49,7 +49,7 @@ map({ "n", "v" }, "<C-Left>", "b", { desc = "Move to the beginning of the word" 
 map({ "n", "v" }, "<C-Right>", "e", { desc = "Move to the end of the word" })
 map("i", "<C-Left>", "<C-o>b", { desc = "Move to the beginning of the word in insert mode" })
 map("i", "<C-Right>", "<C-o>e", { desc = "Move to the end of the word in insert mode" })
-map({ "n", "v" }, "<S-Right>", "W", { desc = "Move Right like E" })
+map({ "n", "v" }, "<S-Right>", "E", { desc = "Move Right like E" })
 map({ "n", "v" }, "<S-Left>", "B", { desc = "Move Left like B" })
 
 -- Ctrl+Up/Down scroll one line
@@ -87,7 +87,7 @@ map({ "n", "v" }, "<leader>ob", "<cmd>BufInfo<CR>", { desc = "Get BufInfo" })
 map({ "n", "v" }, "<leader>oc", "<CMD>OpenConfig<CR>", { desc = "Open Neovim Config" })
 map({ "n", "v" }, "<leader>oh", "<cmd>checkhealth<cr>", { desc = "Check Health" })
 
-map("n", "<leader>ow", function()
+map("n", "<leader>tw", function()
   vim.wo.wrap = not vim.wo.wrap
 end, { desc = "Toggle line wrapping" })
 
@@ -97,15 +97,12 @@ map("n", "<C-a>", "ggVG", { desc = "Select all" })
 
 --------------------------------------------------------
 -- Tabs
-map("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "New tab" })
-map("n", "<leader>tQ", "<cmd>tabonly<CR>", { desc = "Close all other tabs" })
-map("n", "<leader>tq", "<cmd>tabclose<CR>", { desc = "Close tab" })
+map("n", "tn", "<cmd>tabnew<CR>", { desc = "New tab" })
+map("n", "tQ", "<cmd>tabonly<CR>", { desc = "Close all other tabs" })
+map("n", "tq", "<cmd>tabclose<CR>", { desc = "Close tab" })
 
-map("n", "<leader>t<Right>", "<cmd>tabnext<CR>", { desc = "Next tab" })
-map("n", "<leader>t<Left>", "<cmd>tabprevious<CR>", { desc = "Previous tab" })
-
-map("n", "]t", "<cmd>tabnext<CR>", { desc = "Next tab" })
-map("n", "[t", "<cmd>tabprevious<CR>", { desc = "Previous tab" })
+map("n", "t<Right>", "<cmd>tabnext<CR>", { desc = "Next tab" })
+map("n", "t<Left>", "<cmd>tabprevious<CR>", { desc = "Previous tab" })
 
 local function smart_tab(forward)
   if vim.v.hlsearch == 1 and vim.fn.getreg("/") ~= "" then

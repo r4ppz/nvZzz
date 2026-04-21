@@ -47,15 +47,6 @@ map(
 -- close buffer
 map(
   "n",
-  "<leader>q",
-  win_util.safe_buf_action(function()
-    require("nvchad.tabufline").close_buffer()
-  end),
-  { desc = "Buffer close" }
-)
-
-map(
-  "n",
   "<M-q>",
   win_util.safe_buf_action(function()
     require("nvchad.tabufline").close_buffer()

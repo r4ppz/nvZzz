@@ -249,9 +249,9 @@ local prompts = {
 
       Body:
       - Add only if needed.
-      - Use bullet lines: - change
+      - Use bullet lines: - Change
 
-      Output only the commit message.
+      Output only the commit message, if many changes combine it into one. Final output should only be one.
     ]]),
     description = "Generate conventional commits",
     system_prompt = system_prompt,

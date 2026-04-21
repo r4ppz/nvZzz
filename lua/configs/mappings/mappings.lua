@@ -83,6 +83,7 @@ require("configs.mappings.git")
 -- Disabled feature:
 -- - Macros (Skill issue)
 -- - Shada (clean)
+-- - f and t (used for picker and tabs)
 --
 -- Standard Vim motions/text objects still works fine (ciw, daw, yi(, ci{, etc.).
 -- I try to not remove the default mappings as much as possible for compatibility.

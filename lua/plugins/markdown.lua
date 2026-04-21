@@ -48,7 +48,7 @@ return {
     ft = { "copilot-chat", "markdown" },
     keys = {
       {
-        "<leader>or",
+        "<leader>tm",
         function()
           require("render-markdown").toggle()
         end,

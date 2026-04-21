@@ -78,12 +78,12 @@ return {
   keys = {
     { "<M-e>", "<cmd>NvimTreeToggle<CR>", desc = "Toggle NvimTree" },
     {
-      "<leader>a",
+      "<leader>ca",
       function()
         require("utils.window").focus_main_window()
         require("utils.tree_chat").add_to_copilot()
       end,
-      desc = "Add to CopilotChat",
+      desc = "Add file/s to CopilotChat",
     },
   },
 }
