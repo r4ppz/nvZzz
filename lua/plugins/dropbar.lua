@@ -15,6 +15,7 @@ local EXCLUDED_FILETYPES = {
   "snacks_picker_list",
   "snacks_dashboard",
   "none",
+  "conf",
 }
 
 local function is_valid_source(buf)
