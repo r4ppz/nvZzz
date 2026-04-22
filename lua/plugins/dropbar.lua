@@ -16,6 +16,7 @@ local EXCLUDED_FILETYPES = {
   "snacks_dashboard",
   "none",
   "conf",
+  "bigfile",
 }
 
 local function is_valid_source(buf)
