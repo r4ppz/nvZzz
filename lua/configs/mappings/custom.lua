@@ -48,7 +48,7 @@ map("v", "<S-Down>", "}", { desc = "Jump to next paragraph" })
 map({ "n", "v" }, "<C-Left>", "b", { desc = "Move to the beginning of the word" })
 map({ "n", "v" }, "<C-Right>", "e", { desc = "Move to the end of the word" })
 map("i", "<C-Left>", "<C-o>b", { desc = "Move to the beginning of the word in insert mode" })
-map("i", "<C-Right>", "<C-o>e", { desc = "Move to the end of the word in insert mode" })
+map("i", "<C-Right>", "<C-o>e<C-o>a", { desc = "Move to the end of the word in insert mode" })
 map({ "n", "v" }, "<S-Right>", "E", { desc = "Move Right like E" })
 map({ "n", "v" }, "<S-Left>", "B", { desc = "Move Left like B" })
 
