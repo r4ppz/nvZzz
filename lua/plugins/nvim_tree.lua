@@ -80,7 +80,9 @@ return {
     {
       "<leader>ca",
       function()
-        require("utils.window").focus_main_window()
+        if vim.bo.filetype == "copilot-chat" then
+          require("utils.window").focus_main_window()
+        end
         require("utils.tree_chat").add_to_copilot()
       end,
       desc = "Add file/s to CopilotChat",

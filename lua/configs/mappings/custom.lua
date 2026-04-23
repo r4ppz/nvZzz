@@ -36,7 +36,7 @@ map("i", "<S-Down>", "<C-o><C-d><C-o>zz", {
   desc = "Scroll half a page down and center in insert mode",
 })
 
--- Just for compatibility
+-- Just for consistency
 map("n", "<C-u>", "<C-u>zz", { desc = "Scroll half a page up and center" })
 map("n", "<S-d>", "<C-d>zz", { desc = "Scroll half a page down and center" })
 
@@ -51,6 +51,10 @@ map("i", "<C-Left>", "<C-o>b", { desc = "Move to the beginning of the word in in
 map("i", "<C-Right>", "<C-o>e<C-o>a", { desc = "Move to the end of the word in insert mode" })
 map({ "n", "v" }, "<S-Right>", "E", { desc = "Move Right like E" })
 map({ "n", "v" }, "<S-Left>", "B", { desc = "Move Left like B" })
+map("i", "<S-Left>", "<C-o>B", { desc = "Move to the beginning of the word like B in insert mode" })
+map("i", "<S-Right>", "<C-o>E<C-o>a", {
+  desc = "Move to the end of the word like E in insert mode",
+})
 
 -- Ctrl+Up/Down scroll one line
 map({ "n", "v" }, "<C-Down>", "<C-e>", { desc = "Scroll window down one line" })

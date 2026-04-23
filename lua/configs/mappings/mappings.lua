@@ -1,4 +1,4 @@
--- I am a fucking weirdo
+-- I use arrow keys and not hjkl cause I am a fucking weirdo
 
 require("configs.mappings.custom")
 require("configs.mappings.lsp")
@@ -63,13 +63,14 @@ require("configs.mappings.git")
 -- M-v = Vertical Terminal
 -- M-s = Horizontal Terminal
 -- M-w = Floating Terminal
+-- M-q = Close buffer
 -- M-a = Undo
 -- M-d = Redo
 --
 -- Nice to have:
 -- Copy all        = C-c
 -- Select all      = C-a
--- Save + Format   = C-s
+-- Save (+Format)  = C-s
 -- Comment         = C-/
 --
 -- LSP:
