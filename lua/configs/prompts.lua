@@ -41,7 +41,7 @@ local system_prompt = string.dedent([[
 local prompts = {
   BetterDocs = {
     prompt = string.dedent([[
-      Rewrite this hover documentation in a clearer and more readable way,
+      Rewrite this hover documentation in a clearer, more readable and beginner friendly way,
       but DO NOT remove or hide the original type signature.
 
       Use this exact structure:
@@ -244,14 +244,18 @@ local prompts = {
       - Imperative, present tense.
       - Lowercase.
       - No period.
-      - Max 70 chars.
+      - Must be less then 70 characters.
       - Describe primary change only.
 
       Body:
       - Add only if needed.
-      - Use bullet lines: - Change
+      - Use past tense
+      - Use bullet lines:
+        - Change/reason
+        - Change/reason
 
-      Output only the commit message, if many changes combine it into one. Final output should only be one.
+      Do not output more than two conventional commits.
+      Output a single commit message summarizing all changes, combining multiple changes into one if necessary.
     ]]),
     description = "Generate conventional commits",
     system_prompt = system_prompt,

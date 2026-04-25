@@ -7,6 +7,8 @@ return {
     vim.g.matchup_motion_enabled = 1
     vim.g.matchup_text_obj_enabled = 1
     vim.g.matchup_matchparen_deferred = 1
+    vim.g.matchup_delim_noskips = 1
+    vim.g.matchup_treesitter_disable_virtual_text = true
 
     pcall(function()
       require("nvim-treesitter.configs").setup({

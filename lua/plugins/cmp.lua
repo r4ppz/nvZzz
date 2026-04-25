@@ -81,10 +81,10 @@ return {
 
       sorting = {
         comparators = {
+          cmp.config.compare.recently_used,
           cmp.config.compare.offset,
           cmp.config.compare.exact,
           cmp.config.compare.score,
-          cmp.config.compare.recently_used,
           cmp.config.compare.kind,
           cmp.config.compare.sort_text,
           cmp.config.compare.length,
@@ -95,7 +95,7 @@ return {
       preselect = cmp.PreselectMode.None,
 
       completion = {
-        completeopt = "menu,menuone,noselect",
+        completeopt = "menu,menuone,noinsert,noselect",
       },
 
       snippet = {
@@ -146,7 +146,7 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "buffer" },
+        { name = "buffer", max_item_count = 10 },
         { name = "async_path" },
         { name = "nvim_lua" },
       }),

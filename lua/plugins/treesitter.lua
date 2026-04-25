@@ -16,6 +16,7 @@ return {
       "udev",
       "ssh_config",
       "tmux",
+      "kitty",
 
       "diff",
       "git_config",

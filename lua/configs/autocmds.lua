@@ -61,8 +61,6 @@ autocmd("BufEnter", {
   callback = function()
     vim.wo.relativenumber = false
     vim.wo.number = false
-    vim.wo.conceallevel = 0
-    vim.wo.winfixwidth = true
   end,
 })
 

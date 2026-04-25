@@ -8,7 +8,6 @@ local SIDE_PANEL_FTS = {
   "NvTerm_sp",
   "NvTerm_vsp",
   "NvTerm_float",
-  "help",
   "spectre_panel",
 }
 
