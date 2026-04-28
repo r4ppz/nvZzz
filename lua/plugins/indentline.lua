@@ -1,13 +1,13 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  event = "BufRead",
+  event = "BufReadPre",
   opts = {
     enabled = true,
     debounce = 200,
 
     indent = {
-      char = "│",
-      tab_char = "│",
+      char = "▏",
+      tab_char = "▏",
       highlight = "IblChar",
       smart_indent_cap = true,
       priority = 1,
@@ -16,7 +16,7 @@ return {
 
     scope = {
       enabled = true,
-      char = "│",
+      char = "▏",
       show_start = false,
       show_end = false,
       show_exact_scope = false,
@@ -45,6 +45,7 @@ return {
         "",
         "copilot-chat",
         "text",
+        "dashboard",
       },
       buftypes = {
         "terminal",

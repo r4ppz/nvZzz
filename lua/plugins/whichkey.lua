@@ -34,13 +34,13 @@ return {
           suggestions = 20,
         },
         presets = {
-          operators = true,
-          motions = true,
-          text_objects = true,
+          operators = false,
+          motions = false,
+          text_objects = false,
           windows = false,
-          nav = true,
-          z = true,
-          g = true,
+          nav = false,
+          z = false,
+          g = false,
         },
       },
 
@@ -65,9 +65,4 @@ return {
       show_keys = false,
     }
   end,
-
-  keys = {
-    { "<leader>oW", "<cmd>WhichKey<CR>", desc = "whichkey all keymaps" },
-    { "<c-w>", hidden = true },
-  },
 }

@@ -92,6 +92,13 @@ return {
         require("lsp-file-operations").default_capabilities()
       )
 
+      vim.diagnostic.config({
+        virtual_text = false,
+        signs = false,
+        underline = false,
+        update_in_insert = false,
+      })
+
       -- colorify replacement
       vim.lsp.document_color.enable(true, nil, { style = "virtual" })
 
@@ -124,10 +131,6 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     config = function()
-      vim.diagnostic.config({
-        virtual_text = false,
-      })
-
       require("lspsaga").setup({
         symbol_in_winbar = {
           enable = false,
@@ -200,5 +203,22 @@ return {
         },
       })
     end,
+  },
+
+  {
+    "r4ppz/lspeek.nvim",
+    event = "LspAttach",
+    dev = true,
+    opts = {
+      window = {
+        width = 80,
+        height = 15,
+        border = "single",
+      },
+      enter = true,
+      keymaps = {
+        close = "q",
+      },
+    },
   },
 }

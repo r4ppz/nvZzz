@@ -3,7 +3,7 @@ return {
   install = { colorscheme = { "nvchad" } },
 
   dev = {
-    path = "/home/r4ppz/Repositories/nvim-plug/",
+    path = "/home/r4ppz/Repositories/nvplug/",
     fallback = false,
   },
 

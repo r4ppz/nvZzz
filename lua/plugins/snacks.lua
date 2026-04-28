@@ -50,6 +50,14 @@ return {
     {
       "<leader>ff",
       function()
+        Snacks.picker.files()
+      end,
+      desc = "Find Files (Snacks)",
+    },
+
+    {
+      "ff",
+      function()
         Snacks.picker.smart()
       end,
       desc = "Smart Find Files (Snacks)",

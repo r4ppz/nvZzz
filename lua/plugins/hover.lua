@@ -13,7 +13,6 @@ return {
         max_width = 85,
         max_height = 15,
       },
-      preview_window = false,
     })
 
     vim.api.nvim_set_hl(0, "HoverWindow", { link = "NormalFloat" })

@@ -17,6 +17,7 @@ local EXCLUDED_FILETYPES = {
   "none",
   "conf",
   "bigfile",
+  "which-key",
 }
 
 local function is_valid_source(buf)

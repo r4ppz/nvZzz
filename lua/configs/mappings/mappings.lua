@@ -55,7 +55,7 @@ require("configs.mappings.git")
 -- Jump to mark         = '
 --
 -- Alt is underrated:
--- M-f = File Picker (Snacks/fff)
+-- M-f = File Picker (Snacks)
 -- M-g = Git Client (LazyGit)
 -- M-e = File Manager (NvimTree)
 -- M-b = Task Manager (Btop)
@@ -90,7 +90,7 @@ require("configs.mappings.git")
 -- I try to not remove the default mappings as much as possible for compatibility.
 --
 -- The way I edit is this: selecting first(v) then do something to it, kinda like helix.
--- My setup is basically vim+helix+vscode inspired + personal preference.
+-- My setup is basically mix of vim/helix+vscode/emacs inspired + personal preference.
 --
 -- Btw I use a 60% QWERTY mechanical keyboard (and sometimes a laptop). So the arrow keys are not that inefficient (or is it?).
 --

@@ -9,8 +9,6 @@ map("n", "<C-A-Up>", ":m .-2<CR>==<C-l>", { desc = "Move line up" })
 map("n", "<C-A-Down>", ":m .+1<CR>==<C-l>", { desc = "Move line down" })
 map("v", "<C-A-Up>", ":m '<-2<CR>gv=gv<C-l>", { desc = "Move selection up" })
 map("v", "<C-A-Down>", ":m '>+1<CR>gv=gv<C-l>", { desc = "Move selection down" })
-map("i", "<C-A-Up>", "<Esc>:m .-2<CR>==gi<C-o><C-l>", { desc = "Move selection up" })
-map("i", "<C-A-Down>", "<Esc>:m .+1<CR>==gi<C-o><C-l>", { desc = "Move selection up" })
 
 -- Insert below and above
 map("n", "<M-Up>", "O", { desc = "Insert above" })
@@ -56,6 +54,10 @@ map("i", "<S-Right>", "<C-o>E<C-o>a", {
   desc = "Move to the end of the word like E in insert mode",
 })
 
+-- Emacs style :p
+map("i", "<C-a>", "<Home>", { desc = "Move cursor to the beginning of the line in insert mode" })
+map("i", "<C-e>", "<End>", { desc = "Move cursor to the end of the line in insert mode" })
+
 -- Ctrl+Up/Down scroll one line
 map({ "n", "v" }, "<C-Down>", "<C-e>", { desc = "Scroll window down one line" })
 map({ "n", "v" }, "<C-Up>", "<C-y>", { desc = "Scroll window up one line" })
@@ -94,6 +96,35 @@ map({ "n", "v" }, "<leader>oh", "<cmd>checkhealth<cr>", { desc = "Check Health" 
 map("n", "<leader>tw", function()
   vim.wo.wrap = not vim.wo.wrap
 end, { desc = "Toggle line wrapping" })
+
+map("v", "<leader>oe", function()
+  local start_pos = vim.fn.getpos("'<")
+  local end_pos = vim.fn.getpos("'>")
+
+  local lines = vim.api.nvim_buf_get_lines(0, start_pos[2] - 1, end_pos[2], false)
+
+  local chunk = table.concat(lines, "\n")
+
+  local fn, err = loadstring(chunk)
+  if not fn then
+    print(err)
+    return
+  end
+
+  local ok, result = pcall(fn)
+  if not ok then
+    print(result)
+    return
+  end
+
+  if result ~= nil then
+    print(vim.inspect(result))
+  end
+end, { desc = "Run selected Lua snippet" })
+
+map("n", "<leader>of", function()
+  vim.cmd("luafile %")
+end, { desc = "Run current Lua file" })
 
 -- Nice
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "Copy whole file" })

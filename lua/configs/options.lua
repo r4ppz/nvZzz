@@ -30,6 +30,8 @@ o.winborder = "single"
 o.clipboard = "unnamedplus"
 o.cursorlineopt = "number"
 o.inccommand = "nosplit"
+
+opt.smarttab = true
 opt.fillchars = { eob = " " }
 opt.pumheight = 15
 

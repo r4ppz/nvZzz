@@ -56,14 +56,17 @@ map("n", "ge", function()
   Snacks.picker.lsp_declarations()
 end, { desc = "Goto D[e]claration (Snacks)" })
 
-map("n", "gD", "<cmd>Lspsaga peek_definition<CR>", {
-  desc = "Peek Definition",
+map("n", "gD", function()
+  require("lspeek").peek_definition()
+end, {
+  desc = "Peek Definition (Sight)",
+})
+
+map("n", "<S-C-Down>", "<cmd>Lspsaga peek_definition<CR>", {
+  desc = "Peek Definition (Sight)",
 })
 map("n", "gT", "<cmd>Lspsaga peek_type_definition<CR>", {
   desc = "Peek Type Definition",
-})
-map("n", "<S-C-Down>", "<cmd>Lspsaga peek_definition<CR>", {
-  desc = "Peek Definition",
 })
 
 map({ "n", "v" }, "<leader>la", "<cmd>Lspsaga code_action<CR>", {
@@ -143,3 +146,25 @@ map("n", "<leader>ls", function()
     require("outline").toggle()
   end, "Outline")
 end, { desc = "Toggle Outline" })
+
+--Track the toggle state
+local diagnostics_visible = false
+map("n", "<leader>Ld", function()
+  diagnostics_visible = not diagnostics_visible
+
+  vim.diagnostic.config({
+    signs = diagnostics_visible,
+    underline = diagnostics_visible,
+
+    -- Ensure defaults
+    virtual_text = false,
+    update_in_insert = false,
+  })
+
+  -- Feedback
+  if diagnostics_visible then
+    print("Diagnostics Enabled (Signs/Underline)")
+  else
+    print("Diagnostics Silenced")
+  end
+end, { desc = "Toggle Diagnostic UI elements" })

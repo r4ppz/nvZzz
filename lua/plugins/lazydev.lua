@@ -4,8 +4,11 @@ return {
   opts = {
     library = {
       { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-      { path = "ui/nvchad_types", words = { "nvchad" } },
       { path = "LazyVim", words = { "LazyVim" } },
+      {
+        path = "ui/nvchad_types",
+        words = { "nvchad", "NvChad", "chadrc" },
+      },
     },
   },
 }
