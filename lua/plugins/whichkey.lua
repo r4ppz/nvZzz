@@ -16,7 +16,6 @@ return {
       { "<leader>F", group = "Grep", icon = "󰘳" },
       { "<leader>s", group = "Surround", icon = "" },
       { "<leader>d", group = "Diff", icon = "" },
-      { "<leader>b", group = "Buffer", icon = "" },
       { "<leader>u", group = "UI", icon = "󰍹" },
       { "<leader>t", group = "Toggle", icon = "" },
 

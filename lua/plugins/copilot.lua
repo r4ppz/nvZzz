@@ -1,3 +1,6 @@
+local custom_prompts = require("configs.prompts")
+local win_util = require("utils.window")
+
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
   branch = "main",
@@ -9,18 +12,18 @@ return {
 
   opts = function()
     return {
-      system_prompt = require("configs.prompts").system_prompt,
-      prompts = require("configs.prompts").prompts,
+      system_prompt = custom_prompts.system_prompt,
+      prompts = custom_prompts.prompts,
 
       resources = "selection",
       selection = "visual",
 
       temperature = 0.1,
-      -- model = "gpt-4.1",
+      model = "gpt-4.1",
       -- model = "grok-code-fast-1",
       -- model = "gemini-3-flash-preview",
       -- model = "gpt-5-mini",
-      model = "gpt-4o",
+      -- model = "gpt-4o",
       -- model = "oswe-vscode-prime",
 
       window = {
@@ -49,33 +52,55 @@ return {
       instruction_files = {
         -- I am not goint to vibe code using this plugin lol
       },
+
+      trusted_tools = { "file", "glob", "grep" },
     }
   end,
 
   keys = {
     {
       "<leader>ci",
-      "<cmd>CopilotChatIdiomatic<cr>",
+      function()
+        win_util.close_panels()
+        vim.cmd("CopilotChatIdiomatic")
+      end,
       mode = { "n", "v" },
       desc = "Check if code is idiomatic",
     },
-    { "<leader>ce", "<cmd>CopilotChatExplain<cr>", mode = { "n", "v" }, desc = "Explain code" },
+
+    {
+      "<leader>ce",
+      function()
+        win_util.close_panels()
+        vim.cmd("CopilotChatExplain")
+      end,
+      mode = { "n", "v" },
+      desc = "Explain code",
+    },
+
     {
       "<leader>cs",
-      "<cmd>CopilotChatSuggest<cr>",
+      function()
+        win_util.close_panels()
+        vim.cmd("CopilotChatSuggest")
+      end,
       mode = { "n", "v" },
       desc = "Suggest alternatives",
     },
     {
       "<leader>cm",
-      "<cmd>CopilotChatModels<cr>",
+      function()
+        win_util.close_panels()
+        vim.cmd("CopilotChatModels")
+      end,
       mode = { "n", "v" },
       desc = "View/select available models",
     },
+
     {
       "<M-c>",
       function()
-        require("utils.window").toggle_panel(function()
+        win_util.toggle_panel(function()
           require("CopilotChat").toggle()
         end, "copilot-chat")
       end,
@@ -86,7 +111,7 @@ return {
     {
       "<leader>cp",
       function()
-        require("utils.window").close_panels()
+        win_util.close_panels()
         local chat = require("CopilotChat")
         chat.open()
         chat.select_prompt()
@@ -99,7 +124,7 @@ return {
     {
       "<leader>cb",
       function()
-        require("utils.window").close_panels()
+        win_util.close_panels()
         local chat = require("CopilotChat")
         chat.open()
         chat.chat:add_message({ role = "user", content = "#buffer:active\n" })
@@ -111,7 +136,7 @@ return {
     {
       "<leader>cB",
       function()
-        require("utils.window").close_panels()
+        win_util.close_panels()
         local chat = require("CopilotChat")
         chat.open()
         chat.chat:add_message({ role = "user", content = "#buffer:listed\n" })
@@ -123,7 +148,7 @@ return {
     {
       "<leader>cf",
       function()
-        require("utils.window").close_panels()
+        win_util.close_panels()
         local snacks = require("snacks")
         snacks.picker.files({
           confirm = function(picker, item)
@@ -157,9 +182,10 @@ return {
     {
       "<C-S-M-Up>",
       function()
-        require("utils.window").close_panels()
+        win_util.close_panels()
         local params = vim.lsp.util.make_position_params(nil, "utf-16")
         local responses = vim.lsp.buf_request_sync(0, "textDocument/hover", params, 500)
+
         if not responses or vim.tbl_isempty(responses) then
           vim.notify("No hover information available", vim.log.levels.WARN)
           return
@@ -183,18 +209,11 @@ return {
         end
 
         local hover_text = table.concat(parts, "\n")
-        local chat_ok, chat = pcall(require, "CopilotChat")
-        if not chat_ok or not chat then
-          vim.notify("CopilotChat.nvim not available", vim.log.levels.ERROR)
-          return
-        end
 
+        local chat = require("CopilotChat")
         chat.open()
-
-        local prompts = require("configs.prompts")
-
         chat.ask(
-          prompts.prompts.BetterDocs.prompt .. "\n\n" .. hover_text,
+          custom_prompts.prompts.BetterDocs.prompt .. "\n\n" .. hover_text,
           { clear_chat_on_new_prompt = true }
         )
       end,

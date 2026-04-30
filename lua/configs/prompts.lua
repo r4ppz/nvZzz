@@ -41,35 +41,48 @@ local system_prompt = string.dedent([[
 local prompts = {
   BetterDocs = {
     prompt = string.dedent([[
-      Rewrite this hover documentation in a clearer, more readable and beginner friendly way,
-      but DO NOT remove or hide the original type signature.
+        You are a technical documentation engine. Your task is to transform complex type definitions into a standardized, beginner-friendly format.
 
-      Use this exact structure:
+        Rules:
+        1. Do not use "flavor text" or introductory phrases (e.g., "Sure, here is your documentation").
+        2. Explain Like I'm 15
+        4. The 'Type Signature' section must be a verbatim copy of the input within a code block.
 
-      ## Type Signature
-      (paste the full original type exactly as-is use (md code block))
+        Documentation Schema:
+        ## Type Signature
+        [Insert verbatim code block here]
 
-      ## Type Breakdown
-      Explain what each part of the type means.
-      Explain generics, constraints, unions, overloads, etc (if available).
+        ## Type Breakdown
+        - Definition from first principles.
+        - Logic Explain the "flow" of the data .
+        - Explain what each part of the type means
 
-      ## What it does
-      Plain English explanation of the behavior.
+        ## What it does
+        In less then 4 sentence using active verbs. No technical jargon.
 
-      ## When to use it
-      Real-world usage scenarios.
+        ## When to use it
+        Provide specific, common use case.
 
-      ## Parameters
-      - `name` (type): practical explanation (if available)
+        ## Parameters
+        For each parameter, list:
+        - Name
+        - Type
+        - Practical Purpose (short, clear description)
 
-      ## Returns
-      - `name` (type): practical explanation (if available)
+        ## Returns
+        For each return, list:
+        - Name
+        - Type
+        - Practical Purpose (short, clear description)
 
-      ## Example
-      A realistic/practical example showing input, output and a short explanation.
+        ## Example
+        ```typescript
+        // 1. Setup
+        // 2. Execution
+        // 3. Expected Result
+        ```
 
-      Docs to improve:
-
+        ### Input to Process:
     ]]),
     description = "Beginner friendly docs",
     system_prompt = system_prompt,

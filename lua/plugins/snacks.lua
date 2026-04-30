@@ -64,6 +64,14 @@ return {
     },
 
     {
+      "fg",
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = "Grep (Snacks)",
+    },
+
+    {
       "<leader>fg",
       function()
         Snacks.picker.grep()
@@ -88,7 +96,7 @@ return {
     },
 
     {
-      "<leader>bf",
+      "<leader>fG",
       function()
         Snacks.picker.grep_buffers({
           auto_confirm = false,
@@ -154,15 +162,7 @@ return {
     },
 
     {
-      "<leader>bl",
-      function()
-        Snacks.picker.lines()
-      end,
-      desc = "Buffer Lines (Snacks)",
-    },
-
-    {
-      "<leader>bb",
+      "<leader>fb",
       function()
         Snacks.picker.buffers()
       end,

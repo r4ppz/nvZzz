@@ -205,19 +205,27 @@ return {
     end,
   },
 
+  -- Development
   {
     "r4ppz/lspeek.nvim",
     event = "LspAttach",
     dev = true,
     opts = {
       window = {
-        width = 80,
+        width = 70,
         height = 15,
         border = "single",
+        title_pos = "center",
       },
-      enter = true,
+
+      stack_limit = 7,
+      enter = false,
+
       keymaps = {
         close = "q",
+        split = "s",
+        vsplit = "v",
+        enter = "<CR>",
       },
     },
   },

@@ -35,11 +35,10 @@ return {
       under_cursor = true,
     })
 
-    local map = vim.keymap.set
-    map("n", "[r", function()
+    vim.keymap.set("n", "[r", function()
       require("illuminate").goto_prev_reference()
     end, { desc = "Prev reference" })
-    map("n", "]r", function()
+    vim.keymap.set("n", "]r", function()
       require("illuminate").goto_next_reference()
     end, { desc = "Next reference" })
   end,

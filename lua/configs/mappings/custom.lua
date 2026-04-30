@@ -200,7 +200,10 @@ map({ "n", "v" }, "C", '"_C', { desc = "Change to end of line without yanking" }
 map({ "n", "v" }, "d", '"_d', { desc = "Delete without yanking" })
 map({ "n", "v" }, "D", '"_D', { desc = "Delete to end of line without yanking" })
 
+-- what the fuck am I doing?
 map("n", "X", "D", { desc = "Cut line" })
+map("n", "xx", "dd", { desc = "Cut line" })
+map("n", "x", "d", { desc = "Cut line" })
 
 -- map("n", "d", '"_d', { desc = "Delete text without yanking" })
 

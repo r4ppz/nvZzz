@@ -23,9 +23,9 @@ for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
 end
 
 require("configs.options")
-require("configs.autocmds")
 require("configs.cmds")
 
 vim.schedule(function()
+  require("configs.autocmds")
   require("configs.mappings.mappings")
 end)
