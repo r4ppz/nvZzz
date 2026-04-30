@@ -1,12 +1,12 @@
 local mygroup = vim.api.nvim_create_augroup("MyPersonalConfig", { clear = true })
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd("FileType", {
-  pattern = "spectre_panel",
+autocmd({ "FileType", "BufEnter" }, {
   group = mygroup,
+  pattern = { "copilot-chat", "spectre_panel" },
   callback = function()
-    vim.opt_local.number = false
     vim.opt_local.relativenumber = false
+    vim.opt_local.number = false
   end,
 })
 
@@ -51,16 +51,6 @@ autocmd({
     if vim.fn.getcmdwintype() == "" then
       vim.cmd("checktime")
     end
-  end,
-})
-
-autocmd("BufEnter", {
-  group = mygroup,
-  desc = "Window opts for copilot buffer",
-  pattern = "copilot-*",
-  callback = function()
-    vim.wo.relativenumber = false
-    vim.wo.number = false
   end,
 })
 
