@@ -87,12 +87,10 @@ return {
       mode = { "n", "v" },
       desc = "Suggest alternatives",
     },
+
     {
       "<leader>cm",
-      function()
-        win_util.close_panels()
-        vim.cmd("CopilotChatModels")
-      end,
+      "<CMD>CopilotChatModels<CR>",
       mode = { "n", "v" },
       desc = "View/select available models",
     },
