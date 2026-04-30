@@ -12,11 +12,11 @@ return {
       { "<leader>c", group = "Copilot", icon = "" },
       { "<leader>f", group = "Picker", icon = "󰭎" },
       { "<leader>v", group = "NvChad", icon = "" },
-      { "<leader>o", group = "Others", icon = "󰏖" },
+      { "<leader>u", group = "Utils", icon = "󰏖" },
       { "<leader>F", group = "Grep", icon = "󰘳" },
       { "<leader>s", group = "Surround", icon = "" },
       { "<leader>d", group = "Diff", icon = "" },
-      { "<leader>u", group = "UI", icon = "󰍹" },
+      { "<leader>p", group = "Plugin", icon = "󰍹" },
       { "<leader>t", group = "Toggle", icon = "" },
 
       -- I dont use f and t anyway

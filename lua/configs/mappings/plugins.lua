@@ -90,12 +90,6 @@ map({ "n", "v" }, "<RightMouse>", function()
 end, {})
 
 ---------------------------------------------------------------------
--- UI
-map("n", "<leader>um", "<cmd>Mason<CR>", { desc = "Mason UI" })
-map("n", "<leader>ul", "<cmd>Lazy<CR>", { desc = "Lazy UI" })
-map("n", "<leader>ui", "<cmd>MasonInstallAll<cr>", { desc = "Mason Install ALl" })
-
----------------------------------------------------------------------
 -- TERMINAL MANAGEMENT
 
 local function map_close_terminal(config, extra_key)
@@ -214,3 +208,50 @@ map("n", "<A-t>", function()
   vim.cmd("terminal")
   vim.cmd("startinsert")
 end, { desc = "New Terminal Buffer" })
+
+--------------------------------------------------------
+-- Utils
+map({ "n", "v" }, "<leader>ub", "<cmd>BufInfo<CR>", { desc = "Get BufInfo" })
+map({ "n", "v" }, "<leader>uc", "<CMD>OpenConfig<CR>", { desc = "Open Neovim Config" })
+map({ "n", "v" }, "<leader>uh", "<cmd>checkhealth<cr>", { desc = "Check Health" })
+map({ "n", "v" }, "<leader>um", "<cmd>MarkdownPreview<cr>", { desc = "Markdown preview" })
+map({ "n", "v" }, "<leader>uf", function()
+  require("conform").format({
+    timeout_ms = 1000,
+    async = true,
+  })
+end, { desc = "Format & Autofix File" })
+
+map("n", "<leader>uf", function()
+  vim.cmd("luafile %")
+end, { desc = "Run current Lua file" })
+
+map("v", "<leader>ue", function()
+  local start_pos = vim.fn.getpos("'<")
+  local end_pos = vim.fn.getpos("'>")
+
+  local lines = vim.api.nvim_buf_get_lines(0, start_pos[2] - 1, end_pos[2], false)
+
+  local chunk = table.concat(lines, "\n")
+
+  local fn, err = loadstring(chunk)
+  if not fn then
+    print(err)
+    return
+  end
+
+  local ok, result = pcall(fn)
+  if not ok then
+    print(result)
+    return
+  end
+
+  if result ~= nil then
+    print(vim.inspect(result))
+  end
+end, { desc = "Run selected Lua snippet" })
+
+---------------------------------------------------------------------
+map({ "n", "v" }, "<leader>pm", "<cmd>Mason<CR>", { desc = "Mason UI" })
+map({ "n", "v" }, "<leader>pl", "<cmd>Lazy<CR>", { desc = "Lazy UI" })
+map({ "n", "v" }, "<leader>pi", "<cmd>MasonInstallAll<cr>", { desc = "Mason Install ALl" })

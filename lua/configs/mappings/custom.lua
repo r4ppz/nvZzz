@@ -88,44 +88,17 @@ map({ "n", "v" }, "@", "$", { desc = "Jump to last non-blank character of line" 
 map({ "n", "v" }, "<C-S-Left>", "^", { desc = "Jump to first non-blank character of the line" })
 map({ "n", "v" }, "<C-S-Right>", "g_", { desc = "Jump to last non-blank character of line" })
 
--- Others
-map({ "n", "v" }, "<leader>ob", "<cmd>BufInfo<CR>", { desc = "Get BufInfo" })
-map({ "n", "v" }, "<leader>oc", "<CMD>OpenConfig<CR>", { desc = "Open Neovim Config" })
-map({ "n", "v" }, "<leader>oh", "<cmd>checkhealth<cr>", { desc = "Check Health" })
-
+--------------------------------------------------------
+-- Toggle
 map("n", "<leader>tw", function()
   vim.wo.wrap = not vim.wo.wrap
 end, { desc = "Toggle line wrapping" })
 
-map("v", "<leader>oe", function()
-  local start_pos = vim.fn.getpos("'<")
-  local end_pos = vim.fn.getpos("'>")
+map("n", "<leader>tm", function()
+  require("render-markdown").toggle()
+end, { desc = "Toggle render-markdown" })
 
-  local lines = vim.api.nvim_buf_get_lines(0, start_pos[2] - 1, end_pos[2], false)
-
-  local chunk = table.concat(lines, "\n")
-
-  local fn, err = loadstring(chunk)
-  if not fn then
-    print(err)
-    return
-  end
-
-  local ok, result = pcall(fn)
-  if not ok then
-    print(result)
-    return
-  end
-
-  if result ~= nil then
-    print(vim.inspect(result))
-  end
-end, { desc = "Run selected Lua snippet" })
-
-map("n", "<leader>of", function()
-  vim.cmd("luafile %")
-end, { desc = "Run current Lua file" })
-
+--------------------------------------------------------
 -- Nice
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "Copy whole file" })
 map("n", "<C-a>", "ggVG", { desc = "Select all" })
@@ -204,8 +177,6 @@ map({ "n", "v" }, "D", '"_D', { desc = "Delete to end of line without yanking" }
 map("n", "X", "D", { desc = "Cut line" })
 map("n", "xx", "dd", { desc = "Cut line" })
 map("n", "x", "d", { desc = "Cut line" })
-
--- map("n", "d", '"_d', { desc = "Delete text without yanking" })
 
 -- Highlights the word without jumping to the next occurrence.
 -- Uses case-insensitive search and enables 'hlsearch'.

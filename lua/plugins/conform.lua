@@ -32,17 +32,4 @@ return {
       lsp_format = "fallback",
     },
   },
-
-  keys = {
-    {
-      "<leader>of",
-      function()
-        require("conform").format({
-          timeout_ms = 1000,
-          async = true,
-        })
-      end,
-      desc = "Format & Autofix File",
-    },
-  },
 }

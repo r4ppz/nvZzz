@@ -8,13 +8,6 @@ return {
     },
     ft = { "markdown" },
     build = "cd app && yarn install",
-    keys = {
-      {
-        "<leader>om",
-        "<cmd>MarkdownPreview<cr>",
-        desc = "Markdown preview",
-      },
-    },
   },
 
   {
@@ -46,14 +39,5 @@ return {
       },
     },
     ft = { "copilot-chat", "markdown" },
-    keys = {
-      {
-        "<leader>tm",
-        function()
-          require("render-markdown").toggle()
-        end,
-        desc = "Toggle render-markdown",
-      },
-    },
   },
 }
