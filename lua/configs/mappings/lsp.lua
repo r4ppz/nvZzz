@@ -1,4 +1,4 @@
-local map = vim.keymap.set
+local map = require("utils.map")
 
 --------------------------------------------------
 -- LSP related
@@ -56,15 +56,12 @@ map("n", "ge", function()
   Snacks.picker.lsp_declarations()
 end, { desc = "Goto D[e]claration (Snacks)" })
 
-map("n", "gD", function()
+map("n", { "gD", "<S-C-Down>" }, function()
   require("lspeek").peek_definition()
 end, {
-  desc = "Peek Definition (Sight)",
+  desc = "Peek Definition (lspeek)",
 })
 
-map("n", "<S-C-Down>", "<cmd>Lspsaga peek_definition<CR>", {
-  desc = "Peek Definition (Sight)",
-})
 map("n", "gT", "<cmd>Lspsaga peek_type_definition<CR>", {
   desc = "Peek Type Definition",
 })

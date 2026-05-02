@@ -99,8 +99,8 @@ return {
         update_in_insert = false,
       })
 
-      -- colorify replacement
-      vim.lsp.document_color.enable(true, nil, { style = "virtual" })
+      -- Use colorify intsread
+      vim.lsp.document_color.enable(false, nil, { style = "virtual" })
 
       local function setup()
         -- Default configurations for all servers
