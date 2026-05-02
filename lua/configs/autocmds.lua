@@ -39,21 +39,6 @@ autocmd("BufReadPost", {
   end,
 })
 
-autocmd({
-  "BufEnter",
-  "CursorHold",
-  "CursorHoldI",
-  "FocusGained",
-}, {
-  group = mygroup,
-  desc = "Check for file changes when entering buffer or regaining focus",
-  callback = function()
-    if vim.fn.getcmdwintype() == "" then
-      vim.cmd("checktime")
-    end
-  end,
-})
-
 autocmd("FileType", {
   group = mygroup,
   desc = "Enable wrapping on text",

@@ -1,5 +1,5 @@
 local win_util = require("utils.window")
-local map = vim.keymap.set
+local map = require("utils.map")
 
 -- Uses plugins? (other keybinds are in the plugin Lua files)
 
@@ -141,7 +141,7 @@ map({ "n", "t" }, "<M-b>", function()
 end, { desc = "Toggle Btop" })
 
 -- Docker floating terminal
-map({ "n", "t" }, "<M-S-d>", function()
+map({ "n", "t" }, { "<M-S-d>", "<leader>td" }, function()
   local system = require("utils.system")
   local cwd = vim.fn.getcwd()
 
@@ -173,7 +173,7 @@ map({ "n", "t" }, "<M-S-d>", function()
   map_close_terminal(config, "q")
 end, { desc = "Toggle LazyDocker" })
 
-map({ "n", "t" }, "<A-s>", function()
+map({ "n", "t" }, { "<M-s>", "<leader>ts" }, function()
   local config = {
     pos = "sp",
     id = "horizontal_term",
@@ -188,7 +188,7 @@ map({ "n", "t" }, "<A-s>", function()
   map_close_terminal(config, "<M-c>")
 end, { desc = "Toggle Horizontal Terminal" })
 
-map({ "n", "t" }, "<A-v>", function()
+map({ "n", "t" }, { "<M-v>", "<leader>tv" }, function()
   local config = {
     pos = "vsp",
     id = "vertical_term",
@@ -250,6 +250,16 @@ map("v", "<leader>ue", function()
     print(vim.inspect(result))
   end
 end, { desc = "Run selected Lua snippet" })
+
+--------------------------------------------------------
+-- Toggle
+map("n", "<leader>tw", function()
+  vim.wo.wrap = not vim.wo.wrap
+end, { desc = "Toggle line wrapping" })
+
+map("n", "<leader>tm", function()
+  require("render-markdown").toggle()
+end, { desc = "Toggle render-markdown" })
 
 ---------------------------------------------------------------------
 map({ "n", "v" }, "<leader>pm", "<cmd>Mason<CR>", { desc = "Mason UI" })

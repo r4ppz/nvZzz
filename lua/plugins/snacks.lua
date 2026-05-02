@@ -1,3 +1,27 @@
+local layout = {
+  layout = {
+    box = "vertical",
+    row = -1,
+    width = 0,
+    height = 0.5,
+    border = "top",
+    { win = "input", height = 1, border = "bottom" },
+    {
+      box = "horizontal",
+      {
+        win = "list",
+        border = "none",
+      },
+      {
+        win = "preview",
+        title = "{preview}",
+        width = 0.5,
+        border = "left",
+      },
+    },
+  },
+}
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -72,6 +96,26 @@ return {
     },
 
     {
+      "fG",
+      function()
+        Snacks.picker.grep_buffers({
+          auto_confirm = false,
+          title = "References",
+          layout = layout,
+        })
+      end,
+      desc = "Grep Current Buffer (Snacks)",
+    },
+
+    {
+      "fb",
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = "Buffers (Snacks)",
+    },
+
+    {
       "<leader>fg",
       function()
         Snacks.picker.grep()
@@ -101,29 +145,7 @@ return {
         Snacks.picker.grep_buffers({
           auto_confirm = false,
           title = "References",
-          layout = {
-            layout = {
-              box = "vertical",
-              row = -1,
-              width = 0,
-              height = 0.5,
-              border = "top",
-              { win = "input", height = 1, border = "bottom" },
-              {
-                box = "horizontal",
-                {
-                  win = "list",
-                  border = "none",
-                },
-                {
-                  win = "preview",
-                  title = "{preview}",
-                  width = 0.5,
-                  border = "left",
-                },
-              },
-            },
-          },
+          layout = layout,
         })
       end,
       desc = "Grep Current Buffer (Snacks)",

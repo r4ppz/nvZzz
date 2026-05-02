@@ -18,6 +18,7 @@ M.server_list = {
   -- "emmet_ls",
   "astro",
   "svelte",
+  "prismals",
 
   -- BACKEND
   "jdtls",

@@ -1,11 +1,7 @@
-local map = vim.keymap.set
+local map = require("utils.map")
 
 -- LazyGit floating terminal
-map("n", "<M-g>", function()
-  Snacks.lazygit.open()
-end, { desc = "Lazygit (Snacks)" })
-
-map("n", "<leader>gg", function()
+map("n", { "<M-g>", "<leader>gg" }, function()
   Snacks.lazygit.open()
 end, { desc = "Lazygit (Snacks)" })
 
@@ -52,5 +48,5 @@ map("n", "<leader>gh", "<cmd>DiffviewFileHistory<cr>", {
   desc = "Open Diffview History (Diffview)",
 })
 map("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", {
-  desc = "Open Diffview Current File History Diffview",
+  desc = "Open Diffview Current File History (Diffview)",
 })

@@ -53,6 +53,7 @@ return {
       "tsx",
       "astro",
       "svelte",
+      "prisma",
     }
 
     require("nvim-treesitter").install(languages)

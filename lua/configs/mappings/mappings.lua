@@ -48,8 +48,8 @@ require("configs.mappings.git")
 --
 -- Jump to line ends    = ! / @   =  (^/g_)
 -- Match bracket        = ~       =  (%)
--- Highlight (no jump)  = #         (Case-insensitive, works on n, v)
--- Smart Tab            = Tab/S-Tab (N/n if search is active, else switch tabs)
+-- Highlight (no jump)  = #       =  (Case-insensitive, works on n, v)
+-- Tab/S-Tab            = :tabnext / :tabprevious
 --
 -- Mark                 = ;
 -- Jump to mark         = '
@@ -92,7 +92,8 @@ require("configs.mappings.git")
 -- The way I edit is this: selecting first(v) then do something to it, kinda like helix.
 -- My setup is basically mix of vim/helix+vscode/emacs inspired + personal preference.
 --
--- Btw I use a 60% QWERTY mechanical keyboard (and sometimes a laptop). So the arrow keys are not that inefficient (or is it?).
+-- Btw I use a 60% QWERTY mechanical keyboard (and sometimes a laptop). So the arrow keys are not that inefficient,
+-- infact its faster cause I am not bord in the 90s.
 --
 -- System-wide rebinds (via keyd):
 -- Esc      = Grave (`)
