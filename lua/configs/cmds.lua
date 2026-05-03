@@ -1,5 +1,9 @@
 local cmd = vim.api.nvim_create_user_command
 
+-- Markdown format shortcuts
+cmd("RemoveCite", [[%s/\[cite:.\{-}\]//g]], {})
+cmd("RemoveBold", [[%s/\*\*\(.\{-}\)\*\*/\1/g]], {})
+
 cmd("BufInfo", function()
   local ft = vim.bo.filetype
   local bt = vim.bo.buftype

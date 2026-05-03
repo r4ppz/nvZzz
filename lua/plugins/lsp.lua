@@ -219,7 +219,6 @@ return {
       },
 
       stack_limit = 7,
-      enter = false,
 
       keymaps = {
         close = "q",
