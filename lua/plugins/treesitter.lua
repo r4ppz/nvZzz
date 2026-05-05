@@ -40,6 +40,8 @@ return {
       "gomod",
       "gowork",
       "gosum",
+      "php",
+      "blade",
 
       "yaml",
       "toml",

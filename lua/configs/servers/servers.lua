@@ -19,6 +19,7 @@ M.server_list = {
   "astro",
   "svelte",
   "prismals",
+  "intelephense",
 
   -- BACKEND
   "jdtls",

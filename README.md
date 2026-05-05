@@ -111,11 +111,6 @@ LuaJIT 2.1.1774896198
 
 ## Languages & File Types Supported/Configured
 
-I mostly work on scripts and configs (`Lua`/`sh`), as well as frontend and backend development
-(`React`, `CSS`, `TS`, `Java`) for schoolwork and learning purposes.
-
-My setup is great for fullstack development (I think).
-
 > See [treesitter.lua](lua/plugins/treesitter.lua), [lsp.lua](lua/plugins/lsp.lua)
 > and [servers/](lua/configs/servers/) for more info.
 
@@ -134,6 +129,7 @@ My setup is great for fullstack development (I think).
 - Bash
 - Zsh
 - SQL
+- PHP
 
 # Web & Frontend
 - HTML
@@ -141,6 +137,7 @@ My setup is great for fullstack development (I think).
 - Svelte
 - CSS/SCSS/Less
 - React (JSX/TSX)
+- Laravel (Blade)
 
 # Config & Data Formats
 - YAML
