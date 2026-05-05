@@ -141,7 +141,7 @@ map({ "n", "t" }, "<M-b>", function()
 end, { desc = "Toggle Btop" })
 
 -- Docker floating terminal
-map({ "n", "t" }, { "<M-S-d>", "<leader>td" }, function()
+map({ "n", "t" }, "<M-S-d>", function()
   local system = require("utils.system")
   local cwd = vim.fn.getcwd()
 
@@ -173,7 +173,7 @@ map({ "n", "t" }, { "<M-S-d>", "<leader>td" }, function()
   map_close_terminal(config, "q")
 end, { desc = "Toggle LazyDocker" })
 
-map({ "n", "t" }, { "<M-s>", "<leader>ts" }, function()
+map({ "n", "t" }, "<M-s>", function()
   local config = {
     pos = "sp",
     id = "horizontal_term",
@@ -188,7 +188,7 @@ map({ "n", "t" }, { "<M-s>", "<leader>ts" }, function()
   map_close_terminal(config, "<M-c>")
 end, { desc = "Toggle Horizontal Terminal" })
 
-map({ "n", "t" }, { "<M-v>", "<leader>tv" }, function()
+map({ "n", "t" }, "<M-v>", function()
   local config = {
     pos = "vsp",
     id = "vertical_term",
