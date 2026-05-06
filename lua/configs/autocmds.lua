@@ -1,6 +1,21 @@
 local mygroup = vim.api.nvim_create_augroup("MyPersonalConfig", { clear = true })
 local autocmd = vim.api.nvim_create_autocmd
 
+autocmd({
+  "BufEnter",
+  "CursorHold",
+  "CursorHoldI",
+  "FocusGained",
+}, {
+  group = mygroup,
+  desc = "Check for file changes when entering buffer or regaining focus",
+  callback = function()
+    if vim.fn.getcmdwintype() == "" then
+      vim.cmd("checktime")
+    end
+  end,
+})
+
 autocmd({ "FileType", "BufEnter" }, {
   group = mygroup,
   pattern = { "copilot-chat", "spectre_panel" },
