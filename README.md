@@ -212,7 +212,6 @@ So having many plugins is not really that big of a deal.
 - nvimdev/dashboard-nvim
 - Bekaboo/dropbar.nvim
 - hedyhli/outline.nvim
-- lewis6991/hover.nvim
 - folke/which-key.nvim
 - nvim-tree/nvim-web-devicons
 - chrishrb/gx.nvim

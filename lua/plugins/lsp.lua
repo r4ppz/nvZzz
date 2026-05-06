@@ -215,7 +215,6 @@ return {
         width = 70,
         height = 15,
         border = "single",
-        title_pos = "center",
       },
 
       stack_limit = 7,
