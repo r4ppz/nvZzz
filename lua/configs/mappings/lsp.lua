@@ -1,30 +1,10 @@
-local custom_hover = require("configs.hover")
 local map = require("utils.map")
+local hover = require("configs.hover")
 
 --------------------------------------------------
 -- LSP related
 
--- Double-tap logic for native hover
-local HOVER_DOUBLE_TAP_MS = 300
-local last_hover_time = 0
-local function hover_with_enter()
-  local now = vim.loop.now()
-  if now - last_hover_time < HOVER_DOUBLE_TAP_MS then
-    for _, win in ipairs(vim.api.nvim_list_wins()) do
-      local config = vim.api.nvim_win_get_config(win)
-      if config and type(config.relative) == "string" and config.relative ~= "" then
-        vim.api.nvim_set_current_win(win)
-        return
-      end
-    end
-  else
-    custom_hover.open_hover()
-    last_hover_time = now
-  end
-end
-
-map("n", "K", hover_with_enter, { desc = "Custom Hover" })
-map("n", "<S-C-Up>", hover_with_enter, { desc = "Custom Hover" })
+map("n", { "<S-C-Up>", "K" }, hover.hover_with_enter, { desc = "Custom Hover" })
 
 map({ "n", "x", "o" }, "<CR>", function()
   if vim.treesitter.get_parser(nil, nil, { error = false }) then

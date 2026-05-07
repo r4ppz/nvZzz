@@ -74,17 +74,19 @@ require("configs.mappings.git")
 -- Comment         = C-/
 --
 -- LSP:
--- Reference       = gr
--- Definition      = gd
--- Implementation  = gi
+-- Reference              = gr
+-- Definition             = gd
+-- Implementation         = gi
+-- Incremental Selection  = enter
 -- more lsp stuff  = leader + l
 --
 -- ...and many more (leader, see plugins/)
 --
 -- Disabled feature:
 -- - Macros (Skill issue)
--- - Shada (clean)
+-- - Shada (cleaner imo)
 -- - f and t (used for picker and tabs)
+-- - ; and ' (used for marks/marks.nvim)
 --
 -- Standard Vim motions/text objects still works fine (ciw, daw, yi(, ci{, etc.).
 -- I try to not remove the default mappings as much as possible for compatibility.
@@ -93,7 +95,7 @@ require("configs.mappings.git")
 -- My setup is basically mix of vim/helix+vscode/emacs inspired + personal preference.
 --
 -- Btw I use a 60% QWERTY mechanical keyboard (and sometimes a laptop). So the arrow keys are not that inefficient,
--- infact its faster cause I am not bord in the 90s.
+-- infact its faster cause I am not born in the 90s.
 --
 -- System-wide rebinds (via keyd):
 -- Esc      = Grave (`)
