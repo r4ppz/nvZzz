@@ -15,7 +15,7 @@ M.server_list = {
   -- "tsgo",
   "cssmodules_ls",
   "css_variables",
-  -- "emmet_ls",
+  "emmet_ls",
   "astro",
   "svelte",
   "prismals",
