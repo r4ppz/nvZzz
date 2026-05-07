@@ -87,6 +87,10 @@ map({ "n", "v" }, "@", "$", { desc = "Jump to last non-blank character of line" 
 map({ "n", "v" }, "<C-S-Left>", "^", { desc = "Jump to first non-blank character of the line" })
 map({ "n", "v" }, "<C-S-Right>", "g_", { desc = "Jump to last non-blank character of line" })
 
+-- Using Alt instead of Ctrl to avoid terminal conflicts
+map("n", "<A-o>", "<C-o>", { desc = "Jump Back" })
+map("n", "<A-i>", "<C-i>", { desc = "Jump Forward" })
+
 --------------------------------------------------------
 -- Nice
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "Copy whole file" })
