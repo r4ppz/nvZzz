@@ -6,21 +6,32 @@ local hover = require("configs.hover")
 
 map("n", { "<S-C-Up>", "K" }, hover.hover_with_enter, { desc = "Custom Hover" })
 
+-- Silence err
+local function supports_selection_range()
+  local clients = vim.lsp.get_clients({ bufnr = 0 })
+  for _, client in ipairs(clients) do
+    if client:supports_method("textDocument/selectionRange") then
+      return true
+    end
+  end
+  return false
+end
+
 map({ "n", "x", "o" }, "<CR>", function()
   if vim.treesitter.get_parser(nil, nil, { error = false }) then
     require("vim.treesitter._select").select_parent(vim.v.count1)
-  else
+  elseif supports_selection_range() then
     vim.lsp.buf.selection_range(vim.v.count1)
   end
-end, { desc = "Select parent treesitter node or outer incremental lsp selections" })
+end, { desc = "Select parent treesitter node or LSP selection" })
 
 map({ "n", "x", "o" }, "<BS>", function()
   if vim.treesitter.get_parser(nil, nil, { error = false }) then
     require("vim.treesitter._select").select_child(vim.v.count1)
-  else
+  elseif supports_selection_range() then
     vim.lsp.buf.selection_range(-vim.v.count1)
   end
-end, { desc = "Select child treesitter node or inner incremental lsp selections" })
+end, { desc = "Select child treesitter node or LSP selection" })
 
 map("n", "<leader>Lr", "<cmd>lsp restart<cr>", { desc = "Restart LSP" })
 map("n", "<leader>Li", "<cmd>checkhealth vim.lsp<cr>", { desc = "LSP Info" })
