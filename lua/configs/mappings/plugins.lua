@@ -251,10 +251,6 @@ map("v", "<leader>ue", function()
   end
 end, { desc = "Run selected Lua snippet" })
 
--- Experiment
-vim.cmd("packadd nvim.undotree")
-vim.keymap.set("n", "<leader>a", require("undotree").open)
-
 --------------------------------------------------------
 -- Toggle
 map("n", "<leader>tw", function()
