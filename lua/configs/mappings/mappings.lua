@@ -91,7 +91,7 @@ require("configs.mappings.git")
 -- Standard Vim motions/text objects still works fine (ciw, daw, yi(, ci{, etc.).
 -- I try to not remove the default mappings as much as possible for compatibility.
 --
--- The way I edit is this: select first(v) then do something to it, kinda like helix.
+-- The way I edit is this: select first (v or enter) then do something to it, kinda like helix.
 -- My setup is basically mix of vim/helix+vscode/emacs inspired + personal preference.
 --
 -- And I use a 60% QWERTY mechanical keyboard (and sometimes a laptop). So the arrow keys are not that inefficient,

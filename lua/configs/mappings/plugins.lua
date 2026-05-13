@@ -10,7 +10,7 @@ map("n", "<leader>n", "<cmd>enew<CR>", { desc = "Buffer new" })
 
 -- change buffer
 map(
-  { "n", "v" },
+  { "i", "n", "v" },
   "<M-Right>",
   win_util.safe_buf_action(function()
     require("nvchad.tabufline").next()
@@ -18,7 +18,7 @@ map(
   { desc = "Buffer goto next" }
 )
 map(
-  { "n", "v" },
+  { "i", "n", "v" },
   "<M-Left>",
   win_util.safe_buf_action(function()
     require("nvchad.tabufline").prev()
@@ -28,7 +28,7 @@ map(
 
 -- move buffer
 map(
-  { "n", "v" },
+  { "i", "n", "v" },
   "<C-M-Right>",
   win_util.safe_buf_action(function()
     require("nvchad.tabufline").move_buf(1)
@@ -36,7 +36,7 @@ map(
   { desc = "move buffer to the right" }
 )
 map(
-  { "n", "v" },
+  { "i", "n", "v" },
   "<C-M-Left>",
   win_util.safe_buf_action(function()
     require("nvchad.tabufline").move_buf(-1)
