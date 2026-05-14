@@ -226,6 +226,8 @@ map("n", "<leader>uf", function()
   vim.cmd("luafile %")
 end, { desc = "Run current Lua file" })
 
+map("n", "<leader>ub", "<CMD>ToggleBool<CR>", { desc = "Toggle Boolean" })
+
 map("v", "<leader>ue", function()
   local start_pos = vim.fn.getpos("'<")
   local end_pos = vim.fn.getpos("'>")
