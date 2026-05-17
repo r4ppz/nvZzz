@@ -147,6 +147,7 @@ LuaJIT 2.1.1774896198
 - Markdown
 - Hyprland
 - Docker/Docker Compose
+- QML
 
 # Editor & System (Treesitter only)
 - Vim script, Vimdoc, Luadoc, printf, query

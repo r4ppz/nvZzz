@@ -29,6 +29,7 @@ M.server_list = {
   "postgres_lsp",
   "gopls",
 
+  "qmlls",
   "taplo",
   "lua_ls",
   "pyright",

@@ -47,6 +47,7 @@ return {
       "toml",
       "xml",
       "json",
+      "qmljs",
 
       "html",
       "css",
