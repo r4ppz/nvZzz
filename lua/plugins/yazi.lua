@@ -16,9 +16,16 @@ return {
 
   keys = {
     {
-      "<leader>e",
+      "\\",
       "<cmd>Yazi cwd<cr>",
-      desc = "Open Yazi",
+      desc = "Open the file manager in nvim's working directory",
+    },
+
+    {
+      "<leader>e",
+      mode = { "n", "v" },
+      "<cmd>Yazi<cr>",
+      desc = "Open yazi at the current file",
     },
   },
 }
