@@ -1,6 +1,7 @@
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
+  enabled = false, -- use blink instead
   dependencies = {
     {
       "L3MON4D3/LuaSnip",

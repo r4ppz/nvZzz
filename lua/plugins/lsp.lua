@@ -55,12 +55,11 @@ return {
         end,
       },
 
-      "hrsh7th/cmp-nvim-lsp",
       "mfussenegger/nvim-jdtls",
     },
 
     config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
       capabilities.textDocument.completion.completionItem =
         vim.tbl_deep_extend("force", capabilities.textDocument.completion.completionItem or {}, {
           documentationFormat = {
