@@ -1,5 +1,18 @@
 local mygroup = vim.api.nvim_create_augroup("MyPersonalConfig", { clear = true })
 local autocmd = vim.api.nvim_create_autocmd
+local map = require("utils.map")
+
+autocmd("TermOpen", {
+  group = mygroup,
+  desc = "Keep the state of snacks lazygit (toggleble)",
+  pattern = "*",
+  callback = function()
+    local term_title = vim.b.term_title
+    if term_title and term_title:match("lazygit") then
+      map("t", { "<M-g>", "q" }, "<cmd>close<cr>", { buffer = true })
+    end
+  end,
+})
 
 autocmd({
   "BufEnter",
