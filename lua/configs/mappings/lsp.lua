@@ -71,7 +71,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
       desc = "Peek Type Definition",
     })
 
-    map({ "n", "v" }, "<leader>la", "<cmd>Lspsaga code_action<CR>", {
+    map({ "n", "v" }, "<leader>la", function()
+      vim.lsp.buf.code_action()
+    end, {
       buffer = buf,
       desc = "Code Actions",
     })
