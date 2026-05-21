@@ -121,7 +121,7 @@ return {
         },
 
         signature = {
-          enabled = true,
+          enabled = false,
           window = {
             border = "single",
             max_height = 8,
