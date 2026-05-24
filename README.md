@@ -13,7 +13,7 @@ _UI powered by [NvChad](https://nvchad.com/)_
 <details>
 <summary>Features & more screenshots</summary>
 
-> This is just some of the many features
+> These are just some of the many features
 
 AI Integration (Copilot)
 ![AI Integration (Copilot)](img/ai.png)
@@ -84,7 +84,7 @@ Tmux/Hyprland/Waybar config can be found in this repo: [Arch-dotfiles](https://g
 
 ## Install & Use:
 
-> Only works on Linux
+> Only works on Linux (I think)
 
 ```bash
 # Install & run
@@ -104,7 +104,7 @@ Current Neovim version
 ```bash
 ❯ nvim -v
 
-NVIM v0.12.1
+NVIM v0.12.2
 Build type: RelWithDebInfo
 LuaJIT 2.1.1774896198
 ```
@@ -168,7 +168,7 @@ Startup time is still under 1 second (`~23 milliseconds`), so it's super duper f
 Almost all plugins are lazy loaded, meaning they load only when used, not on startup.
 So having many plugins is not really that big of a deal.
 
-```
+```ini
 - folke/lazy.nvim
 - nvchad/base46
 - nvchad/ui
@@ -195,7 +195,6 @@ So having many plugins is not really that big of a deal.
 - nvim-tree/nvim-tree.lua
 - mikavilpas/yazi.nvim
 - folke/snacks.nvim
-- dmtrKovalenko/fff.nvim
 - lewis6991/gitsigns.nvim
 - sindrets/diffview.nvim
 - zbirenbaum/copilot.lua

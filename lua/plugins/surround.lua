@@ -11,8 +11,8 @@ return {
         find_left = "<leader>sF",
         highlight = "<leader>sh",
         replace = "<leader>sr",
-        suffix_last = "l",
-        suffix_next = "n",
+        suffix_last = "<left>",
+        suffix_next = "<right>",
       },
       silent = true,
     })
