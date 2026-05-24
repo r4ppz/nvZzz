@@ -187,7 +187,7 @@ map("n", "<leader>Ld", function()
   end
 end, { desc = "Toggle Diagnostic UI elements" })
 
--- siliced err
+-- Check LSP selection range support
 local function supports_selection_range()
   local clients = vim.lsp.get_clients({ bufnr = 0 })
   for _, client in ipairs(clients) do
@@ -198,6 +198,7 @@ local function supports_selection_range()
   return false
 end
 
+-- Expand/contract selection via treesitter or LSP
 local function handle_incremental_selection(is_expanding)
   local count = vim.v.count1
   local parser = vim.treesitter.get_parser()
@@ -214,10 +215,17 @@ local function handle_incremental_selection(is_expanding)
   end
 end
 
--- Press enter to select the word first
-map("n", "<CR>", "viw", { desc = "Select current word" })
+map("n", "<CR>", function()
+  local col = vim.fn.col(".")
+  local char = vim.fn.getline("."):sub(col, col)
+  if char:match("[%w_]") then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("viw", true, false, true), "n", true)
+  else
+    vim.cmd("normal! v")
+    handle_incremental_selection(true)
+  end
+end, { desc = "Select word or expand selection" })
 
--- Then enter/backspace again to select incrementally up/down
 map({ "x", "o" }, "<CR>", function()
   handle_incremental_selection(true)
 end, { desc = "Select parent treesitter node or LSP selection" })
