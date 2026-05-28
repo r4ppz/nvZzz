@@ -235,40 +235,41 @@ local prompts = {
       Generate a deterministic Conventional Commit message from the staged diff only.
 
       Rules:
-      - Same diff = same message.
-      - Use only visible changes. Do not guess intent.
-      - Ignore unstaged/untracked files.
+      - Use only visible changes from the staged diff. Do not guess intent or future plans.
+      - Ignore all unstaged or untracked files.
+      - Ensure the output contains exactly one commit message.
 
-      Format:
+      Format structure:
       <type>(<scope>): <summary>
 
-      Types:
-      feat, fix, perf, refactor, docs, style, test, build, ci, chore, revert
+      [body]
 
-      Priority:
-      revert > feat > fix > perf > refactor > docs > test > build > ci > style > chore
+      Type instructions:
+      - Choose exactly one from this priority list: revert > feat > fix > perf > refactor > docs > test > build > ci > style > chore.
 
-      Scope:
-      - Use one clear target from package, folder, or filename.
-      - Lowercase kebab-case.
-      - Omit if unclear.
+      Scope instructions:
+      - Use one clear target from the modified package, folder, or filename.
+      - Write in lowercase kebab-case.
+      - Omit the scope and parentheses entirely if a single target is unclear.
 
-      Summary:
-      - Imperative, present tense.
-      - Lowercase.
-      - No period.
-      - Must be less then 70 characters.
-      - Describe primary change only.
+      Summary instructions:
+      - Write in the imperative, present tense.
+      - Write in all lowercase.
+      - Do not end with a period.
+      - Must be fewer than 70 characters.
+      - Describe the primary change only.
 
-      Body:
-      - Add only if needed.
-      - Use past tense
-      - Use bullet lines:
-        - Change/reason
-        - Change/reason
-
-      Do not output more than two conventional commits.
-      Output a single commit message summarizing all changes, combining multiple changes into one if necessary.
+      Body instructions:
+      - Separate the body from the summary line with exactly one blank line.
+      - Write all bullet points in the past tense.
+      - Detail each distinct change and its mechanical reason based on the diff.
+      - Use the exact format below for the body:
+        - Added <new feature, file, or dependency> to <reason>
+        - Updated <existing logic or configuration> to <reason>
+        - Removed <deprecated code, unused variable, or file> to <reason>
+        - Fixed <bug, edge case, or incorrect behavior> where <reason>
+        - Refactored <internal structure> to improve <reason>
+        - Moved <file or function> to <reason>
     ]]),
     description = "Generate conventional commits",
     system_prompt = system_prompt,
