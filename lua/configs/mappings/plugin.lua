@@ -195,7 +195,6 @@ map("v", "<leader>y", "<CMD>CopyPathAndLine<CR>", { desc = "Copy file path & lin
 map({ "n", "v" }, "<leader>ub", "<cmd>BufInfo<CR>", { desc = "Get BufInfo" })
 map({ "n", "v" }, "<leader>uc", "<CMD>OpenConfig<CR>", { desc = "Open Neovim Config" })
 map({ "n", "v" }, "<leader>uh", "<cmd>checkhealth<cr>", { desc = "Check Health" })
-map({ "n", "v" }, "<leader>um", "<cmd>MarkdownPreview<cr>", { desc = "Markdown preview" })
 map({ "n", "v" }, "<leader>uf", function()
   require("conform").format({
     timeout_ms = 1000,
