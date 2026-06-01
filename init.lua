@@ -24,7 +24,7 @@ end
 
 require("configs.options")
 require("configs.cmds")
-require("configs.highlight")
+require("configs.highlights")
 
 vim.schedule(function()
   require("configs.autocmds")

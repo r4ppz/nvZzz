@@ -2,7 +2,7 @@
 
 require("configs.mappings.custom")
 require("configs.mappings.lsp")
-require("configs.mappings.plugins")
+require("configs.mappings.plugin")
 require("configs.mappings.git")
 
 -- Concepts:
