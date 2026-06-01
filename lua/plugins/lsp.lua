@@ -114,7 +114,8 @@ return {
         border = "single",
       },
 
-      stack_limit = 7,
+      stack_limit = 10,
+      select_first = true,
 
       keymaps = {
         close = "q",

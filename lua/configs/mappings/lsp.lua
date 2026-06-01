@@ -68,6 +68,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
       desc = "Peek Definition (lspeek)",
     })
 
+    map("n", { "gT" }, function()
+      require("lspeek").peek_type_definition()
+    end, {
+      buffer = buf,
+      desc = "Peek Definition (lspeek)",
+    })
+
     map({ "n", "v" }, "<leader>la", function()
       vim.lsp.buf.code_action()
     end, {
