@@ -194,6 +194,7 @@ This is why the startup time is under 1 second (`~23 milliseconds`); it's fast a
 - nvim-pack/nvim-spectre
 - nvimdev/dashboard-nvim
 - Bekaboo/dropbar.nvim
+- RRethy/vim-illuminate
 - hedyhli/outline.nvim
 - folke/which-key.nvim
 - nvim-tree/nvim-web-devicons

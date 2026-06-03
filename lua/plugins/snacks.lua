@@ -41,7 +41,10 @@ return {
       line_count = 20000,
     },
 
-    words = {},
+    words = {
+      enabled = false, -- I prefer vim-illuminate
+    },
+
     gh = {},
 
     notifier = {
