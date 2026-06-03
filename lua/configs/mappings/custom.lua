@@ -69,6 +69,7 @@ map("n", "<C-s>", "<cmd>update<cr>", { desc = "Save file" })
 map("v", "<C-s>", "<cmd>update<cr>", { desc = "Save file" })
 map("i", "<C-s>", "<C-o>:update<CR>", { desc = "Save file" })
 
+map("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear highlights" })
 map("n", "<M-Esc>", "<cmd>noh<CR>", { desc = "Clear highlights" })
 
 map("t", "<C-q>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
