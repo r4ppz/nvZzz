@@ -85,6 +85,7 @@ end, {})
 -- Markdown format shortcuts
 cmd("RemoveCite", [[%s/\[cite:.\{-}\]//g]], {})
 cmd("RemoveBold", [[%s/\*\*\(.\{-}\)\*\*/\1/g]], {})
+cmd("RemoveICode", [[%s/`\(.\{-}\)`/\1/g]], {})
 
 cmd("BufInfo", function()
   local ft = vim.bo.filetype

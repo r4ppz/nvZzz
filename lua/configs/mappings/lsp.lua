@@ -1,5 +1,6 @@
 local map = require("utils.map")
 local hover = require("configs.hover")
+local layout = require("utils.layout")
 
 -- LSP-dependent mappings
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -20,28 +21,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       Snacks.picker.lsp_references({
         auto_confirm = false,
         title = "References",
-        layout = {
-          layout = {
-            box = "vertical",
-            row = -1,
-            width = 0,
-            height = 0.5,
-            border = "top",
-            {
-              box = "horizontal",
-              {
-                win = "list",
-                border = "none",
-              },
-              {
-                win = "preview",
-                title = "{preview}",
-                width = 0.5,
-                border = "left",
-              },
-            },
-          },
-        },
+        layout = layout.references,
       })
     end, { buffer = buf, desc = "LSP References (Snacks)" })
 
@@ -93,20 +73,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       Snacks.picker.lsp_incoming_calls({
         auto_confirm = false,
         title = "References",
-        layout = {
-          preview = "main",
-          layout = {
-            backdrop = false,
-            width = 40,
-            min_width = 40,
-            height = 0,
-            position = "right",
-            border = "none",
-            box = "vertical",
-            { win = "list", border = "none" },
-            { win = "preview", title = "{preview}", height = 0.4, border = "top" },
-          },
-        },
+        layout = layout.side,
       })
     end, {
       buffer = buf,
@@ -117,20 +84,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       Snacks.picker.lsp_outgoing_calls({
         auto_confirm = false,
         title = "References",
-        layout = {
-          preview = "main",
-          layout = {
-            backdrop = false,
-            width = 40,
-            min_width = 40,
-            height = 0,
-            position = "right",
-            border = "none",
-            box = "vertical",
-            { win = "list", border = "none" },
-            { win = "preview", title = "{preview}", height = 0.4, border = "top" },
-          },
-        },
+        layout = layout.side,
       })
     end, {
       buffer = buf,

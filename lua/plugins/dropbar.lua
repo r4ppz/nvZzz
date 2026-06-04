@@ -18,6 +18,7 @@ local EXCLUDED_FILETYPES = {
   "conf",
   "bigfile",
   "which-key",
+  "DiffviewFiles",
 }
 
 local function is_valid_source(buf)

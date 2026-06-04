@@ -1,26 +1,4 @@
-local layout = {
-  layout = {
-    box = "vertical",
-    row = -1,
-    width = 0,
-    height = 0.5,
-    border = "top",
-    { win = "input", height = 1, border = "bottom" },
-    {
-      box = "horizontal",
-      {
-        win = "list",
-        border = "none",
-      },
-      {
-        win = "preview",
-        title = "{preview}",
-        width = 0.5,
-        border = "left",
-      },
-    },
-  },
-}
+local layout = require("utils.layout")
 
 return {
   "folke/snacks.nvim",
@@ -162,7 +140,7 @@ return {
         Snacks.picker.grep_buffers({
           auto_confirm = false,
           title = "References",
-          layout = layout,
+          layout = layout.bottom,
         })
       end,
       desc = "Grep Current Buffer (Snacks)",
@@ -206,7 +184,7 @@ return {
         Snacks.picker.grep_buffers({
           auto_confirm = false,
           title = "References",
-          layout = layout,
+          layout = layout.bottom,
         })
       end,
       desc = "Grep Current Buffer (Snacks)",
