@@ -80,6 +80,8 @@ map("v", "<C-_>", "gc", { desc = "toggle comment", remap = true })
 -- Jump last and first char of the line
 map({ "n", "v" }, "!", "0", { desc = "Jump to first non-blank character of the line" })
 map({ "n", "v" }, "@", "$", { desc = "Jump to last non-blank character of line" })
+map({ "n", "v" }, "g<Left>", "0", { desc = "Jump to first non-blank character of the line" })
+map({ "n", "v" }, "g<Right>", "$", { desc = "Jump to last non-blank character of line" })
 map({ "n", "v" }, "<C-S-Left>", "^", { desc = "Jump to first non-blank character of the line" })
 map({ "n", "v" }, "<C-S-Right>", "g_", { desc = "Jump to last non-blank character of line" })
 
