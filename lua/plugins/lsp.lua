@@ -115,7 +115,7 @@ return {
       },
 
       stack_limit = 10,
-      select_first = true,
+      select_first = false,
 
       keymaps = {
         close = "q",
