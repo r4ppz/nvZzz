@@ -192,9 +192,11 @@ end, { desc = "New Terminal Buffer" })
 -- Utilitys
 map("n", "<leader>y", "<CMD>CopyPathAndLine<CR>", { desc = "Copy file path & line number" })
 map("v", "<leader>y", "<CMD>CopyPathAndLine<CR>", { desc = "Copy file path & line range" })
+
 map({ "n", "v" }, "<leader>ub", "<cmd>BufInfo<CR>", { desc = "Get BufInfo" })
 map({ "n", "v" }, "<leader>uc", "<CMD>OpenConfig<CR>", { desc = "Open Neovim Config" })
 map({ "n", "v" }, "<leader>uh", "<cmd>checkhealth<cr>", { desc = "Check Health" })
+
 map({ "n", "v" }, "<leader>uf", function()
   require("conform").format({
     timeout_ms = 1000,
@@ -211,8 +213,8 @@ map("n", "<leader>tw", function()
 end, { desc = "Toggle line wrapping" })
 
 map("n", "<leader>tm", function()
-  vim.o.conceallevel = (vim.o.conceallevel == 3) and 0 or 3
-end, { desc = "Toggle conceallevel" })
+  require("render-markdown").toggle()
+end, { desc = "Toggle markdown rendering" })
 
 ---------------------------------------------------------------------
 map({ "n", "v" }, "<leader>pm", "<cmd>Mason<CR>", { desc = "Mason UI" })

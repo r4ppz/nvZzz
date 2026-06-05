@@ -191,6 +191,7 @@ This is why the startup time is under 1 second (`~23 milliseconds`); it's fast a
 - sindrets/diffview.nvim
 - zbirenbaum/copilot.lua
 - CopilotC-Nvim/CopilotChat.nvim
+- MeanderingProgrammer/render-markdown.nvim
 - nvim-pack/nvim-spectre
 - nvimdev/dashboard-nvim
 - Bekaboo/dropbar.nvim

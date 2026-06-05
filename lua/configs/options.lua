@@ -2,7 +2,7 @@ local opt = vim.opt
 local o = vim.o
 local g = vim.g
 
-opt.conceallevel = 3
+opt.conceallevel = 0
 opt.concealcursor = "nvic"
 
 -- Session
