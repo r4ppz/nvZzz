@@ -17,21 +17,34 @@ return {
     latex = {
       enabled = true,
     },
+
     heading = {
       atx = false,
       icons = { "# ", "## ", "### ", "#### ", "##### ", "###### " },
     },
+
     bullet = {
       icons = { "-", "-", "-", "-" },
     },
+
     code = {
       conceal_delimiters = true,
     },
+
     anti_conceal = {
       enabled = false,
     },
+
     sign = {
       enabled = false,
+    },
+
+    win_options = {
+      conceallevel = { default = vim.o.conceallevel, rendered = 3 },
+    },
+
+    link = {
+      enabled = true,
     },
   },
   ft = { "copilot-chat", "markdown" },

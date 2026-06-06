@@ -5,6 +5,9 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
+    gh = {},
+    image = {},
+
     lazygit = {
       configure = true,
       env = {
@@ -22,8 +25,6 @@ return {
     words = {
       enabled = false, -- I prefer vim-illuminate
     },
-
-    gh = {},
 
     notifier = {
       enabled = false,

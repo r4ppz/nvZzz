@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local buf = args.buf
 
     map("n", { "<S-C-Up>", "K" }, function()
-      vim.lsp.buf.hover({
+      require("configs.hover").hover({
         max_width = 80,
         max_height = 15,
         border = "single",
