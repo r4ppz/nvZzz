@@ -2,11 +2,11 @@
 
 _UI powered by [NvChad](https://nvchad.com/)_
 
-![Neovim Startup](img/startup.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/a1e0edc3-9363-4711-b686-367962971756" />
 
-![Neovim Highlight](img/highlight1.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/1aa9c559-7fc8-4af4-b76e-da39b3c55952" />
 
-![Neovim Highlight](img/highlight2.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/2ec1e452-7223-4fb0-aba8-a6723f7d8e3b" />
 
 ---
 
@@ -16,58 +16,58 @@ _UI powered by [NvChad](https://nvchad.com/)_
 > These are just some of the many features
 
 AI Integration (Copilot)
-![AI Integration (Copilot)](img/ai.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/fa0f5a90-9b39-4893-bb23-6716fc0d9962" />
 
 AI Predefined [Prompts](lua/configs/prompts.lua)
-![AI Prompts](img/prompts.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/c13ea85f-add2-47b9-a646-5f1571d025e1" />
 
 Git Client (LazyGit)
-![Git Client](img/git-client.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/53ae2f2e-6076-4528-b421-feb7cc5baaf0" />
 
 Git DiffView
-![Git DiffView](img/diff.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/1d2f947e-8a4f-4876-b1a5-5ec5a7188a34" />
 
 Git Inline Diff
-![Git Inline Diff](img/inline-diff.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/1a6805b3-d489-4977-a65a-b1adf428be0f" />
 
 Docker Integration (LazyDocker)
-![Docker Integration](img/docker.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/e7caa1b1-d2b2-4391-bfb3-5301349f1d57" />
 
 LSP References
-![LSP References](img/references.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/f909cd0d-8713-4e7c-8b9d-9cde14b1db55" />
 
 LSP Peek Definition
-![LSP Peek Definition](img/peek-definition.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/80f2c00f-1ec8-4ee2-a742-e3a3a0f907fc" />
 
 File Picker (Snacks)
-![File Picker](img/picker.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/ea91167e-228a-49fb-b25b-16fc09527df9" />
 
 Symbols Outline
-![Symbols Outline](img/outline.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/21c800ff-dd25-4728-a9f6-8bea36fe06a7" />
 
 Error Display
-![Error Display](img/error.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/d5a6e02f-4c00-4337-83c4-defbd6cbbce4" />
 
 Docs Hover
-![Docs Hover](img/hover.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/0314ab43-b5a9-46e9-acc0-e9103e42fa5d" />
 
 Completion Menu
-![Completion Menu](img/cmp.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/d3a19bcb-6a0f-471d-931b-f2c7b226209e" />
 
 File Manager (NvimTree)
-![File Manager](img/file-manager.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/b32c6797-94b1-4822-8e75-8abe0302716e" />
 
 File Manager 2 (Yazi)
-![Yazi File Manager](img/yazi.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/861a2ec5-4a5e-4d43-bd8d-c9107e24cd32" />
 
 Floating Terminal
-![Floating Terminal](img/floating-terminal.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/29c070c1-d0da-4a20-99a5-70869aabad19" />
 
 Horizontal Terminal
-![Horizontal Terminal](img/horizontal-terminal.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/3de1e62d-18fe-4c52-b52e-bcf408ca9102" />
 
 Vertical Terminal
-![Vertical Terminal](img/vertical-terminal.png)
+<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/c5f95ca0-caba-4efa-9c08-6ff93e2be5e8" />
 
 </details>
 
