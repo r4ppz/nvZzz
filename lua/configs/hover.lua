@@ -38,6 +38,42 @@ local function remove_escaped_backslashes(text)
   return text:gsub("\\", "")
 end
 
+-- Decodes common HTML entities found in LSP hover responses.
+local function decode_html_entities(text)
+  if not text then
+    return text
+  end
+  local s = text
+  s = s:gsub("&amp;", "&")
+  s = s:gsub("&lt;", "<")
+  s = s:gsub("&gt;", ">")
+  s = s:gsub("&quot;", '"')
+  s = s:gsub("&apos;", "'")
+  s = s:gsub("&nbsp;", " ")
+  s = s:gsub("&mdash;", "—")
+  s = s:gsub("&ndash;", "–")
+  s = s:gsub("&hellip;", "…")
+  s = s:gsub("&larr;", "←")
+  s = s:gsub("&rarr;", "→")
+  s = s:gsub("&harr;", "↔")
+  s = s:gsub("&#(%d+);", function(n)
+    return vim.fn.nr2char(tonumber(n) or 0)
+  end)
+  s = s:gsub("&#x([0-9a-fA-F]+);", function(n)
+    return vim.fn.nr2char(tonumber(n, 16) or 0)
+  end)
+  return s
+end
+
+-- Converts HTML break tags into Markdown horizontal rule placeholders.
+local function convert_html_breaks(text)
+  if not text then
+    return text
+  end
+  -- Handles variations like <br>, <br/>, and <br />
+  return text:gsub("<br%s*/?>", "---")
+end
+
 --- @param params? table
 --- @return fun(client: vim.lsp.Client): lsp.TextDocumentPositionParams
 local function client_positional_params(params)
@@ -216,7 +252,10 @@ function M.hover(config)
     end
 
     for i, line in ipairs(contents) do
-      contents[i] = remove_escaped_backslashes(strip_markdown_links(line))
+      -- Apply my custom parsers
+      contents[i] = strip_markdown_links(
+        decode_html_entities(remove_escaped_backslashes(convert_html_breaks(line)))
+      )
     end
 
     local _, winid = lsp.util.open_floating_preview(contents, format, config)
