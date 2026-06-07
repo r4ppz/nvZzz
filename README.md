@@ -30,6 +30,9 @@ Git DiffView
 Git Inline Diff
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/1a6805b3-d489-4977-a65a-b1adf428be0f" />
 
+Debugger (DAP)
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/5217107a-b253-41ca-ba65-9903c223bc9b" />
+
 Docker Integration (LazyDocker)
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/e7caa1b1-d2b2-4391-bfb3-5301349f1d57" />
 
@@ -54,10 +57,10 @@ Docs Hover
 Completion Menu
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/d3a19bcb-6a0f-471d-931b-f2c7b226209e" />
 
-File Manager (NvimTree)
+File Tree Explorer (NvimTree)
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/b32c6797-94b1-4822-8e75-8abe0302716e" />
 
-File Manager 2 (Yazi)
+File Manager (Yazi)
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/861a2ec5-4a5e-4d43-bd8d-c9107e24cd32" />
 
 Floating Terminal
@@ -164,40 +167,46 @@ So having many plugins is not really that big of a deal.
 
 This is why the startup time is under 1 second (`~23 milliseconds`); it's fast asf compared to VSCode or other IDEs.
 
-```ini
-- folke/lazy.nvim
-- nvchad/base46
-- nvchad/ui
-- neovim/nvim-lspconfig
-- williamboman/mason.nvim
-- williamboman/mason-lspconfig.nvim
-- folke/trouble.nvim
-- r4ppz/lspeek.nvim
-- mfussenegger/nvim-lint
-- stevearc/conform.nvim
-- nvim-treesitter/nvim-treesitter
-- chentoast/marks.nvim
-- saghen/blink.cmp
-- L3MON4D3/LuaSnip
-- rafamadriz/friendly-snippets
-- windwp/nvim-autopairs
-- nvim-mini/mini.surround
-- andymass/vim-matchup
-- lukas-reineke/indent-blankline.nvim
-- nvim-tree/nvim-tree.lua
-- mikavilpas/yazi.nvim
-- folke/snacks.nvim
-- lewis6991/gitsigns.nvim
-- sindrets/diffview.nvim
-- zbirenbaum/copilot.lua
-- CopilotC-Nvim/CopilotChat.nvim
-- MeanderingProgrammer/render-markdown.nvim
-- nvim-pack/nvim-spectre
-- nvimdev/dashboard-nvim
-- Bekaboo/dropbar.nvim
-- RRethy/vim-illuminate
-- hedyhli/outline.nvim
-- folke/which-key.nvim
-- nvim-tree/nvim-web-devicons
-- nvim-lua/plenary.nvim
-```
+| Plugin                                    | Description                                  |
+| ----------------------------------------- | -------------------------------------------- |
+| folke/lazy.nvim                           | Plugin manager (lazy loading)                |
+| folke/snacks.nvim                         | Snacks plugin collection                     |
+| nvchad/base46                             | NvChad theme plugin                          |
+| nvchad/ui                                 | NvChad UI plugin                             |
+| neovim/nvim-lspconfig                     | LSP configuration framework                  |
+| nvim-treesitter/nvim-treesitter           | Better syntax parsing                        |
+| mfussenegger/nvim-lint                    | Async linting engine                         |
+| stevearc/conform.nvim                     | Code formatting engine                       |
+| saghen/blink.cmp                          | Completion engine                            |
+| L3MON4D3/LuaSnip                          | Snippet engine                               |
+| rafamadriz/friendly-snippets              | Collection of snippets                       |
+| williamboman/mason.nvim                   | Package manager for LSP/DAP/Linter/Formatter |
+| williamboman/mason-lspconfig.nvim         | Auto-install LSP servers                     |
+| jay-babu/mason-nvim-dap.nvim              | Auto-install DAP adapters                    |
+| folke/trouble.nvim                        | Diagnostics and references list              |
+| r4ppz/lspeek.nvim                         | Peek LSP Definitions                         |
+| Bekaboo/dropbar.nvim                      | Winbar with breadcrumbs                      |
+| hedyhli/outline.nvim                      | Symbols outline panel                        |
+| lewis6991/gitsigns.nvim                   | Git signs in gutter                          |
+| sindrets/diffview.nvim                    | Git diff viewer                              |
+| CopilotC-Nvim/CopilotChat.nvim            | Copilot chat interface                       |
+| mfussenegger/nvim-dap                     | Debug Adapter Protocol client                |
+| rcarriga/nvim-dap-ui                      | DAP debugging interface                      |
+| theHamsta/nvim-dap-virtual-text           | Inline variable display                      |
+| jbyuki/one-small-step-for-vimkind         | Debug Neovim Lua code                        |
+| windwp/nvim-autopairs                     | Auto-close brackets and quotes               |
+| nvim-mini/mini.surround                   | Surround, delete, change pairs               |
+| andymass/vim-matchup                      | Extended match navigation                    |
+| lukas-reineke/indent-blankline.nvim       | Indent guide lines                           |
+| chentoast/marks.nvim                      | Visual mark manager                          |
+| RRethy/vim-illuminate                     | Highlight word under cursor                  |
+| nvim-tree/nvim-tree.lua                   | File tree explorer                           |
+| mikavilpas/yazi.nvim                      | File manager (Yazi)                          |
+| nvim-pack/nvim-spectre                    | Better search and replace                    |
+| nvimdev/dashboard-nvim                    | Startup dashboard                            |
+| folke/which-key.nvim                      | Keymap popup helper                          |
+| MeanderingProgrammer/render-markdown.nvim | Improve viewing markdown                     |
+| zbirenbaum/copilot.lua                    | Copilot integration                          |
+| nvim-lua/plenary.nvim                     | Lua utility functions                        |
+| nvim-neotest/nvim-nio                     | Async IO library                             |
+| nvim-tree/nvim-web-devicons               | Nerd font icons                              |
