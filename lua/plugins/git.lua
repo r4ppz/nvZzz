@@ -42,7 +42,7 @@ return {
     },
   },
   {
-    "dlyongemallo/diffview.nvim",
+    "dlyongemallo/diffview-plus.nvim",
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     opts = {
       view = {
