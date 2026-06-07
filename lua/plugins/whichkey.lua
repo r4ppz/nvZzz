@@ -16,7 +16,7 @@ return {
       { "<leader>u", group = "Utils", icon = "󰏖" },
       { "<leader>F", group = "Grep", icon = "󰘳" },
       { "<leader>s", group = "Surround", icon = "" },
-      { "<leader>d", group = "Diff", icon = "" },
+      { "<leader>d", group = "DAP", icon = "" },
       { "<leader>p", group = "Plugin", icon = "󰍹" },
       { "<leader>t", group = "Toggle", icon = "" },
 
