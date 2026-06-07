@@ -135,11 +135,21 @@ map("n", "<leader>ls", function()
 end, { desc = "Toggle Outline Symbol" })
 
 local diagnostics_visible = false
+
+-- Icon map once
+local diagnostic_icons = {
+  [vim.diagnostic.severity.ERROR] = " ",
+  [vim.diagnostic.severity.WARN] = " ",
+  [vim.diagnostic.severity.INFO] = " ",
+  [vim.diagnostic.severity.HINT] = " ",
+}
+
 map("n", "<leader>Ld", function()
   diagnostics_visible = not diagnostics_visible
 
   vim.diagnostic.config({
-    signs = diagnostics_visible,
+    -- When true, passes the icon table; when false, disables signs completely
+    signs = diagnostics_visible and { text = diagnostic_icons } or false,
     underline = diagnostics_visible,
 
     virtual_text = false,
@@ -147,7 +157,7 @@ map("n", "<leader>Ld", function()
   })
 
   if diagnostics_visible then
-    print("Diagnostics Enabled (Signs/Underline)")
+    print("Diagnostics Enabled (Icons/Underline)")
   else
     print("Diagnostics Silenced")
   end

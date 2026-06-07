@@ -57,6 +57,7 @@ return {
           },
         })
 
+      -- Set the default initial state (Disabled)
       vim.diagnostic.config({
         virtual_text = false,
         signs = false,
