@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup(dap)
-  local mason_path = vim.fn.stdpath("data") .. "/mason/packages/local-lua-debugger-vscode"
+  local mason_path = require("utils.system").mason_package("local-lua-debugger-vscode")
 
   dap.adapters["local-lua"] = {
     type = "executable",

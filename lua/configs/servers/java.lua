@@ -6,7 +6,7 @@ function M.setup(capabilities)
   local workspace_dir = vim.fn.expand("~/.local/share/jdtls-workspace/" .. project_name)
 
   local java_home = os.getenv("JAVA_HOME")
-  local mason = vim.fn.stdpath("data") .. "/mason"
+  local mason = require("utils.system").mason_root()
   local lombok_jar = vim.fn.expand(mason .. "/share/jdtls/lombok.jar")
 
   -- Find the Equinox launcher once; abort early if not found
