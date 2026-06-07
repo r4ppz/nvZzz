@@ -9,6 +9,7 @@ return {
         path = "ui/nvchad_types",
         words = { "nvchad", "NvChad", "chadrc" },
       },
+      "nvim-dap-ui",
     },
   },
 }

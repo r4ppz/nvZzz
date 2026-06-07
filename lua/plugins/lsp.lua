@@ -25,7 +25,7 @@ return {
       {
         "mason-org/mason-lspconfig.nvim",
         opts = {
-          ensure_installed = servers.server_list,
+          ensure_installed = servers.lsp_list,
           automatic_enable = false,
         },
       },
@@ -78,11 +78,11 @@ return {
         servers.setup(capabilities)
 
         -- Enable all listed servers
-        for _, s in ipairs(servers.server_list) do
+        for _, s in ipairs(servers.lsp_list) do
           vim.lsp.enable(s)
         end
 
-        for _, s in ipairs(servers.non_mason_server_list or {}) do
+        for _, s in ipairs(servers.non_mason_lsp_list or {}) do
           vim.lsp.enable(s)
         end
       end

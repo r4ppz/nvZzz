@@ -1,10 +1,10 @@
 local M = {}
 
-M.non_mason_server_list = {
+M.non_mason_lsp_list = {
   -- "qml-language-server",
 }
 
-M.server_list = {
+M.lsp_list = {
   -- FRONTEND
   "html",
   "cssls",
