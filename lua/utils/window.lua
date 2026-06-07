@@ -9,6 +9,12 @@ local SIDE_PANEL_FTS = {
   "NvTerm_vsp",
   "NvTerm_float",
   "spectre_panel",
+  "dapui_console",
+  "dap-repl",
+  "dapui_watches",
+  "dapui_stacks",
+  "dapui_breakpoints",
+  "dapui_scopes",
 }
 
 local EXCLUDED_FILETYPES = {
@@ -18,6 +24,12 @@ local EXCLUDED_FILETYPES = {
   "Outline",
   "spectre_panel",
   "trouble",
+  "dapui_console",
+  "dap-repl",
+  "dapui_watches",
+  "dapui_stacks",
+  "dapui_breakpoints",
+  "dapui_scopes",
 }
 
 local EXCLUDED_BUFTYPES = {
