@@ -71,13 +71,6 @@ return {
       numhl = "",
     })
 
-    vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "#e51400", bg = "NONE" })
-    vim.api.nvim_set_hl(0, "DapBreakpointCondition", { fg = "#f5a623", bg = "NONE" })
-    vim.api.nvim_set_hl(0, "DapBreakpointRejected", { fg = "#888888", bg = "NONE" })
-    vim.api.nvim_set_hl(0, "DapLogPoint", { fg = "#61afef", bg = "NONE" })
-    vim.api.nvim_set_hl(0, "DapStopped", { fg = "#98c379", bg = "NONE" })
-    vim.api.nvim_set_hl(0, "DapStoppedLine", { bg = "#2a2d3e" })
-
     require("configs.debuggers.debuggers").setup()
   end,
 
