@@ -1,5 +1,5 @@
--- Code copied from Neovim core (LSP hover). I don't own this.
--- I just duplicated it here to insert some custom post-parsing logic before rendering.
+-- Code copied from Neovim core (LSP hover). I just duplicated it
+-- here to insert some custom post-parsing logic before rendering.
 
 local api = vim.api
 local lsp = vim.lsp
@@ -73,6 +73,8 @@ local function convert_html_breaks(text)
   -- Handles variations like <br>, <br/>, and <br />
   return text:gsub("<br%s*/?>", "---")
 end
+
+-- =======================================================================================
 
 --- @param params? table
 --- @return fun(client: vim.lsp.Client): lsp.TextDocumentPositionParams

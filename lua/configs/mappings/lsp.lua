@@ -15,6 +15,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
       })
     end, { buffer = buf, desc = "Hover" })
 
+    map("n", "<leader>lr", function()
+      require("configs.rename").rename()
+    end, {
+      buffer = buf,
+      desc = "Rename Symbol",
+    })
+
     map("n", "gR", function()
       require("trouble").toggle({ mode = "lsp_references", source = "lsp.references" })
     end, {
@@ -65,13 +72,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, {
       buffer = buf,
       desc = "Code Actions",
-    })
-
-    map("n", "<leader>lr", function()
-      require("nvchad.lsp.renamer")()
-    end, {
-      buffer = buf,
-      desc = "Rename Symbol",
     })
 
     map("n", "<leader>li", function()
