@@ -31,6 +31,10 @@ o.clipboard = "unnamedplus"
 o.cursorlineopt = "number"
 o.inccommand = "nosplit"
 
+o.foldmethod = "expr"
+o.foldexpr = "nvim_treesitter#foldexpr()"
+o.foldlevelstart = 99
+
 opt.smarttab = true
 opt.fillchars = { eob = " " }
 opt.pumheight = 15
