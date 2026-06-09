@@ -4,6 +4,16 @@ local map = require("utils.map")
 -- Personal?!!
 --------------------------------------------------------
 
+-- Toggle a fold
+map("n", "<Tab>", "za", { desc = "Toggle fold under cursor" })
+map("n", "<S-Tab>", function()
+  if vim.wo.foldlevel == 0 then
+    vim.cmd("normal! zR")
+  else
+    vim.cmd("normal! zM")
+  end
+end, { desc = "Toggle all folds in buffer" })
+
 -- Move line Up/Down
 map("n", "<C-A-Up>", ":m .-2<CR>==<C-l>", { desc = "Move line up" })
 map("n", "<C-A-Down>", ":m .+1<CR>==<C-l>", { desc = "Move line down" })
@@ -100,9 +110,8 @@ map("n", "<C-a>", "ggVG", { desc = "Select all" })
 map("n", "tn", "<cmd>tabnew<CR>", { desc = "New tab" })
 map("n", "tQ", "<cmd>tabonly<CR>", { desc = "Close all other tabs" })
 map("n", "tq", "<cmd>tabclose<CR>", { desc = "Close tab" })
-
-map("n", { "t<Right>", "<Tab>" }, "<cmd>tabnext<CR>", { desc = "Next tab" })
-map("n", { "t<Left>", "<S-Tab>" }, "<cmd>tabprevious<CR>", { desc = "Previous tab" })
+map("n", { "t<Right>" }, "<cmd>tabnext<CR>", { desc = "Next tab" })
+map("n", { "t<Left>" }, "<cmd>tabprevious<CR>", { desc = "Previous tab" })
 
 --------------------------------------------------------
 
