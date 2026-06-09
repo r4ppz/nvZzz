@@ -45,10 +45,24 @@ return {
     "dlyongemallo/diffview-plus.nvim",
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     opts = {
+      hooks = {
+        diff_buf_win_enter = function(_, winid)
+          if vim.wo[winid].winbar == "%{%v:lua.dropbar()%}" then
+            vim.wo[winid].winbar = ""
+          end
+        end,
+      },
+
+      clean_up_buffers = true,
+      auto_close_on_empty = true,
+
       view = {
         merge_tool = {
           layout = "diff3_mixed",
+          winbar_info = false,
         },
+        default = { winbar_info = false },
+        file_history = { winbar_info = false },
       },
       keymaps = {
         view = {
