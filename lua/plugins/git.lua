@@ -53,8 +53,22 @@ return {
         end,
       },
 
+      status_icons = {
+        ["A"] = "✓", -- Added to index (Staged)
+        ["?"] = "★", -- Untracked
+        ["M"] = "✗", -- Modified in working tree (Unstaged)
+        ["R"] = "➜", -- Renamed
+        ["C"] = "✓", -- Copied (treated as a type of staged addition)
+        ["T"] = "✗", -- Type changed (Unstaged metadata mutation)
+        ["U"] = "", -- Unmerged (Conflict)
+        ["D"] = "", -- Deleted
+        ["B"] = "✗", -- Broken/Incomplete (Unstaged error state)
+        ["!"] = "◌", -- Ignored
+      },
+
+      use_icons = true,
+      enhanced_diff_hl = true,
       clean_up_buffers = true,
-      auto_close_on_empty = true,
 
       view = {
         merge_tool = {
@@ -64,6 +78,7 @@ return {
         default = { winbar_info = false },
         file_history = { winbar_info = false },
       },
+
       keymaps = {
         view = {
           { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
@@ -71,6 +86,23 @@ return {
 
           { "n", "<tab>", false },
           { "n", "<s-tab>", false },
+
+          {
+            "n",
+            "<M-Right>",
+            function()
+              require("diffview.actions").select_next_entry()
+            end,
+            { desc = "Open the diff for the next file" },
+          },
+          {
+            "n",
+            "<M-Left>",
+            function()
+              require("diffview.actions").select_prev_entry()
+            end,
+            { desc = "Open the diff for the previous file" },
+          },
         },
         file_panel = {
           { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
@@ -79,6 +111,23 @@ return {
 
           { "n", "<tab>", false },
           { "n", "<s-tab>", false },
+
+          {
+            "n",
+            "<M-Right>",
+            function()
+              require("diffview.actions").select_next_entry()
+            end,
+            { desc = "Open the diff for the next file" },
+          },
+          {
+            "n",
+            "<M-Left>",
+            function()
+              require("diffview.actions").select_prev_entry()
+            end,
+            { desc = "Open the diff for the previous file" },
+          },
         },
         file_history_panel = {
           { "n", "q", "<cmd>DiffviewClose<cr>", { desc = "Close Diffview" } },
@@ -86,6 +135,23 @@ return {
 
           { "n", "<tab>", false },
           { "n", "<s-tab>", false },
+
+          {
+            "n",
+            "<M-Right>",
+            function()
+              require("diffview.actions").select_next_entry()
+            end,
+            { desc = "Open the diff for the next file" },
+          },
+          {
+            "n",
+            "<M-Left>",
+            function()
+              require("diffview.actions").select_prev_entry()
+            end,
+            { desc = "Open the diff for the previous file" },
+          },
         },
       },
     },
