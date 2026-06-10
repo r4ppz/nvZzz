@@ -102,7 +102,7 @@ map("n", "<A-i>", "<C-i>", { desc = "Jump Forward" })
 
 --------------------------------------------------------
 -- Nice
-map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "Copy whole file" })
+map({ "n", "v" }, "<C-c>", "<cmd>%y+<CR>", { desc = "Copy whole file" })
 map("n", "<C-a>", "ggVG", { desc = "Select all" })
 
 --------------------------------------------------------
