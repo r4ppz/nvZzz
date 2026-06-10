@@ -162,7 +162,6 @@ map({ "n", "v" }, "D", '"_D', { desc = "Delete to end of line without yanking" }
 -- what the fuck am I doing?
 map("n", "X", "D", { desc = "Cut line" })
 map("n", "xx", "dd", { desc = "Cut line" })
-map("n", "x", "d", { desc = "Cut line" })
 
 -- Highlights the word without jumping to the next occurrence.
 -- Uses case-insensitive search and enables 'hlsearch'.
