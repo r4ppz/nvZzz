@@ -76,8 +76,7 @@ opt.mousemodel = "extend"
 
 -- Performance
 o.updatetime = 300
-o.lazyredraw = true
-o.ttyfast = true
+
 o.fdo = "search,tag,insert,undo"
 o.synmaxcol = 200
 o.timeoutlen = 300

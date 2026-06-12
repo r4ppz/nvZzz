@@ -2,7 +2,7 @@
 
 _UI powered by [NvChad](https://nvchad.com/)_
 
-<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/a1e0edc3-9363-4711-b686-367962971756" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/b95c6e87-6a39-4e2a-832a-18a650925cb9" />
 
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/1aa9c559-7fc8-4af4-b76e-da39b3c55952" />
 
@@ -163,9 +163,8 @@ LuaJIT 2.1.1774896198
 ## Plugins Used:
 
 Almost all plugins are lazy loaded, meaning they load only when used, not on startup.
-So having many plugins is not really that big of a deal.
 
-This is why the startup time is under 1 second (`~23 milliseconds`); it's fast asf compared to VSCode or other IDEs.
+This is why the startup time is under 1 second (`~15 milliseconds`); it's fast asf compared to VSCode or other IDEs.
 
 | Plugin                                    | Description                                  |
 | ----------------------------------------- | -------------------------------------------- |
@@ -203,7 +202,6 @@ This is why the startup time is under 1 second (`~23 milliseconds`); it's fast a
 | nvim-tree/nvim-tree.lua                   | File tree explorer                           |
 | mikavilpas/yazi.nvim                      | File manager (Yazi)                          |
 | nvim-pack/nvim-spectre                    | Better search and replace                    |
-| nvimdev/dashboard-nvim                    | Startup dashboard                            |
 | folke/which-key.nvim                      | Keymap popup helper                          |
 | MeanderingProgrammer/render-markdown.nvim | Improve viewing markdown                     |
 | zbirenbaum/copilot.lua                    | Copilot integration                          |

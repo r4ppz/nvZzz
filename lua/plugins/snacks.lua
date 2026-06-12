@@ -1,4 +1,5 @@
 local layout = require("utils.layout")
+local logo_header = require("utils.logo")
 
 return {
   "folke/snacks.nvim",
@@ -31,6 +32,17 @@ return {
       level = vim.log.levels.TRACE,
       top_down = true,
       margin = { top = 1, right = 1, bottom = 0 },
+    },
+
+    dashboard = {
+      enabled = true,
+      preset = {
+        header = logo_header,
+      },
+      sections = {
+        { section = "header" },
+        { section = "startup" },
+      },
     },
 
     picker = {

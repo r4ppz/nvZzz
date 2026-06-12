@@ -32,30 +32,27 @@ return {
     },
 
     config = function()
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
-      capabilities.textDocument.completion.completionItem =
-        vim.tbl_deep_extend("force", capabilities.textDocument.completion.completionItem or {}, {
-          documentationFormat = {
-            "markdown",
-            "plaintext",
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.completion.completionItem = {
+        documentationFormat = {
+          "markdown",
+          "plaintext",
+        },
+        snippetSupport = true,
+        preselectSupport = true,
+        insertReplaceSupport = true,
+        labelDetailsSupport = true,
+        deprecatedSupport = true,
+        commitCharactersSupport = true,
+        tagSupport = { valueSet = { 1 } },
+        resolveSupport = {
+          properties = {
+            "documentation",
+            "detail",
+            "additionalTextEdits",
           },
-          snippetSupport = true,
-          preselectSupport = true,
-          insertReplaceSupport = true,
-          labelDetailsSupport = true,
-          deprecatedSupport = true,
-          commitCharactersSupport = true,
-          tagSupport = {
-            valueSet = { 1 },
-          },
-          resolveSupport = {
-            properties = {
-              "documentation",
-              "detail",
-              "additionalTextEdits",
-            },
-          },
-        })
+        },
+      }
 
       -- Set the default initial state (Disabled)
       vim.diagnostic.config({
@@ -68,28 +65,23 @@ return {
       -- Use colorify intsread
       vim.lsp.document_color.enable(false, nil, { style = "virtual" })
 
-      local function setup()
-        -- Default configurations for all servers
-        vim.lsp.config("*", {
-          capabilities = capabilities,
-          root_markers = { ".git" },
-        })
+      -- Default configurations for all servers
+      vim.lsp.config("*", {
+        capabilities = capabilities,
+        root_markers = { ".git" },
+      })
 
-        -- Server-specific configurations
-        servers.setup(capabilities)
+      -- Server-specific configurations
+      servers.setup(capabilities)
 
-        -- Enable all listed servers
-        for _, s in ipairs(servers.lsp_list) do
-          vim.lsp.enable(s)
-        end
-
-        for _, s in ipairs(servers.non_mason_lsp_list or {}) do
-          vim.lsp.enable(s)
-        end
+      -- Enable all listed servers
+      for _, s in ipairs(servers.lsp_list) do
+        vim.lsp.enable(s)
       end
 
-      -- Run setup
-      vim.schedule(setup)
+      for _, s in ipairs(servers.non_mason_lsp_list or {}) do
+        vim.lsp.enable(s)
+      end
     end,
   },
 

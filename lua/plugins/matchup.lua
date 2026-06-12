@@ -1,6 +1,6 @@
 return {
   "andymass/vim-matchup",
-  event = { "BufReadPost", "BufWinEnter" },
+  event = "VeryLazy",
   config = function()
     vim.g.matchup_matchparen_offscreen = {}
     vim.g.matchup_matchparen_enabled = 1
