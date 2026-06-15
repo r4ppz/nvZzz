@@ -208,3 +208,7 @@ end, { desc = "Select parent treesitter node or LSP selection" })
 map({ "x", "o" }, "<BS>", function()
   handle_incremental_selection(false)
 end, { desc = "Select child treesitter node or LSP selection" })
+
+-- This is pretty convenient lol
+map({ "n" }, "<S-CR>", "yiw", { desc = "Yank inner word" })
+map({ "v" }, "<S-CR>", "y", { desc = "Yank selection" })
