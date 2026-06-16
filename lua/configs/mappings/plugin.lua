@@ -86,15 +86,18 @@ local function map_close_terminal(config, extra_key)
   end
 end
 
-map({ "n", "t" }, "<A-w>", function()
+map({ "n", "t" }, "<M-w>", function()
   local config = {
     pos = "float",
     id = "float_term",
   }
 
-  win_util.focus_main_window()
-  require("nvchad.term").toggle(config)
-  map_close_terminal(config)
+  win_util.toggle_panel(function()
+    win_util.focus_main_window()
+    require("nvchad.term").toggle(config)
+  end, "NvTerm_float")
+
+  map_close_terminal(config, "<M-g>")
 end, { desc = "Toggle Floating Terminal" })
 
 map({ "n", "t" }, "<M-b>", function()
@@ -147,8 +150,11 @@ map({ "n", "t" }, "<M-S-d>", function()
     cmd = "lazydocker",
   }
 
-  win_util.focus_main_window()
-  require("nvchad.term").toggle(config)
+  win_util.toggle_panel(function()
+    win_util.focus_main_window()
+    require("nvchad.term").toggle(config)
+  end, "snacks_terminal")
+
   map_close_terminal(config, "q")
 end, { desc = "Toggle LazyDocker" })
 

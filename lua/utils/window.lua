@@ -15,6 +15,7 @@ local SIDE_PANEL_FTS = {
   "dapui_stacks",
   "dapui_breakpoints",
   "dapui_scopes",
+  "snacks_terminal",
 }
 
 local EXCLUDED_FILETYPES = {
