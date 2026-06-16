@@ -42,6 +42,9 @@ end, { desc = "Preview Hunk Inline (GitSign)" })
 map("n", "<leader>gb", function()
   require("gitsigns").blame_line({ full = true })
 end, { desc = "Blame Line (GitSign)" })
+map("n", "<leader>gB", function()
+  require("gitsigns").blame()
+end, { desc = "Blame (GitSign)" })
 
 -- DiffView
 map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", {
