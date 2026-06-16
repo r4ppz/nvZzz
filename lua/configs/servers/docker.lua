@@ -8,18 +8,14 @@ function M.setup(capabilities)
       "docker-compose.yml",
       "compose.yaml",
       "compose.yml",
-      "dockerfile",
     },
-    filetypes = { "dockerfile" },
+    filetypes = { "yaml.docker.compose" },
   })
 
   vim.lsp.config("dockerls", {
     capabilities = capabilities,
     root_markers = {
-      "docker-compose.yaml",
-      "docker-compose.yml",
-      "compose.yaml",
-      "compose.yml",
+      "Dockerfile",
       "dockerfile",
     },
     filetypes = { "dockerfile" },

@@ -45,6 +45,24 @@ M.lsp_list = {
 }
 
 function M.setup(capabilities)
+  -- Filetypes fixes
+  vim.filetype.add({
+    pattern = {
+      ["docker%-compose%.ya?ml"] = "yaml.docker-compose",
+      ["compose%.ya?ml"] = "yaml.docker.compose",
+      [".*gitlab%-ci%.ya?ml"] = "yaml.gitlab",
+      [".*values%.ya?ml"] = "yaml.helm-values",
+    },
+
+    extension = {
+      tmpl = "gotmpl",
+      gotmpl = "gotmpl",
+      xsl = "xsl",
+      mdx = "markdown.mdx",
+      qmljs = "qmljs",
+    },
+  })
+
   local config_dir = vim.fn.stdpath("config") .. "/lua/configs/servers"
   if vim.fn.isdirectory(config_dir) ~= 1 then
     return
