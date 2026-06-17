@@ -33,7 +33,6 @@ local function open_floating_input(opts, on_confirm)
   vim.wo[win].winhighlight = "FloatTitle:Normal"
 
   api.nvim_buf_set_lines(buf, 0, -1, false, { default_text })
-  vim.cmd("startinsert!")
 
   local function close_win()
     if api.nvim_win_is_valid(win) then
@@ -42,13 +41,13 @@ local function open_floating_input(opts, on_confirm)
     vim.cmd("stopinsert")
   end
 
-  vim.keymap.set("i", "<CR>", function()
+  vim.keymap.set({ "i", "n" }, "<CR>", function()
     local lines = api.nvim_buf_get_lines(buf, 0, -1, false)
     close_win()
     on_confirm(lines[1] and lines[1] ~= "" and lines[1] or nil)
   end, { buffer = buf, silent = true })
 
-  vim.keymap.set({ "i", "n" }, "<Esc>", function()
+  vim.keymap.set("n", "q", function()
     close_win()
     on_confirm(nil)
   end, { buffer = buf, silent = true })
