@@ -80,6 +80,7 @@ return {
 
           local disabled = {
             ["copilot-chat"] = true,
+            ["grug-far"] = true,
             markdown = true,
             snacks_picker_input = true,
             TelescopePrompt = true,

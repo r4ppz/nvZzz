@@ -7,7 +7,9 @@ return {
   lazy = false,
   opts = {
     gh = {},
-    image = {},
+    image = {
+      enabled = false,
+    },
 
     lazygit = {
       configure = true,

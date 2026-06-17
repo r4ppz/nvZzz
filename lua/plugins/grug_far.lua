@@ -10,6 +10,10 @@ return {
     helpLine = {
       enabled = false,
     },
+    folding = {
+      enabled = false,
+    },
+    resultLocation = { showNumberLabel = false },
     engines = {
       ripgrep = { placeholders = { enabled = false } },
       astgrep = { placeholders = { enabled = false } },
@@ -23,7 +27,7 @@ return {
   },
   keys = {
     {
-      "<leader>R",
+      "<leader>rs",
       function()
         require("utils.window").toggle_panel(function()
           local grug_far = require("grug-far")
@@ -38,7 +42,7 @@ return {
         end, "grug-far")
       end,
       mode = { "v", "n" },
-      desc = "Toggle Grug Far",
+      desc = "Grug Far",
     },
     {
       "<leader>rr",
@@ -57,7 +61,7 @@ return {
         end, "grug-far")
       end,
       mode = { "n", "v" },
-      desc = "Grug Far: Search on current file",
+      desc = "Grug Far (current file)",
     },
     {
       "<leader>rw",
@@ -79,7 +83,7 @@ return {
         end, "grug-far")
       end,
       mode = { "n", "v" },
-      desc = "Grug Far: replace word",
+      desc = "Grug Far (replace word)",
     },
   },
 }

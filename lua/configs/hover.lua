@@ -286,6 +286,7 @@ function M.hover(config)
         split = dir,
         win = orig_win,
       })
+      vim.wo[new_win].wrap = true
       vim.wo[new_win].number = false
       vim.wo[new_win].signcolumn = "no"
     end
