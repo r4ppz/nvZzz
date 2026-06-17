@@ -210,5 +210,26 @@ map({ "x", "o" }, "<BS>", function()
 end, { desc = "Select child treesitter node or LSP selection" })
 
 -- This is pretty convenient lol
-map({ "n" }, "<S-CR>", "yiw", { desc = "Yank inner word" })
-map({ "v" }, "<S-CR>", "y", { desc = "Yank selection" })
+map(
+  "n",
+  "<S-CR>",
+  (function()
+    local threshold_ns = 200 * 1000000
+    local last_press_time = 0
+
+    return function()
+      local current_time = vim.uv.hrtime()
+      local diff = current_time - last_press_time
+      last_press_time = current_time
+
+      if diff < threshold_ns then
+        vim.cmd("normal! yy")
+      else
+        vim.cmd("normal! yiw")
+      end
+    end
+  end)(),
+  { desc = "Yank word (single press) or line (double press)" }
+)
+
+map("v", "<S-CR>", "y", { desc = "Yank selection" })
