@@ -8,70 +8,89 @@ local util = require("vim.lsp.util")
 
 local M = {}
 
--- Converts all variations of Markdown links into inline code blocks containing their display text.
+-- =======================================================================================
+-- Custom post-processing: normalizes raw LSP hover Markdown before display.
+-- =======================================================================================
+
+--- Patterns matching the various ways Markdown can express a link/image,
+--- each rewritten as inline code containing just the display text.
+local MARKDOWN_LINK_PATTERNS = {
+  "%!?%[([^%]]-)%]%([^%)]-%)", -- [text](url) / ![alt](url)
+  "%[([^%]]-)%]%s*%[[^%]]-%]", -- [text][id]  (reference links)
+  "<([%a%d%+%.-]+://[^>]-)>", -- <https://example.com>  (URI autolink)
+  "<([^>]+@[^>]-)>", -- <user@example.com>      (email autolink)
+}
+
+--- Converts all variations of Markdown links into inline code blocks
+--- containing their display text.
 local function strip_markdown_links(text)
-  if not text then
-    return text
+  for _, pattern in ipairs(MARKDOWN_LINK_PATTERNS) do
+    text = text:gsub(pattern, "`%1`")
   end
-  local s = text
-
-  -- Standard inline links and images: [text](url) -> `text`
-  s = s:gsub("%!?%[([^%]]-)%]%([^%)]-%)", "`%1`")
-
-  -- Reference links: [text][id] -> `text`
-  s = s:gsub("%[([^%]]-)%]%s*%[[^%]]-%]", "`%1`")
-
-  -- URI Autolinks: <https://example.com> -> `https://example.com`
-  s = s:gsub("<([%a%d%+%.-]+://[^>]-)>", "`%1`")
-
-  -- Email Autolinks: <user@example.com> -> `user@example.com`
-  s = s:gsub("<([^>]+@[^>]-)>", "`%1`")
-
-  return s
+  return text
 end
 
--- Removes literal backslashes used to escape characters in the raw Markdown source.
+--- Removes literal backslashes used to escape characters in the raw
+--- Markdown source.
 local function remove_escaped_backslashes(text)
-  if not text then
-    return text
-  end
   return text:gsub("\\", "")
 end
 
--- Decodes common HTML entities found in LSP hover responses.
+--- Named HTML entities that decode to a single literal replacement.
+local HTML_NAMED_ENTITIES = {
+  { "&amp;", "&" },
+  { "&lt;", "<" },
+  { "&gt;", ">" },
+  { "&quot;", '"' },
+  { "&apos;", "'" },
+  { "&nbsp;", " " },
+  { "&mdash;", "—" },
+  { "&ndash;", "–" },
+  { "&hellip;", "…" },
+  { "&larr;", "←" },
+  { "&rarr;", "→" },
+  { "&harr;", "↔" },
+}
+
+--- Decodes common HTML entities found in LSP hover responses, including
+--- named entities and decimal/hex numeric character references.
 local function decode_html_entities(text)
-  if not text then
-    return text
+  for _, entity in ipairs(HTML_NAMED_ENTITIES) do
+    text = text:gsub(entity[1], entity[2])
   end
-  local s = text
-  s = s:gsub("&amp;", "&")
-  s = s:gsub("&lt;", "<")
-  s = s:gsub("&gt;", ">")
-  s = s:gsub("&quot;", '"')
-  s = s:gsub("&apos;", "'")
-  s = s:gsub("&nbsp;", " ")
-  s = s:gsub("&mdash;", "—")
-  s = s:gsub("&ndash;", "–")
-  s = s:gsub("&hellip;", "…")
-  s = s:gsub("&larr;", "←")
-  s = s:gsub("&rarr;", "→")
-  s = s:gsub("&harr;", "↔")
-  s = s:gsub("&#(%d+);", function(n)
+  text = text:gsub("&#(%d+);", function(n)
     return vim.fn.nr2char(tonumber(n) or 0)
   end)
-  s = s:gsub("&#x([0-9a-fA-F]+);", function(n)
+  text = text:gsub("&#x([0-9a-fA-F]+);", function(n)
     return vim.fn.nr2char(tonumber(n, 16) or 0)
   end)
-  return s
+  return text
 end
 
--- Converts HTML break tags into Markdown horizontal rule placeholders.
+--- Converts HTML break tags into Markdown horizontal rule placeholders.
 local function convert_html_breaks(text)
+  -- Handles variations like <br>, <br/>, and <br />
+  return text:gsub("<br%s*/?>", "---")
+end
+
+--- Transforms applied in order. Order matters: e.g. `<br/>` must become
+--- `---` before backslash-escapes are stripped and entities are decoded.
+local TEXT_TRANSFORMS = {
+  convert_html_breaks,
+  remove_escaped_backslashes,
+  decode_html_entities,
+  strip_markdown_links,
+}
+
+--- Runs a single hover line through all custom post-processing transforms.
+local function apply_text_transforms(text)
   if not text then
     return text
   end
-  -- Handles variations like <br>, <br/>, and <br />
-  return text:gsub("<br%s*/?>", "---")
+  for _, transform in ipairs(TEXT_TRANSFORMS) do
+    text = transform(text)
+  end
+  return text
 end
 
 -- =======================================================================================
@@ -254,13 +273,38 @@ function M.hover(config)
     end
 
     for i, line in ipairs(contents) do
-      -- Apply my custom parsers
-      contents[i] = strip_markdown_links(
-        decode_html_entities(remove_escaped_backslashes(convert_html_breaks(line)))
-      )
+      contents[i] = apply_text_transforms(line)
     end
 
-    local _, winid = lsp.util.open_floating_preview(contents, format, config)
+    local hover_buf, winid = lsp.util.open_floating_preview(contents, format, config)
+    vim.bo[hover_buf].bufhidden = "hide"
+
+    local function open_hover_split(dir)
+      api.nvim_win_close(winid, true)
+      local orig_win = api.nvim_get_current_win()
+      local new_win = api.nvim_open_win(hover_buf, true, {
+        split = dir,
+        win = orig_win,
+      })
+      vim.wo[new_win].number = false
+      vim.wo[new_win].signcolumn = "no"
+    end
+
+    api.nvim_buf_set_keymap(hover_buf, "n", "s", "", {
+      callback = function()
+        open_hover_split("below")
+      end,
+      nowait = true,
+      desc = "Open hover in horizontal split",
+    })
+
+    api.nvim_buf_set_keymap(hover_buf, "n", "v", "", {
+      callback = function()
+        open_hover_split("right")
+      end,
+      nowait = true,
+      desc = "Open hover in vertical split",
+    })
 
     api.nvim_create_autocmd("WinClosed", {
       pattern = tostring(winid),
