@@ -8,7 +8,7 @@ local EXCLUDED_FILETYPES = {
   "Lazy",
   "text",
   "mason",
-  "spectre_panel",
+  "grug-far",
   "copilot-chat",
   "snacks_picker_input",
   "snacks_picker_preview",

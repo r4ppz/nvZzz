@@ -15,6 +15,7 @@ return {
       { "<leader>v", group = "NvChad", icon = "" },
       { "<leader>u", group = "Utils", icon = "󰏖" },
       { "<leader>F", group = "Grep", icon = "󰘳" },
+      { "<leader>r", group = "Grug Far", icon = "󰱼" },
       { "<leader>s", group = "Surround", icon = "" },
       { "<leader>d", group = "DAP", icon = "" },
       { "<leader>p", group = "Plugin", icon = "󰍹" },

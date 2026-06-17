@@ -31,7 +31,7 @@ autocmd({
 
 autocmd({ "FileType", "BufEnter" }, {
   group = mygroup,
-  pattern = { "copilot-chat", "spectre_panel" },
+  pattern = { "copilot-chat" },
   callback = function()
     vim.opt_local.relativenumber = false
     vim.opt_local.number = false

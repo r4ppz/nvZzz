@@ -201,7 +201,7 @@ This is why the startup time is under 1 second (`~15 milliseconds`); it's fast a
 | RRethy/vim-illuminate                     | Highlight word under cursor                  |
 | nvim-tree/nvim-tree.lua                   | File tree explorer                           |
 | mikavilpas/yazi.nvim                      | File manager (Yazi)                          |
-| nvim-pack/nvim-spectre                    | Better search and replace                    |
+| MagicDuck/grug-far.nvim                   | Find and Replace via rg/ast-grep             |
 | folke/which-key.nvim                      | Keymap popup helper                          |
 | MeanderingProgrammer/render-markdown.nvim | Improve viewing markdown                     |
 | zbirenbaum/copilot.lua                    | Copilot integration                          |
