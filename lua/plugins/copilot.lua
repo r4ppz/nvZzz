@@ -20,6 +20,35 @@ return {
 
       temperature = 0.1,
       model = "gpt-5-mini", -- this sucks ass
+      -- model = "llama3.2:1b",
+
+      providers = {
+        ollama = {
+          get_url = function()
+            return "http://localhost:11434/v1/chat/completions"
+          end,
+          get_headers = function()
+            return {
+              ["Content-Type"] = "application/json",
+            }
+          end,
+
+          get_models = function()
+            return {
+              { id = "llama3.2:1b", name = "Llama 3.2 1B" },
+              { id = "lfm2.5:latest", name = "LFM 2.5 Latest" },
+              { id = "qwen3.5:latest", name = "Qwen 3.5 Latest" },
+              { id = "gemma4:latest", name = "Gemma 4 Latest" },
+              { id = "gemma4:e2b", name = "Gemma 4 E2B" },
+              { id = "qwen3:4b", name = "Qwen3 4B" },
+            }
+          end,
+
+          -- Use standard OpenAI/Copilot formatting mechanisms bundled with the plugin
+          prepare_input = require("CopilotChat.config.providers").copilot.prepare_input,
+          prepare_output = require("CopilotChat.config.providers").copilot.prepare_output,
+        },
+      },
 
       window = {
         layout = "vertical",
