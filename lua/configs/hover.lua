@@ -280,6 +280,9 @@ function M.hover(config)
     vim.bo[hover_buf].bufhidden = "hide"
 
     local function open_hover_split(dir)
+      pcall(api.nvim_buf_del_keymap, hover_buf, "n", "s")
+      pcall(api.nvim_buf_del_keymap, hover_buf, "n", "v")
+
       api.nvim_win_close(winid, true)
       local orig_win = api.nvim_get_current_win()
       local new_win = api.nvim_open_win(hover_buf, true, {
@@ -289,6 +292,16 @@ function M.hover(config)
       vim.wo[new_win].wrap = true
       vim.wo[new_win].number = false
       vim.wo[new_win].signcolumn = "no"
+
+      api.nvim_create_autocmd("WinClosed", {
+        pattern = tostring(new_win),
+        once = true,
+        callback = function()
+          if api.nvim_buf_is_valid(hover_buf) then
+            pcall(api.nvim_buf_delete, hover_buf, { force = true })
+          end
+        end,
+      })
     end
 
     api.nvim_buf_set_keymap(hover_buf, "n", "s", "", {
@@ -307,12 +320,19 @@ function M.hover(config)
       desc = "Open hover in vertical split",
     })
 
-    api.nvim_create_autocmd("WinClosed", {
+    api.nvim_create_autocmd({ "BufWipeout", "BufDelete", "BufUnload" }, {
       pattern = tostring(winid),
       once = true,
       callback = function()
-        api.nvim_buf_clear_namespace(bufnr, hover_ns, 0, -1)
-        return true
+        if api.nvim_buf_is_valid(bufnr) then
+          pcall(api.nvim_buf_clear_namespace, bufnr, hover_ns, 0, -1)
+        end
+
+        vim.schedule(function()
+          if api.nvim_buf_is_valid(hover_buf) and api.nvim_fn.win_findbuf(hover_buf)[1] == nil then
+            pcall(api.nvim_buf_delete, hover_buf, { force = true })
+          end
+        end)
       end,
     })
   end)
