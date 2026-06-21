@@ -11,6 +11,16 @@ return {
   },
 
   opts = function()
+    local builtin = require("CopilotChat.config.providers")
+
+    local function no_reasoning(fn)
+      return function(output, opts)
+        local result = fn(output, opts)
+        result.reasoning = nil
+        return result
+      end
+    end
+
     return {
       system_prompt = custom_prompts.system_prompt,
       prompts = custom_prompts.prompts,
@@ -47,9 +57,8 @@ return {
             }
           end,
 
-          -- Use standard OpenAI/Copilot formatting mechanisms bundled with the plugin
-          prepare_input = require("CopilotChat.config.providers").copilot.prepare_input,
-          prepare_output = require("CopilotChat.config.providers").copilot.prepare_output,
+          prepare_input = builtin.copilot.prepare_input,
+          prepare_output = no_reasoning(builtin.copilot.prepare_output),
         },
 
         pollinations = {
@@ -68,13 +77,16 @@ return {
             local copilot = require("CopilotChat.config.providers").copilot
             local body, extra = copilot.prepare_input(inputs, opts)
             if body.messages then
-              body.messages = vim.iter(body.messages):filter(function(m)
-                return m.content ~= nil and m.content ~= ""
-              end):totable()
+              body.messages = vim
+                .iter(body.messages)
+                :filter(function(m)
+                  return m.content ~= nil and m.content ~= ""
+                end)
+                :totable()
             end
             return body, extra
           end,
-          prepare_output = require("CopilotChat.config.providers").copilot.prepare_output,
+          prepare_output = no_reasoning(builtin.copilot.prepare_output),
         },
 
         sky = {
@@ -90,7 +102,7 @@ return {
           end,
           get_models = function()
             return {
-              { id = "default", name = "GPT-4.1-mini (server default)", streaming = true },
+              { id = "default", name = "Deepseek V4 Flash", streaming = true },
             }
           end,
           prepare_input = function(inputs, opts)
@@ -99,9 +111,12 @@ return {
             body.model = nil
             return body, extra
           end,
-          prepare_output = require("CopilotChat.config.providers").copilot.prepare_output,
+          prepare_output = no_reasoning(builtin.copilot.prepare_output),
         },
 
+        copilot = {
+          prepare_output = no_reasoning(builtin.copilot.prepare_output),
+        },
       },
 
       window = {
