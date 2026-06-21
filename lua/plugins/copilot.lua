@@ -19,7 +19,10 @@ return {
       selection = "visual",
 
       temperature = 0.1,
-      model = "gpt-5-mini", -- this sucks ass
+      -- model = "gpt-5-mini", -- this sucks ass
+
+      -- Free models
+      model = "openai",
       -- model = "llama3.2:1b",
 
       providers = {
@@ -48,6 +51,57 @@ return {
           prepare_input = require("CopilotChat.config.providers").copilot.prepare_input,
           prepare_output = require("CopilotChat.config.providers").copilot.prepare_output,
         },
+
+        pollinations = {
+          get_url = function()
+            return "https://text.pollinations.ai/openai"
+          end,
+          get_headers = function()
+            return { ["Content-Type"] = "application/json" }
+          end,
+          get_models = function()
+            return {
+              { id = "openai", name = "GPT-OSS 20B Reasoning LLM", streaming = true },
+            }
+          end,
+          prepare_input = function(inputs, opts)
+            local copilot = require("CopilotChat.config.providers").copilot
+            local body, extra = copilot.prepare_input(inputs, opts)
+            if body.messages then
+              body.messages = vim.iter(body.messages):filter(function(m)
+                return m.content ~= nil and m.content ~= ""
+              end):totable()
+            end
+            return body, extra
+          end,
+          prepare_output = require("CopilotChat.config.providers").copilot.prepare_output,
+        },
+
+        sky = {
+          get_url = function()
+            return "https://api.sky.foresko.com/v1/create-chat-completion"
+          end,
+          get_headers = function()
+            return {
+              ["Content-Type"] = "application/json",
+              ["accept-charset"] = "UTF-8",
+              ["user-agent"] = "ktor-client",
+            }
+          end,
+          get_models = function()
+            return {
+              { id = "default", name = "GPT-4.1-mini (server default)", streaming = true },
+            }
+          end,
+          prepare_input = function(inputs, opts)
+            local copilot = require("CopilotChat.config.providers").copilot
+            local body, extra = copilot.prepare_input(inputs, opts)
+            body.model = nil
+            return body, extra
+          end,
+          prepare_output = require("CopilotChat.config.providers").copilot.prepare_output,
+        },
+
       },
 
       window = {

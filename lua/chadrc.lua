@@ -13,7 +13,9 @@ M.base46 = {
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
-    FloatBorder = { fg = "grey_fg" },
+    FloatBorder = { fg = "#4f4f4f" },
+    NormalFloat = { link = "Normal" },
+    CursorLine = { bg = "NONE" },
   },
 
   integrations = {

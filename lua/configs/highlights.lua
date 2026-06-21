@@ -23,9 +23,6 @@ local function set_highlights()
     bg = "#444444",
   })
 
-  vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
-  vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#4F4F4F" })
-
   vim.api.nvim_set_hl(0, "NvimDapVirtualText", { fg = "#56b6c2", italic = true })
   vim.api.nvim_set_hl(0, "NvimDapVirtualTextChanged", { fg = "#d19a66" })
   vim.api.nvim_set_hl(0, "NvimDapVirtualTextError", { link = "ErrorMsg" })
