@@ -207,4 +207,5 @@ This is why the startup time is under 1 second (`~15 milliseconds`); it's fast a
 | zbirenbaum/copilot.lua                    | Copilot integration                          |
 | nvim-lua/plenary.nvim                     | Lua utility functions                        |
 | nvim-neotest/nvim-nio                     | Async IO library                             |
+| brianhuster/unnest.nvim                   | Fix nested Neovim session                    |
 | nvim-tree/nvim-web-devicons               | Nerd font icons                              |
