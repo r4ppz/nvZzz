@@ -32,7 +32,8 @@ return {
       -- model = "gpt-5-mini", -- this sucks ass
 
       -- Free models
-      model = "openai",
+      -- model = "openai",
+      model = "default",
       -- model = "llama3.2:1b",
 
       providers = {
@@ -48,12 +49,13 @@ return {
 
           get_models = function()
             return {
-              { id = "llama3.2:1b", name = "Llama 3.2 1B" },
-              { id = "lfm2.5:latest", name = "LFM 2.5 Latest" },
-              { id = "qwen3.5:latest", name = "Qwen 3.5 Latest" },
-              { id = "gemma4:latest", name = "Gemma 4 Latest" },
-              { id = "gemma4:e2b", name = "Gemma 4 E2B" },
-              { id = "qwen3:4b", name = "Qwen3 4B" },
+              { id = "llama3.2:3b", name = "Llama 3.2 3B", streaming = true },
+              { id = "llama3.2:1b", name = "Llama 3.2 1B", streaming = true },
+              { id = "lfm2.5:latest", name = "LFM 2.5 Latest", streaming = true },
+              { id = "qwen3.5:latest", name = "Qwen 3.5 Latest", streaming = true },
+              { id = "gemma4:latest", name = "Gemma 4 Latest", streaming = true },
+              { id = "gemma4:e2b", name = "Gemma 4 E2B", streaming = true },
+              { id = "qwen3:4b", name = "Qwen3 4B", streaming = true },
             }
           end,
 
