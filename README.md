@@ -173,7 +173,7 @@ This is why the startup time is under 1 second (`~15 milliseconds`); it's fast a
 | nvchad/base46                             | NvChad theme plugin                          |
 | nvchad/ui                                 | NvChad UI plugin                             |
 | neovim/nvim-lspconfig                     | LSP configuration framework                  |
-| nvim-treesitter/nvim-treesitter           | Better syntax parsing                        |
+| romus204/tree-sitter-manager.nvim         | Tree-sitter parser manager                   |
 | mfussenegger/nvim-lint                    | Async linting engine                         |
 | stevearc/conform.nvim                     | Code formatting engine                       |
 | saghen/blink.cmp                          | Completion engine                            |
