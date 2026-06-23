@@ -1,39 +1,37 @@
 local opt = vim.opt
-local o = vim.o
-local g = vim.g
 
 -- Session
 opt.shada = ""
 
 -- File Handling
-o.autoread = true
-o.confirm = false
+opt.autoread = true
+opt.confirm = false
 
 -- UI
-o.relativenumber = false
-o.number = true
-o.numberwidth = 2
-o.ruler = false
-o.laststatus = 3
-o.showmode = false
-o.equalalways = true
-o.cursorline = true
-o.splitbelow = true
-o.splitright = true
-o.cmdheight = 1
-o.termguicolors = true
-o.hidden = true
-o.signcolumn = "yes"
-o.belloff = "all"
-o.splitkeep = "screen"
-o.winborder = "single"
-o.clipboard = "unnamedplus"
-o.cursorlineopt = "number"
-o.inccommand = "nosplit"
+opt.relativenumber = false
+opt.number = true
+opt.numberwidth = 2
+opt.ruler = false
+opt.laststatus = 3
+opt.showmode = false
+opt.equalalways = true
+opt.cursorline = true
+opt.splitbelow = true
+opt.splitright = true
+opt.cmdheight = 1
+opt.termguicolors = true
+opt.hidden = true
+opt.signcolumn = "yes"
+opt.belloff = "all"
+opt.splitkeep = "screen"
+opt.winborder = "single"
+opt.clipboard = "unnamedplus"
+opt.cursorlineopt = "number"
+opt.inccommand = "nosplit"
 
-o.foldmethod = "expr"
-o.foldexpr = "nvim_treesitter#foldexpr()"
-o.foldlevelstart = 99
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldlevelstart = 99
 
 opt.smarttab = true
 opt.fillchars = { eob = " " }
@@ -48,46 +46,46 @@ opt.diffopt = {
 }
 
 -- Scrolling
-o.scrolloff = 5
-o.sidescroll = 1
-o.sidescrolloff = 8
+opt.scrolloff = 5
+opt.sidescroll = 1
+opt.sidescrolloff = 8
 
 -- Wrapping
-o.wrap = false
-o.linebreak = true
-o.breakindent = true
-o.showbreak = " "
+opt.wrap = false
+opt.linebreak = true
+opt.breakindent = true
+opt.showbreak = " "
 
 -- Indentation
-o.expandtab = true
-o.shiftwidth = 2
-o.smartindent = true
-o.autoindent = true
-o.tabstop = 2
-o.softtabstop = 2
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.smartindent = true
+opt.autoindent = true
+opt.tabstop = 2
+opt.softtabstop = 2
 
 -- Search
-o.ignorecase = true
-o.smartcase = true
+opt.ignorecase = true
+opt.smartcase = true
 
 -- Mouse
-o.mouse = "a"
+opt.mouse = "a"
 opt.mousemodel = "extend"
 
 -- Performance
-o.updatetime = 300
+opt.updatetime = 300
 
-o.fdo = "search,tag,insert,undo"
-o.synmaxcol = 200
-o.timeoutlen = 300
-o.undofile = true
+opt.fdo = "search,tag,insert,undo"
+opt.synmaxcol = 200
+opt.timeoutlen = 300
+opt.undofile = true
 
 -- Misc
 opt.shortmess:append("sI")
 opt.whichwrap:append("<>[]")
 
 -- Disable default providers
-g.loaded_node_provider = 0
-g.loaded_python3_provider = 0
-g.loaded_perl_provider = 0
-g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
