@@ -60,6 +60,10 @@ return {
         signs = false,
         underline = false,
         update_in_insert = false,
+
+        float = {
+          max_width = "70",
+        },
       })
 
       -- Use colorify intsread
