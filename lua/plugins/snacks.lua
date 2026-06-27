@@ -13,6 +13,9 @@ return {
 
     lazygit = {
       configure = true,
+      env = {
+        GIT_EDITOR = "lazygit-commit.sh",
+      },
     },
 
     bigfile = {
