@@ -1,6 +1,5 @@
 return {
   "nvim-tree/nvim-tree.lua",
-  cmd = { "NvimTreeToggle", "NvimTreeFocus" },
   opts = function()
     return {
       filters = {
@@ -8,13 +7,16 @@ return {
         git_ignored = false,
         custom = {},
       },
+
       disable_netrw = true,
       hijack_cursor = true,
       sync_root_with_cwd = true,
+
       update_focused_file = {
         enable = true,
         update_root = false,
       },
+
       view = {
         width = 40,
         side = "left",
@@ -23,7 +25,7 @@ return {
 
       actions = {
         open_file = {
-          quit_on_open = true,
+          quit_on_open = false,
         },
       },
 
@@ -64,7 +66,8 @@ return {
 
         api.map.on_attach.default(bufnr)
 
-        vim.keymap.set("n", "r", function()
+        -- Context-aware file renaming via Snacks
+        map("n", "r", function()
           local node = api.tree.get_node_under_cursor()
           if not node or node.name == ".." then
             return

@@ -62,7 +62,7 @@ return {
         update_in_insert = false,
 
         float = {
-          max_width = "70",
+          max_width = 70,
         },
       })
 
