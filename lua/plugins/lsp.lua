@@ -96,11 +96,6 @@ return {
       auto_close = true,
       focus = true,
       warn_no_results = false,
-
-      keys = {
-        ["<tab>"] = "fold_toggle",
-        ["<s-tab>"] = "fold_toggle_recursive",
-      },
     },
   },
 

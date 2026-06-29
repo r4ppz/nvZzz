@@ -4,15 +4,14 @@ local map = require("utils.map")
 -- Personal?!!
 --------------------------------------------------------
 
--- Toggle a fold
-map("n", "<Tab>", "za", { desc = "Toggle fold under cursor" })
-map("n", "<S-Tab>", function()
-  if vim.wo.foldlevel == 0 then
-    vim.cmd("normal! zR")
-  else
-    vim.cmd("normal! zM")
-  end
-end, { desc = "Toggle all folds in buffer" })
+-- Next and previous using tab/Stab
+map({ "n", "v", "o" }, "<Tab>", "n", { noremap = true, silent = true, desc = "Next search result" })
+map(
+  { "n", "v", "o" },
+  "<S-Tab>",
+  "N",
+  { noremap = true, silent = true, desc = "Previous search result" }
+)
 
 -- Move line Up/Down
 map("n", "<C-A-Up>", ":m .-2<CR>==<C-l>", { desc = "Move line up" })
@@ -152,7 +151,10 @@ map({ "n", "v" }, "S", '"_S', { desc = "Substitute line without yanking (normal)
 map({ "n", "v" }, "q", "<Nop>", { desc = "Disable recording macro (q)" })
 map({ "n", "v" }, "Q", "<Nop>", { desc = "Disable Ex mode (Q)" })
 
+map("n", "p", "]p", { desc = "Paste and adjust indent" })
+map("n", "P", "[p", { desc = "Paste before and adjust indent" })
 map("v", "p", '"_dP', { desc = "Paste without yanking replaced text" })
+
 map({ "n", "v" }, "c", '"_c', { desc = "Change text without yanking" })
 map({ "n", "v" }, "C", '"_C', { desc = "Change to end of line without yanking" })
 
