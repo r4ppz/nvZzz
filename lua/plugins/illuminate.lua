@@ -34,12 +34,24 @@ return {
       min_count_to_highlight = 2,
       under_cursor = true,
     })
-
-    vim.keymap.set("n", "[r", function()
-      require("illuminate").goto_prev_reference()
-    end, { desc = "Prev reference" })
-    vim.keymap.set("n", "]r", function()
-      require("illuminate").goto_next_reference()
-    end, { desc = "Next reference" })
   end,
+
+  keys = {
+    {
+      "[r",
+      function()
+        require("illuminate").goto_prev_reference()
+      end,
+      mode = { "n", "v" },
+      desc = "Prev Reference (vim-illuminate)",
+    },
+    {
+      "]r",
+      function()
+        require("illuminate").goto_next_reference()
+      end,
+      mode = { "n", "v" },
+      desc = "Next Reference (vim-illuminate)",
+    },
+  },
 }
