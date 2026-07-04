@@ -204,6 +204,7 @@ This is why the startup time is under 1 second (`~15 milliseconds`); it's fast a
 | MagicDuck/grug-far.nvim                   | Find and Replace via rg/ast-grep             |
 | folke/which-key.nvim                      | Keymap popup helper                          |
 | MeanderingProgrammer/render-markdown.nvim | Improve viewing markdown                     |
+| brianhuster/live-preview.nvim             | Render markdown in browser                   |
 | zbirenbaum/copilot.lua                    | Copilot integration                          |
 | nvim-lua/plenary.nvim                     | Lua utility functions                        |
 | nvim-neotest/nvim-nio                     | Async IO library                             |
