@@ -33,7 +33,7 @@ return {
 
       -- Free models
       -- model = "openai",
-      model = "default",
+      model = "openai",
       -- model = "llama3.2:1b",
 
       providers = {
@@ -86,31 +86,6 @@ return {
                 end)
                 :totable()
             end
-            return body, extra
-          end,
-          prepare_output = no_reasoning(builtin.copilot.prepare_output),
-        },
-
-        sky = {
-          get_url = function()
-            return "https://api.sky.foresko.com/v1/create-chat-completion"
-          end,
-          get_headers = function()
-            return {
-              ["Content-Type"] = "application/json",
-              ["accept-charset"] = "UTF-8",
-              ["user-agent"] = "ktor-client",
-            }
-          end,
-          get_models = function()
-            return {
-              { id = "default", name = "Deepseek V4 Flash", streaming = true },
-            }
-          end,
-          prepare_input = function(inputs, opts)
-            local copilot = require("CopilotChat.config.providers").copilot
-            local body, extra = copilot.prepare_input(inputs, opts)
-            body.model = nil
             return body, extra
           end,
           prepare_output = no_reasoning(builtin.copilot.prepare_output),
