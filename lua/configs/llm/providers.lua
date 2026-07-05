@@ -20,11 +20,9 @@ local function define(spec, builtin)
       local headers = { ["Content-Type"] = "application/json" }
       if spec.api_key then
         local key = os.getenv(spec.api_key)
-        if not key then
-          vim.notify(spec.api_key .. " not set", vim.log.levels.ERROR)
-          return {}
+        if key then
+          headers["Authorization"] = "Bearer " .. key
         end
-        headers["Authorization"] = "Bearer " .. key
       end
       return headers
     end,
