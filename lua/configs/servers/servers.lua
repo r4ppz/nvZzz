@@ -41,7 +41,7 @@ M.lsp_list = {
   "rust_analyzer",
   "hyprls",
   "clangd",
-  "asm_lsp",
+  -- "asm_lsp",
 }
 
 function M.setup(capabilities)
