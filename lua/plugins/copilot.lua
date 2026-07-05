@@ -1,5 +1,6 @@
-local custom_prompts = require("configs.prompts")
+local custom_prompts = require("configs.llm.prompts")
 local win_util = require("utils.window")
+local providers = require("configs.llm.providers")
 
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
@@ -11,16 +12,6 @@ return {
   },
 
   opts = function()
-    local builtin = require("CopilotChat.config.providers")
-
-    local function no_reasoning(fn)
-      return function(output, opts)
-        local result = fn(output, opts)
-        result.reasoning = nil
-        return result
-      end
-    end
-
     return {
       system_prompt = custom_prompts.system_prompt,
       prompts = custom_prompts.prompts,
@@ -36,65 +27,7 @@ return {
       model = "openai",
       -- model = "llama3.2:1b",
 
-      providers = {
-        ollama = {
-          get_url = function()
-            return "http://localhost:11434/v1/chat/completions"
-          end,
-          get_headers = function()
-            return {
-              ["Content-Type"] = "application/json",
-            }
-          end,
-
-          get_models = function()
-            return {
-              { id = "llama3.2:3b", name = "Llama 3.2 3B", streaming = true },
-              { id = "llama3.2:1b", name = "Llama 3.2 1B", streaming = true },
-              { id = "lfm2.5:latest", name = "LFM 2.5 Latest", streaming = true },
-              { id = "qwen3.5:latest", name = "Qwen 3.5 Latest", streaming = true },
-              { id = "gemma4:latest", name = "Gemma 4 Latest", streaming = true },
-              { id = "gemma4:e2b", name = "Gemma 4 E2B", streaming = true },
-              { id = "qwen3:4b", name = "Qwen3 4B", streaming = true },
-            }
-          end,
-
-          prepare_input = builtin.copilot.prepare_input,
-          prepare_output = no_reasoning(builtin.copilot.prepare_output),
-        },
-
-        pollinations = {
-          get_url = function()
-            return "https://text.pollinations.ai/openai"
-          end,
-          get_headers = function()
-            return { ["Content-Type"] = "application/json" }
-          end,
-          get_models = function()
-            return {
-              { id = "openai", name = "GPT-OSS 20B Reasoning LLM", streaming = true },
-            }
-          end,
-          prepare_input = function(inputs, opts)
-            local copilot = require("CopilotChat.config.providers").copilot
-            local body, extra = copilot.prepare_input(inputs, opts)
-            if body.messages then
-              body.messages = vim
-                .iter(body.messages)
-                :filter(function(m)
-                  return m.content ~= nil and m.content ~= ""
-                end)
-                :totable()
-            end
-            return body, extra
-          end,
-          prepare_output = no_reasoning(builtin.copilot.prepare_output),
-        },
-
-        copilot = {
-          prepare_output = no_reasoning(builtin.copilot.prepare_output),
-        },
-      },
+      providers = providers.setup(),
 
       window = {
         layout = "vertical",
