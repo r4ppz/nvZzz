@@ -76,7 +76,7 @@ Vertical Terminal
 
 ---
 
-This repository is meant as a reference for me (and maybe for you too, to get inspiration) and to document my config.
+This repository is meant as a reference for me (and maybe for you too, to get inspiration?) and to document my config.
 
 [Keymaps](lua/configs/mappings/mappings.lua) are heavily configured and personalized.
 This is to maintain consistency and compatibility with my _brain,_ Compositor/WM, TUI/GUI apps, Shell, Tmux/Terminal Emulator, etc.
