@@ -43,6 +43,7 @@ return {
       },
 
       code = {
+        enabled = false,
         conceal_delimiters = true,
       },
 

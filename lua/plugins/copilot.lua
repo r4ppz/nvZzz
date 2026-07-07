@@ -1,6 +1,5 @@
 local custom_prompts = require("configs.llm.prompts")
 local win_util = require("utils.window")
-local providers = require("configs.llm.providers")
 
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
@@ -20,14 +19,11 @@ return {
       selection = "visual",
 
       temperature = 0.1,
-      -- model = "gpt-5-mini", -- this sucks ass
 
-      -- Free models
-      -- model = "openai",
-      model = "openai",
-      -- model = "llama3.2:1b",
+      -- I only use FREE models cause I am poor asf
+      model = "openai/gpt-oss-120b",
 
-      providers = providers.setup(),
+      providers = require("configs.llm.providers").setup(),
 
       window = {
         layout = "vertical",
@@ -40,7 +36,6 @@ return {
         tool = " Tool",
       },
       separator = "─",
-      -- separator = "-",
       highlight_headers = true,
 
       auto_fold = true,

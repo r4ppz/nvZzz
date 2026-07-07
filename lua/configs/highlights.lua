@@ -36,6 +36,9 @@ local function set_highlights()
 
   vim.api.nvim_set_hl(0, "TroublePreview", { link = "Search" })
   vim.api.nvim_set_hl(0, "GrugFarCurrentMatch", { link = "Search" })
+
+  vim.api.nvim_set_hl(0, "CopilotChatHeader", { fg = "#83a598" })
+  vim.api.nvim_set_hl(0, "CopilotChatSeparator", { fg = "#444444" })
 end
 
 vim.api.nvim_create_autocmd("User", {

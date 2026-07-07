@@ -52,141 +52,130 @@ function M.setup()
     }, builtin),
 
     openrouter = define({
+      -- models.py https://openrouter.ai/api/v1/ $OPENROUTER_API_KEY --free
       url = "https://openrouter.ai/api/v1/chat/completions",
       api_key = "OPENROUTER_API_KEY",
       models = {
-        { id = "openrouter/free", name = "Free Models Router (auto)", streaming = true },
-        { id = "openai/gpt-oss-120b:free", name = "OpenAI: gpt-oss-120b (free)", streaming = true },
-        { id = "openai/gpt-oss-20b:free", name = "OpenAI: gpt-oss-20b (free)", streaming = true },
         {
-          id = "google/gemma-4-31b-it:free",
-          name = "Google: Gemma 4 31B (free)",
+          id = "openrouter/free",
+          name = "Free Models Router (auto)",
           streaming = true,
         },
         {
-          id = "google/gemma-4-26b-a4b-it:free",
-          name = "Google: Gemma 4 26B A4B (free)",
+          id = "openai/gpt-oss-120b:free",
+          name = "OpenAI: gpt-oss-120b (free)",
           streaming = true,
         },
         {
-          id = "google/lyria-3-pro-preview",
-          name = "Google: Lyria 3 Pro Preview",
+          id = "openai/gpt-oss-20b:free",
+          name = "OpenAI: gpt-oss-20b (free)",
+          streaming = true,
+        },
+      },
+    }, builtin),
+
+    google = define({
+      -- models.py https://generativelanguage.googleapis.com/v1beta/openai/v1/ $GEMINI_API_KEY
+      url = "https://generativelanguage.googleapis.com/v1beta/openai/v1/chat/completions",
+      api_key = "GEMINI_API_KEY",
+      models = {
+        {
+          id = "models/gemini-3.5-flash",
+          name = "Gemini 3.5 Flash",
           streaming = true,
         },
         {
-          id = "google/lyria-3-clip-preview",
-          name = "Google: Lyria 3 Clip Preview",
+          id = "models/gemini-3.1-flash-lite",
+          name = "Gemini 3.1 Flash Lite",
           streaming = true,
         },
         {
-          id = "meta-llama/llama-3.3-70b-instruct:free",
-          name = "Meta: Llama 3.3 70B Instruct (free)",
+          id = "models/gemini-3-flash-preview",
+          name = "Gemini 3 Flash Preview",
           streaming = true,
         },
         {
-          id = "meta-llama/llama-3.2-3b-instruct:free",
-          name = "Meta: Llama 3.2 3B Instruct (free)",
+          id = "models/gemini-2.5-flash",
+          name = "Gemini 2.5 Flash",
           streaming = true,
         },
         {
-          id = "qwen/qwen3-next-80b-a3b-instruct:free",
-          name = "Qwen: Qwen3 Next 80B A3B Instruct (free)",
+          id = "models/gemini-2.5-flash-lite",
+          name = "Gemini 2.5 Flash Lite",
           streaming = true,
         },
         {
-          id = "qwen/qwen3-coder:free",
-          name = "Qwen: Qwen3 Coder 480B A35B (free)",
+          id = "models/gemini-2.0-flash",
+          name = "Gemini 2.0 Flash",
           streaming = true,
         },
         {
-          id = "nvidia/nemotron-3-super-120b-a12b:free",
-          name = "NVIDIA: Nemotron 3 Super (free)",
-          streaming = true,
-        },
-        {
-          id = "nvidia/nemotron-3-ultra-550b-a55b:free",
-          name = "NVIDIA: Nemotron 3 Ultra (free)",
-          streaming = true,
-        },
-        {
-          id = "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-          name = "NVIDIA: Nemotron 3 Nano Omni (free)",
-          streaming = true,
-        },
-        {
-          id = "nvidia/nemotron-3-nano-30b-a3b:free",
-          name = "NVIDIA: Nemotron 3 Nano 30B A3B (free)",
-          streaming = true,
-        },
-        {
-          id = "nvidia/nemotron-nano-12b-v2-vl:free",
-          name = "NVIDIA: Nemotron Nano 12B 2 VL (free)",
-          streaming = true,
-        },
-        {
-          id = "nvidia/nemotron-nano-9b-v2:free",
-          name = "NVIDIA: Nemotron Nano 9B V2 (free)",
-          streaming = true,
-        },
-        {
-          id = "nvidia/nemotron-3.5-content-safety:free",
-          name = "NVIDIA: Nemotron 3.5 Content Safety (free)",
+          id = "models/gemini-2.0-flash-lite",
+          name = "Gemini 2.0 Flash Lite",
           streaming = true,
         },
       },
     }, builtin),
 
     freetheai = define({
+      -- models.py https://api.freetheai.xyz/v1/ $FREETHEAI_API_KEY --free
       url = "https://api.freetheai.xyz/v1/chat/completions",
       api_key = "FREETHEAI_API_KEY",
       models = {
-        { id = "opc/deepseek-v4-flash-free", name = "DeepSeek V4 Flash (free)", streaming = true },
-        { id = "opc/mimo-v2.5-free", name = "Mimo V2.5 (free)", streaming = true },
-        { id = "opc/nemotron-3-ultra-free", name = "Nemotron 3 Ultra (free)", streaming = true },
-        { id = "opc/north-mini-code-free", name = "North Mini Code (free)", streaming = true },
-        { id = "opc/big-pickle", name = "Big Pickle (free)", streaming = true },
-        { id = "kai/openrouter/free", name = "Free Router (auto)", streaming = true },
-        { id = "kai/kilo-auto/free", name = "Kilo Auto (free)", streaming = true },
         {
-          id = "kai/nvidia/nemotron-3-super-120b-a12b:free",
-          name = "Nemotron 3 Super 120B (free)",
+          id = "opc/deepseek-v4-flash-free",
+          name = "DeepSeek V4 Flash (free)",
           streaming = true,
         },
         {
-          id = "kai/nvidia/nemotron-3-ultra-550b-a55b:free",
-          name = "Nemotron 3 Ultra 550B (free)",
+          id = "opc/hy3-free",
+          name = "Hy3 (free)",
+          streaming = true,
+        },
+      },
+    }, builtin),
+
+    groq = define({
+      -- models.py https://api.groq.com/openai/v1/ $GROQ_API_KEY
+      url = "https://api.groq.com/openai/v1/chat/completions",
+      api_key = "GROQ_API_KEY",
+      models = {
+        {
+          id = "openai/gpt-oss-120b",
+          name = "GPT-OSS 120b",
           streaming = true,
         },
         {
-          id = "kai/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
-          name = "Nemotron 3 Nano Omni (free)",
+          id = "openai/gpt-oss-20b",
+          name = "GPT OSS 20b",
           streaming = true,
         },
         {
-          id = "kai/nvidia/nemotron-3.5-content-safety:free",
-          name = "Nemotron 3.5 Content Safety (free)",
+          id = "qwen/qwen3.6-27b",
+          name = "Qwen 3.6 27b",
           streaming = true,
         },
         {
-          id = "kai/cohere/north-mini-code:free",
-          name = "Cohere North Mini Code (free)",
+          id = "llama-3.3-70b-versatile",
+          name = "Llama 3.3 70b Versitile",
           streaming = true,
         },
         {
-          id = "kai/stepfun/step-3.7-flash:free",
-          name = "Step 3.7 Flash (free)",
+          id = "groq/compound",
+          name = "Groq Compound",
           streaming = true,
         },
-        { id = "kai/poolside/laguna-xs-2.1:free", name = "Laguna XS 2.1 (free)", streaming = true },
-        { id = "kai/poolside/laguna-xs.2:free", name = "Laguna XS.2 (free)", streaming = true },
-        { id = "kai/poolside/laguna-m.1:free", name = "Laguna M.1 (free)", streaming = true },
       },
     }, builtin),
 
     pollinations = define({
       url = "https://text.pollinations.ai/openai",
       models = {
-        { id = "openai", name = "GPT-OSS 20B Reasoning LLM", streaming = true },
+        {
+          id = "openai",
+          name = "GPT-OSS 20B Reasoning LLM",
+          streaming = true,
+        },
       },
       prepare_input = function(inputs, opts)
         local body, extra = builtin.copilot.prepare_input(inputs, opts)

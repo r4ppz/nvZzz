@@ -55,6 +55,10 @@ autocmd({ "FileType", "BufEnter" }, {
   callback = function()
     vim.opt_local.relativenumber = false
     vim.opt_local.number = false
+    vim.opt_local.conceallevel = 0
+
+    vim.api.nvim_set_hl(0, "Folded", { fg = "#444444" })
+    vim.api.nvim_set_hl(0, "FoldColumn", { fg = "#444444" })
   end,
 })
 
