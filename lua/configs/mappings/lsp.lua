@@ -196,6 +196,14 @@ local function handle_incremental_selection(is_expanding)
 end
 
 map("n", "<CR>", function()
+  if vim.bo.buftype ~= "" then
+    return vim.api.nvim_feedkeys(
+      vim.api.nvim_replace_termcodes("<CR>", true, false, true),
+      "n",
+      true
+    )
+  end
+
   local col = vim.fn.col(".")
   local char = vim.fn.getline("."):sub(col, col)
   if char:match("[%w_]") then
