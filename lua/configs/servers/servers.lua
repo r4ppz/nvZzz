@@ -42,6 +42,7 @@ M.lsp_list = {
   "hyprls",
   "clangd",
   -- "asm_lsp",
+  "zls",
 }
 
 function M.setup(capabilities)

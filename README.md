@@ -119,6 +119,7 @@ LuaJIT 2.1.1774896198
 # Programming Languages (LSP + Treesitter + Formatter)
 - C
 - Go
+- Zig
 - C++
 - Lua
 - Java

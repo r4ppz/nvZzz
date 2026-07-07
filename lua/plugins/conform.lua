@@ -24,6 +24,9 @@ return {
       java = { "google-java-format" },
       go = { "gofmt" },
 
+      php = { lsp_format = "fallback" },
+      zig = { lsp_format = "fallback" },
+
       ["_"] = { "trim_whitespace" },
     },
 

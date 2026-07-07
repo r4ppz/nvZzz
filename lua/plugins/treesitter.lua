@@ -34,6 +34,7 @@ return {
       "rust",
       "python",
       "c",
+      "zig",
       "asm",
       "cpp",
       "hyprlang",
