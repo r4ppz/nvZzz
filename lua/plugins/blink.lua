@@ -96,6 +96,10 @@ return {
 
         keymap = {
           preset = "none",
+
+          ["<C-p>"] = false,
+          ["<C-n>"] = false,
+
           ["<C-Up>"] = { "select_prev", "fallback" },
           ["<C-Down>"] = { "select_next", "fallback" },
 
