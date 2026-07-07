@@ -26,14 +26,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
       desc = "Rename Symbol",
     })
 
-    map("n", "gR", function()
-      require("trouble").toggle({ mode = "lsp_references", source = "lsp.references" })
+    map("n", "gr", function()
+      require("trouble").toggle({
+        mode = "lsp_references",
+        source = "lsp.references",
+        auto_jump = false,
+        win = {
+          position = "bottom",
+          size = 0.3,
+        },
+      })
     end, {
       buffer = buf,
       desc = "Find References (Trouble)",
     })
 
-    map("n", "gr", function()
+    map("n", "gR", function()
       Snacks.picker.lsp_references({
         auto_confirm = false,
         title = "References",

@@ -33,6 +33,8 @@ local function set_highlights()
   vim.api.nvim_set_hl(0, "DapLogPoint", { fg = "#61afef", bg = "NONE" })
   vim.api.nvim_set_hl(0, "DapStopped", { fg = "#98c379", bg = "NONE" })
   vim.api.nvim_set_hl(0, "DapStoppedLine", { bg = "#2a2d3e" })
+
+  vim.api.nvim_set_hl(0, "TroublePreview", { link = "Search" })
 end
 
 vim.api.nvim_create_autocmd("User", {
