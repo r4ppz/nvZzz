@@ -2,6 +2,26 @@ local mygroup = vim.api.nvim_create_augroup("MyPersonalConfig", { clear = true }
 local autocmd = vim.api.nvim_create_autocmd
 local map = require("utils.map")
 
+autocmd("FileType", {
+  group = mygroup,
+  desc = "Better quickfix and location list configuration",
+  pattern = "qf",
+  callback = function(args)
+    map("n", "q", "<cmd>close<cr>", { buffer = args.buf })
+    vim.opt_local.statusline = ""
+    vim.opt_local.number = false
+  end,
+})
+
+autocmd("FileType", {
+  group = mygroup,
+  desc = "Close help window with q",
+  pattern = { "help" },
+  callback = function()
+    map("n", "q", "<cmd>close<cr>", { buffer = true })
+  end,
+})
+
 autocmd("TermOpen", {
   group = mygroup,
   desc = "Keep the state of snacks lazygit (toggleble)",
