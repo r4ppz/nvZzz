@@ -48,12 +48,12 @@ map("v", "<S-Up>", "{", { desc = "Jump to previous paragraph" })
 map("v", "<S-Down>", "}", { desc = "Jump to next paragraph" })
 
 -- Ctrl+Left/Right word navigation (like any other GUI's)
-map({ "n", "v" }, "<C-Left>", "b", { desc = "Move to the beginning of the word" })
-map({ "n", "v" }, "<C-Right>", "e", { desc = "Move to the end of the word" })
+map({ "n", "v", "o" }, "<C-Left>", "b", { desc = "Move to the beginning of the word" })
+map({ "n", "v", "o" }, "<C-Right>", "e", { desc = "Move to the end of the word" })
 map("i", "<C-Left>", "<C-o>b", { desc = "Move to the beginning of the word in insert mode" })
 map("i", "<C-Right>", "<C-o>e<C-o>a", { desc = "Move to the end of the word in insert mode" })
-map({ "n", "v" }, "<S-Right>", "E", { desc = "Move Right like E" })
-map({ "n", "v" }, "<S-Left>", "B", { desc = "Move Left like B" })
+map({ "n", "v", "o" }, "<S-Right>", "E", { desc = "Move Right like E" })
+map({ "n", "v", "o" }, "<S-Left>", "B", { desc = "Move Left like B" })
 map("i", "<S-Left>", "<C-o>B", { desc = "Move to the beginning of the word like B in insert mode" })
 map("i", "<S-Right>", "<C-o>E<C-o>a", {
   desc = "Move to the end of the word like E in insert mode",
