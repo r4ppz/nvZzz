@@ -4,14 +4,37 @@ local map = require("utils.map")
 -- Personal?!!
 --------------------------------------------------------
 
+-- This is especially useful for wrapped lines
+map("n", "<Down>", "v:count == 0 ? 'gj' : 'j'", {
+  expr = true,
+  silent = true,
+  desc = "Move down by screen lines (or count lines)",
+})
+map("n", "<Up>", "v:count == 0 ? 'gk' : 'k'", {
+  expr = true,
+  silent = true,
+  desc = "Move up by screen lines (or count lines)",
+})
+map("i", "<Down>", "<C-o>gj", {
+  silent = true,
+  desc = "Move down by screen lines in insert mode",
+})
+map("i", "<Up>", "<C-o>gk", {
+  silent = true,
+  desc = "Move up by screen lines in insert mode",
+})
+
 -- Next and previous using tab/Stab
-map({ "n", "v", "o" }, "<Tab>", "n", { noremap = true, silent = true, desc = "Next search result" })
-map(
-  { "n", "v", "o" },
-  "<S-Tab>",
-  "N",
-  { noremap = true, silent = true, desc = "Previous search result" }
-)
+map({ "n", "v", "o" }, "<Tab>", "n", {
+  noremap = true,
+  silent = true,
+  desc = "Next search result",
+})
+map({ "n", "v", "o" }, "<S-Tab>", "N", {
+  noremap = true,
+  silent = true,
+  desc = "Previous search result",
+})
 
 -- Move line Up/Down
 map("n", "<C-A-Up>", ":m .-2<CR>==<C-l>", { desc = "Move line up" })
@@ -167,18 +190,12 @@ map("n", "xx", "dd", { desc = "Cut line" })
 
 -- Highlights the word without jumping to the next occurrence.
 -- Uses case-insensitive search and enables 'hlsearch'.
-map(
-  "n",
-  "#",
-  [[<Cmd>let @/ = '\c\<'.expand('<cword>').'\>'<CR>:set hlsearch<CR>]],
-  { desc = "Highlight word (no jump, case-insensitive)" }
-)
-map(
-  "v",
-  "#",
-  [[y<Cmd>let @/ = '\c\V' . escape(@", '/\')<CR>:set hlsearch<CR><Esc>]],
-  { desc = "Highlight selection (no jump, case-insensitive)" }
-)
+map("n", "#", [[<Cmd>let @/ = '\c\<'.expand('<cword>').'\>'<CR>:set hlsearch<CR>]], {
+  desc = "Highlight word (no jump, case-insensitive)",
+})
+map("v", "#", [[y<Cmd>let @/ = '\c\V' . escape(@", '/\')<CR>:set hlsearch<CR><Esc>]], {
+  desc = "Highlight selection (no jump, case-insensitive)",
+})
 
 map("n", "gx", function()
   pcall(function()
