@@ -35,6 +35,7 @@ local function set_highlights()
   vim.api.nvim_set_hl(0, "DapStoppedLine", { bg = "#2a2d3e" })
 
   vim.api.nvim_set_hl(0, "TroublePreview", { link = "Search" })
+  vim.api.nvim_set_hl(0, "GrugFarCurrentMatch", { link = "Search" })
 end
 
 vim.api.nvim_create_autocmd("User", {

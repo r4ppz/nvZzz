@@ -1,6 +1,52 @@
+local function toggle_grug_far(resolve_prefills, goto_input)
+  return function()
+    require("utils.window").toggle_panel(function()
+      local gf = require("grug-far")
+      local name = "grug-far-main"
+      local prefills = resolve_prefills and resolve_prefills()
+
+      local inst
+      if gf.has_instance(name) then
+        inst = gf.get_instance(name)
+        if not inst then
+          return
+        end
+        if inst:is_open() then
+          inst:hide()
+          return
+        end
+        inst:open()
+        if prefills then
+          inst:update_input_values(prefills, true)
+        end
+      else
+        inst = gf.open({ instanceName = name, prefills = prefills or {} })
+        if not inst then
+          return
+        end
+      end
+
+      if goto_input and inst then
+        inst:when_ready(function()
+          inst:goto_input(goto_input)
+        end)
+      end
+    end, "grug-far")
+  end
+end
+
 return {
   "MagicDuck/grug-far.nvim",
   cmd = "GrugFar",
+  dev = true,
+  init = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "grug-far",
+      callback = function()
+        vim.bo.buflisted = false
+      end,
+    })
+  end,
   opts = {
     startInInsertMode = false,
     showCompactInputs = false,
@@ -13,6 +59,7 @@ return {
     folding = {
       enabled = false,
     },
+    windowCreationCommand = "vsplit | vertical resize " .. math.floor(vim.o.columns * 0.4),
     resultLocation = { showNumberLabel = false },
     engines = {
       ripgrep = { placeholders = { enabled = false } },
@@ -27,63 +74,29 @@ return {
   },
   keys = {
     {
-      "<leader>rs",
-      function()
-        require("utils.window").toggle_panel(function()
-          local grug_far = require("grug-far")
-          if grug_far.has_instance("grug-far-main") then
-            grug_far.get_instance("grug-far-main"):close()
-          else
-            grug_far.open({
-              transient = true,
-              instanceName = "grug-far-main",
-            })
-          end
-        end, "grug-far")
-      end,
+      "<leader>rr",
+      toggle_grug_far(),
       mode = { "v", "n" },
-      desc = "Grug Far",
+      desc = "Grug Far (global)",
     },
     {
-      "<leader>rr",
-      function()
-        require("utils.window").toggle_panel(function()
-          local grug_far = require("grug-far")
-          if grug_far.has_instance("grug-far-file") then
-            grug_far.get_instance("grug-far-file"):close()
-          else
-            grug_far.open({
-              transient = true,
-              instanceName = "grug-far-file",
-              prefills = { paths = vim.fn.expand("%") },
-            })
-          end
-        end, "grug-far")
-      end,
+      "<leader>rf",
+      toggle_grug_far(function()
+        return {
+          search = vim.fn.expand("<cword>"),
+          paths = vim.fn.expand("%"),
+        }
+      end, "replacement"),
       mode = { "n", "v" },
-      desc = "Grug Far (current file)",
+      desc = "Grug Far (current file + prefills)",
     },
     {
       "<leader>rw",
-      function()
-        require("utils.window").toggle_panel(function()
-          local grug_far = require("grug-far")
-          if grug_far.has_instance("grug-far-replace") then
-            grug_far.get_instance("grug-far-replace"):close()
-          else
-            local inst = grug_far.open({
-              transient = true,
-              instanceName = "grug-far-replace",
-              prefills = { search = vim.fn.expand("<cword>") },
-            })
-            inst:when_ready(function()
-              inst:goto_input("replacement")
-            end)
-          end
-        end, "grug-far")
-      end,
+      toggle_grug_far(function()
+        return { search = vim.fn.expand("<cword>") }
+      end, "replacement"),
       mode = { "n", "v" },
-      desc = "Grug Far (replace word)",
+      desc = "Grug Far (global + prefills)",
     },
   },
 }
