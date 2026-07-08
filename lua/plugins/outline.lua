@@ -4,7 +4,7 @@ return {
   config = function()
     require("outline").setup({
       outline_window = {
-        width = 35,
+        width = 30,
         auto_close = false,
         auto_jump = true,
         jump_highlight_duration = 500,
