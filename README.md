@@ -198,7 +198,6 @@ This is why the startup time is under 1 second (`~15 milliseconds`); it's fast a
 | andymass/vim-matchup                      | Extended match navigation                    |
 | lukas-reineke/indent-blankline.nvim       | Indent guide lines                           |
 | chentoast/marks.nvim                      | Visual mark manager                          |
-| RRethy/vim-illuminate                     | Highlight word under cursor                  |
 | nvim-tree/nvim-tree.lua                   | File tree explorer                           |
 | mikavilpas/yazi.nvim                      | File manager (Yazi)                          |
 | MagicDuck/grug-far.nvim                   | Find and Replace via rg/ast-grep             |
