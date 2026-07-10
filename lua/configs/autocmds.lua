@@ -15,8 +15,8 @@ autocmd("FileType", {
 
 autocmd("FileType", {
   group = mygroup,
-  desc = "Close help window with q",
-  pattern = { "help" },
+  desc = "Close window with q",
+  pattern = { "help", "gitsigns-blame" },
   callback = function()
     map("n", "q", "<cmd>close<cr>", { buffer = true })
   end,
