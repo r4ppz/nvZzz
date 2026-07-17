@@ -64,9 +64,9 @@ map(
 )
 
 ---------------------------------------------------------------------
--- NVCHAD I think
+-- NVCHAD
 
-map("n", "<leader>vc", "<cmd>NvCheatsheet<CR>", { desc = "toggle nvcheatsheet" })
+map("n", "<leader>vc", "<cmd>NvCheatsheet<CR>", { desc = "Toggle nvcheatsheet" })
 
 ---------------------------------------------------------------------
 -- TERMINAL MANAGEMENT
@@ -92,10 +92,8 @@ map({ "n", "t" }, "<M-w>", function()
     id = "float_term",
   }
 
-  win_util.toggle_panel(function()
-    win_util.focus_main_window()
-    require("nvchad.term").toggle(config)
-  end, "NvTerm_float")
+  win_util.focus_main_window()
+  require("nvchad.term").toggle(config)
 
   map_close_terminal(config, "<M-g>")
 end, { desc = "Toggle Floating Terminal" })
@@ -165,10 +163,8 @@ map({ "n", "t" }, "<M-s>", function()
     size = 0.5,
   }
 
-  win_util.toggle_panel(function()
-    win_util.focus_main_window()
-    require("nvchad.term").toggle(config)
-  end, "NvTerm_sp")
+  win_util.focus_main_window()
+  require("nvchad.term").toggle(config)
 
   map_close_terminal(config, "<M-c>")
 end, { desc = "Toggle Horizontal Terminal" })
