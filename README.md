@@ -200,7 +200,6 @@ This is why the startup time is under 1 second (`~15 milliseconds`); it's fast a
 | lukas-reineke/indent-blankline.nvim       | Indent guide lines                           |
 | chentoast/marks.nvim                      | Visual mark manager                          |
 | nvim-tree/nvim-tree.lua                   | File tree explorer                           |
-| mikavilpas/yazi.nvim                      | File manager (Yazi)                          |
 | MagicDuck/grug-far.nvim                   | Find and Replace via rg/ast-grep             |
 | folke/which-key.nvim                      | Keymap popup helper                          |
 | MeanderingProgrammer/render-markdown.nvim | Improve viewing markdown                     |
