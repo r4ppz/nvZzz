@@ -37,7 +37,6 @@ end
 
 return {
   "MagicDuck/grug-far.nvim",
-  cmd = "GrugFar",
   dev = true,
   init = function()
     vim.api.nvim_create_autocmd("FileType", {
@@ -97,6 +96,17 @@ return {
       end, "replacement"),
       mode = { "n", "v" },
       desc = "Grug Far (global + prefills)",
+    },
+    {
+      "<leader>rc",
+      function()
+        local inst = require("grug-far").get_instance("grug-far-main")
+        if inst then
+          inst:close()
+        end
+      end,
+      mode = { "n", "v" },
+      desc = "Grug Far (close)",
     },
   },
 }
