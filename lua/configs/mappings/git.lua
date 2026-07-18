@@ -56,3 +56,52 @@ map("n", "<leader>gh", "<cmd>DiffviewFileHistory<cr>", {
 map("n", "<leader>gf", "<cmd>DiffviewFileHistory %<cr>", {
   desc = "Open Diffview Current File History (Diffview)",
 })
+
+-- Interactive Branch Comparison using vim.ui.select
+map("n", "<leader>gD", function()
+  -- Fetch all branches (local and remote)
+  local raw_branches = vim.fn.systemlist("git branch -a --format='%(refname:short)'")
+  if vim.v.shell_error ~= 0 or #raw_branches == 0 then
+    vim.notify("Not a git repository or no branches found", vim.log.levels.ERROR)
+    return
+  end
+
+  -- Clean up names: remove 'remotes/' prefix and filter out HEAD artifacts
+  local branches = {}
+  for _, branch in ipairs(raw_branches) do
+    if not string.find(branch, "HEAD") and branch ~= "" and branch ~= "origin" then
+      -- Strips 'remotes/origin/main' down to 'origin/main' for cleaner UI and commands
+      local clean_name = string.gsub(branch, "^remotes/", "")
+      table.insert(branches, clean_name)
+    end
+  end
+
+  -- Select baseline revision (Left Side)
+  vim.ui.select(branches, {
+    prompt = "Diffview: Select Baseline (Left Side) > ",
+  }, function(left_rev)
+    if not left_rev then
+      return
+    end -- User aborted
+
+    -- Select target revision (Right Side)
+    vim.schedule(function()
+      vim.ui.select(branches, {
+        prompt = string.format(
+          "Diffview: Select Target (Right Side, comparing vs %s) > ",
+          left_rev
+        ),
+      }, function(right_rev)
+        if not right_rev then
+          return
+        end -- User aborted
+
+        -- Execute the range comparison
+        local cmd = string.format("DiffviewOpen %s..%s", left_rev, right_rev)
+        vim.cmd(cmd)
+      end)
+    end)
+  end)
+end, {
+  desc = "Open Diffview branch comparison (inc. remotes)",
+})
