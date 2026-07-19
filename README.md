@@ -100,14 +100,14 @@ rm -rf ~/.local/state/nvim
 rm -rf ~/.local/share/nvim
 ```
 
-Current Neovim version
+Neovim version compatible with:
 
 ```bash
 ❯ nvim -v
 
-NVIM v0.12.2
+NVIM v0.12.4
 Build type: RelWithDebInfo
-LuaJIT 2.1.1774896198
+LuaJIT 2.1.1784360928
 ```
 
 ## Languages & File Types Supported/Configured
@@ -161,7 +161,7 @@ LuaJIT 2.1.1774896198
 
 ---
 
-## Plugins Used:
+## Plugins Used (40):
 
 Almost all plugins are lazy loaded, meaning they load only when used, not on startup.
 
@@ -184,7 +184,7 @@ This is why the startup time is under 1 second (`~15 milliseconds`); it's fast a
 | williamboman/mason-lspconfig.nvim         | Auto-install LSP servers                     |
 | jay-babu/mason-nvim-dap.nvim              | Auto-install DAP adapters                    |
 | folke/trouble.nvim                        | Diagnostics and references list              |
-| r4ppz/lspeek.nvim                         | Peek LSP Definitions                         |
+| r4ppz/lspeek.nvim                         | Peek LSP definitions                         |
 | Bekaboo/dropbar.nvim                      | Winbar with breadcrumbs                      |
 | hedyhli/outline.nvim                      | Symbols outline panel                        |
 | lewis6991/gitsigns.nvim                   | Git signs in gutter                          |
@@ -200,7 +200,7 @@ This is why the startup time is under 1 second (`~15 milliseconds`); it's fast a
 | lukas-reineke/indent-blankline.nvim       | Indent guide lines                           |
 | chentoast/marks.nvim                      | Visual mark manager                          |
 | nvim-tree/nvim-tree.lua                   | File tree explorer                           |
-| MagicDuck/grug-far.nvim                   | Find and Replace via rg/ast-grep             |
+| MagicDuck/grug-far.nvim                   | Better find and replace                      |
 | folke/which-key.nvim                      | Keymap popup helper                          |
 | MeanderingProgrammer/render-markdown.nvim | Improve viewing markdown                     |
 | brianhuster/live-preview.nvim             | Render markdown in browser                   |
