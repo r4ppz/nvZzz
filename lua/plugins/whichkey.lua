@@ -25,6 +25,7 @@ return {
       { "<leader>d", group = "DAP", icon = "" },
       { "<leader>p", group = "Plugin", icon = "󰍹" },
       { "<leader>t", group = "Toggle", icon = "" },
+      { "<leader>;", group = "Winbar", icon = "" },
 
       { "t", group = "Tabs", icon = "" },
       { "f", group = "Picker", icon = "󰭎" },

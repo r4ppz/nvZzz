@@ -42,7 +42,10 @@ opt.diffopt = {
   "closeoff",
   "vertical",
   "algorithm:histogram",
+  "inline:char",
+  "linematch:60",
   "indent-heuristic",
+  "hiddenoff",
 }
 
 -- Scrolling
