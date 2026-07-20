@@ -92,7 +92,6 @@ map({ "n", "t" }, "<M-w>", function()
     id = "float_term",
   }
 
-  win_util.focus_main_window()
   require("nvchad.term").toggle(config)
 
   map_close_terminal(config, "<M-g>")
