@@ -33,7 +33,6 @@ opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldlevelstart = 99
 
-opt.smarttab = true
 opt.fillchars = { eob = " " }
 opt.pumheight = 15
 opt.diffopt = {
@@ -60,12 +59,12 @@ opt.breakindent = true
 opt.showbreak = " "
 
 -- Indentation
-opt.expandtab = true
 opt.shiftwidth = 2
-opt.smartindent = true
-opt.autoindent = true
 opt.tabstop = 2
 opt.softtabstop = 2
+opt.expandtab = true
+opt.autoindent = true
+opt.smartindent = true
 
 -- Search
 opt.ignorecase = true
@@ -86,6 +85,19 @@ opt.undofile = true
 -- Misc
 opt.shortmess:append("sI")
 opt.whichwrap:append("<>[]")
+
+opt.virtualedit = "block"
+-- opt.virtualedit = "all"
+
+opt.list = true
+opt.listchars = {
+  tab = "» ",
+  trail = "·",
+  extends = "→",
+  precedes = "←",
+  nbsp = "␣",
+  -- eol = "↲", -- too noisy
+}
 
 -- Disable default providers
 vim.g.loaded_node_provider = 0
