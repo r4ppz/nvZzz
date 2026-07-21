@@ -26,12 +26,7 @@ return {
     },
 
     words = {
-      debounce = 200,
-      notify_jump = false,
-      notify_end = false,
-      foldopen = true,
-      jumplist = true,
-      modes = { "n", "i", "c" },
+      enabled = false, -- I prefer vim-illuminate
     },
 
     notifier = {
@@ -77,13 +72,6 @@ return {
     },
   },
   keys = {
-    {
-      "<leader>ur",
-      function()
-        require("snacks.words").clear()
-      end,
-      desc = "Clear words references",
-    },
     {
       "]r",
       function()
