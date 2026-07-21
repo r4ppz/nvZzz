@@ -100,7 +100,7 @@ return {
           require("CopilotChat").toggle()
         end, "copilot-chat")
       end,
-      mode = { "n", "v" },
+      mode = { "n", "v", "i" },
       desc = "Toggle CopilotChat",
     },
 
