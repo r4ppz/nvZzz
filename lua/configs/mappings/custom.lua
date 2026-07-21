@@ -71,20 +71,30 @@ map("v", "<S-Up>", "{", { desc = "Jump to previous paragraph" })
 map("v", "<S-Down>", "}", { desc = "Jump to next paragraph" })
 
 -- Ctrl+Left/Right word navigation (like any other GUI's)
-map({ "n", "v", "o" }, "<C-Left>", "b", { desc = "Move to the beginning of the word" })
-map({ "n", "v", "o" }, "<C-Right>", "e", { desc = "Move to the end of the word" })
-map("i", "<C-Left>", "<C-o>b", { desc = "Move to the beginning of the word in insert mode" })
-map("i", "<C-Right>", "<C-o>e<C-o>a", { desc = "Move to the end of the word in insert mode" })
-map({ "n", "v", "o" }, "<S-Right>", "E", { desc = "Move Right like E" })
-map({ "n", "v", "o" }, "<S-Left>", "B", { desc = "Move Left like B" })
-map("i", "<S-Left>", "<C-o>B", { desc = "Move to the beginning of the word like B in insert mode" })
+map({ "n", "v", "o" }, "<C-Left>", "b", {
+  desc = "Move to the beginning of the word",
+})
+map({ "n", "v", "o" }, "<C-Right>", "e", {
+  desc = "Move to the end of the word",
+})
+map("i", "<C-Left>", "<C-o>b", {
+  desc = "Move to the beginning of the word in insert mode",
+})
+map("i", "<C-Right>", "<C-o>e<C-o>a", {
+  desc = "Move to the end of the word in insert mode",
+})
+map({ "n", "v", "o" }, "<S-Right>", "E", {
+  desc = "Move Right like E",
+})
+map({ "n", "v", "o" }, "<S-Left>", "B", {
+  desc = "Move Left like B",
+})
+map("i", "<S-Left>", "<C-o>B", {
+  desc = "Move to the beginning of the word like B in insert mode",
+})
 map("i", "<S-Right>", "<C-o>E<C-o>a", {
   desc = "Move to the end of the word like E in insert mode",
 })
-
--- Emacs style :p
-map("i", "<C-a>", "<Home>", { desc = "Move cursor to the beginning of the line in insert mode" })
-map("i", "<C-e>", "<End>", { desc = "Move cursor to the end of the line in insert mode" })
 
 -- Ctrl+Up/Down scroll one line
 map({ "n", "v" }, "<C-Down>", "<C-e>", { desc = "Scroll window down one line" })
@@ -111,12 +121,38 @@ map("n", "<C-_>", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<C-_>", "gc", { desc = "toggle comment", remap = true })
 
 -- Jump last and first char of the line
-map({ "n", "v" }, "!", "0", { desc = "Jump to first non-blank character of the line" })
-map({ "n", "v" }, "@", "$", { desc = "Jump to last non-blank character of line" })
-map({ "n", "v" }, "g<Left>", "^", { desc = "Jump to first non-blank character of the line" })
-map({ "n", "v" }, "g<Right>", "g_", { desc = "Jump to last non-blank character of line" })
-map({ "n", "v" }, "<C-S-Left>", "^", { desc = "Jump to first non-blank character of the line" })
-map({ "n", "v" }, "<C-S-Right>", "g_", { desc = "Jump to last non-blank character of line" })
+map({ "n", "v" }, "!", "0", {
+  desc = "Jump to first non-blank character of the line",
+})
+map({ "n", "v" }, "@", "$", {
+  desc = "Jump to last non-blank character of line",
+})
+map({ "n", "v" }, "g<Left>", "^", {
+  desc = "Jump to first non-blank character of the line",
+})
+map({ "n", "v" }, "g<Right>", "g_", {
+  desc = "Jump to last non-blank character of line",
+})
+map({ "n", "v" }, "<C-S-Left>", "^", {
+  desc = "Jump to first non-blank character of the line",
+})
+map({ "n", "v" }, "<C-S-Right>", "g_", {
+  desc = "Jump to last non-blank character of line",
+})
+map({ "i" }, "<C-S-Left>", "<C-o>^", {
+  desc = "Jump to first non-blank character of the line (insert)",
+})
+map({ "i" }, "<C-S-Right>", "<C-o>g_<C-o>a", {
+  desc = "Jump to last non-blank character of line (insert)",
+})
+
+-- Emacs style :p
+map("i", "<C-a>", "^", {
+  desc = "Move cursor to the beginning of the line in insert mode",
+})
+map("i", "<C-e>", "g_", {
+  desc = "Move cursor to the end of the line in insert mode",
+})
 
 -- Using Alt instead of Ctrl to avoid terminal conflicts
 map("n", "<A-o>", "<C-o>", { desc = "Jump Back" })
@@ -151,10 +187,10 @@ map({ "n", "v" }, "<C-w><S-Up>", function()
   vim.cmd("wincmd K")
 end, { desc = "Move window to the far left" })
 
-map({ "n", "v" }, "<S-M-Down>", ":resize +2<CR>", { desc = "Increase window height" })
-map({ "n", "v" }, "<S-M-Up>", ":resize -2<CR>", { desc = "Decrease window height" })
-map({ "n", "v" }, "<S-M-Right>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
-map({ "n", "v" }, "<S-M-Left>", ":vertical resize +2<CR>", { desc = "Increase window width" })
+map({ "n", "v" }, "<S-M-Down>", "<CMD>resize +2<CR>", { desc = "Increase window height" })
+map({ "n", "v" }, "<S-M-Up>", "<CMD>resize -2<CR>", { desc = "Decrease window height" })
+map({ "n", "v" }, "<S-M-Right>", "<CMD>vertical resize -2<CR>", { desc = "Decrease window width" })
+map({ "n", "v" }, "<S-M-Left>", "<CMD>vertical resize +2<CR>", { desc = "Increase window width" })
 
 -- Safe guard
 map("n", "<C-W>q", function()
