@@ -161,7 +161,7 @@ LuaJIT 2.1.1784360928
 
 ---
 
-## Plugins Used (40):
+## Plugins Used (41):
 
 Almost all plugins are lazy loaded, meaning they load only when used, not on startup.
 

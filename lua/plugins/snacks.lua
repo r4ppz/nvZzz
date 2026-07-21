@@ -73,22 +73,6 @@ return {
   },
   keys = {
     {
-      "]r",
-      function()
-        require("snacks.words").jump(1, true)
-      end,
-      desc = "Jump reference forward",
-    },
-
-    {
-      "[r",
-      function()
-        require("snacks.words").jump(-1, true)
-      end,
-      desc = "Jump reference backward",
-    },
-
-    {
       "<leader>Gi",
       function()
         Snacks.picker.gh_issue()
