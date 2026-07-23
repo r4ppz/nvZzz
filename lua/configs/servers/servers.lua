@@ -30,7 +30,8 @@ M.lsp_list = {
   "docker_language_server",
   "dockerls",
   "lemminx",
-  "postgres_lsp",
+  -- "postgres_lsp",
+  "sqls",
   "gopls",
 
   "qmlls",

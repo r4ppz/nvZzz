@@ -30,6 +30,7 @@ return {
       "sql",
       "lua",
       "bash",
+      "zsh",
       "java",
       "rust",
       "python",

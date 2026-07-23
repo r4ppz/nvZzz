@@ -25,7 +25,8 @@ return {
       go = { "gofmt" },
 
       php = { lsp_format = "fallback" },
-      zig = { lsp_format = "fallback" },
+      toml = { lsp_format = "fallback" },
+      zig = { "zigfmt" },
 
       ["_"] = { "trim_whitespace" },
     },
