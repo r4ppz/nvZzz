@@ -73,6 +73,12 @@ return {
   },
   keys = {
     {
+      "<M-r>",
+      toggle_grug_far(),
+      mode = { "v", "n" },
+      desc = "Grug Far (global)",
+    },
+    {
       "<leader>rr",
       toggle_grug_far(),
       mode = { "v", "n" },
