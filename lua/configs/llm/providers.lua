@@ -75,13 +75,23 @@ function M.setup()
     }, builtin),
 
     google = define({
-      -- models.py https://generativelanguage.googleapis.com/v1beta/openai/v1/ $GEMINI_API_KEY
-      url = "https://generativelanguage.googleapis.com/v1beta/openai/v1/chat/completions",
+      -- models.py https://generativelanguage.googleapis.com/v1beta/openai/ $GEMINI_API_KEY
+      url = "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
       api_key = "GEMINI_API_KEY",
       models = {
         {
+          id = "models/gemini-3.6-flash",
+          name = "Gemini 3.6 Flash",
+          streaming = true,
+        },
+        {
           id = "models/gemini-3.5-flash",
           name = "Gemini 3.5 Flash",
+          streaming = true,
+        },
+        {
+          id = "models/gemini-3.5-flash-lite",
+          name = "Gemini 3.5 Flash Lite",
           streaming = true,
         },
         {
@@ -92,11 +102,6 @@ function M.setup()
         {
           id = "models/gemini-3-flash-preview",
           name = "Gemini 3 Flash Preview",
-          streaming = true,
-        },
-        {
-          id = "models/gemini-2.5-flash",
-          name = "Gemini 2.5 Flash",
           streaming = true,
         },
         {
@@ -112,6 +117,11 @@ function M.setup()
         {
           id = "models/gemini-2.0-flash-lite",
           name = "Gemini 2.0 Flash Lite",
+          streaming = true,
+        },
+        {
+          id = "models/gemini-flash-latest",
+          name = "Gemini Flash Latest",
           streaming = true,
         },
       },
@@ -167,33 +177,6 @@ function M.setup()
         },
       },
     }, builtin),
-
-    pollinations = define({
-      url = "https://text.pollinations.ai/openai",
-      models = {
-        {
-          id = "openai",
-          name = "GPT-OSS 20B Reasoning LLM",
-          streaming = true,
-        },
-      },
-      prepare_input = function(inputs, opts)
-        local body, extra = builtin.copilot.prepare_input(inputs, opts)
-        if body.messages then
-          body.messages = vim
-            .iter(body.messages)
-            :filter(function(m)
-              return m.content ~= nil and m.content ~= ""
-            end)
-            :totable()
-        end
-        return body, extra
-      end,
-    }, builtin),
-
-    copilot = {
-      prepare_output = no_reasoning(builtin.copilot.prepare_output),
-    },
   }
 end
 

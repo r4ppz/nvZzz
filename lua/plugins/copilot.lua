@@ -3,6 +3,7 @@ local win_util = require("utils.window")
 
 return {
   "CopilotC-Nvim/CopilotChat.nvim",
+  dev = true,
   branch = "main",
   build = "make tiktoken",
   dependencies = {
@@ -22,6 +23,8 @@ return {
 
       -- I only use FREE models cause I am poor asf
       model = "openai/gpt-oss-120b",
+      -- model = "models/gemini-3.6-flash",
+      -- model = "models/gemini-3.5-flash-lite",
 
       providers = require("configs.llm.providers").setup(),
 

@@ -42,7 +42,6 @@ local chat_system_prompt = string.dedent([[
 ]])
 
 local prompts = {
-
   BetterDocs = {
     prompt = string.dedent([[
     You are a technical documentation engine. Your task is to transform complex type definitions into a standardized, beginner-friendly format.
