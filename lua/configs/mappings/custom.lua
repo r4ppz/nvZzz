@@ -192,7 +192,10 @@ map({ "n", "v" }, "<S-M-Up>", "<CMD>resize -2<CR>", { desc = "Decrease window he
 map({ "n", "v" }, "<S-M-Right>", "<CMD>vertical resize -2<CR>", { desc = "Decrease window width" })
 map({ "n", "v" }, "<S-M-Left>", "<CMD>vertical resize +2<CR>", { desc = "Increase window width" })
 
--- Safe guard
+map("n", "<C-S-M-q>", ":only<CR>", {
+  desc = "Close all other windows",
+})
+
 map("n", "<C-W>q", function()
   require("utils.window").close_window_safely()
 end, { desc = "Close window safely" })
