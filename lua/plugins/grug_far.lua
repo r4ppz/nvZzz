@@ -47,6 +47,7 @@ return {
     })
   end,
   opts = {
+    centerOnNavigation = false,
     startInInsertMode = false,
     showCompactInputs = false,
     showInputsTopPadding = false,
@@ -94,6 +95,17 @@ return {
       end, "replacement"),
       mode = { "n", "v" },
       desc = "Grug Far (current file + prefills)",
+    },
+    {
+      "<leader>/",
+      toggle_grug_far(function()
+        return {
+          search = "",
+          paths = vim.fn.expand("%"),
+        }
+      end),
+      mode = { "n", "v" },
+      desc = "Grug Far (current file)",
     },
     {
       "<leader>rw",
