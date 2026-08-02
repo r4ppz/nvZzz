@@ -109,7 +109,7 @@ map("v", ">", ">gv", { desc = "Indent right and reselect" })
 -- Save only if there are changes
 map("n", "<C-s>", "<cmd>update<cr>", { desc = "Save file" })
 map("v", "<C-s>", "<cmd>update<cr>", { desc = "Save file" })
-map("i", "<C-s>", "<C-o>:update<CR>", { desc = "Save file" })
+map("i", "<C-s>", "<Esc>:update<CR>", { desc = "Save file" })
 
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "Clear highlights" })
 map("n", "<M-Esc>", "<cmd>noh<CR>", { desc = "Clear highlights" })
