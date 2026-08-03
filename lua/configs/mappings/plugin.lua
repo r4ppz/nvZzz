@@ -134,26 +134,11 @@ map({ "n", "t" }, "<M-S-d>", function()
     return
   end
 
-  local config = {
-    pos = "float",
-    id = "lazydocker_float",
-    float_opts = {
-      row = 0.05,
-      col = 0.05,
-      width = 0.9,
-      height = 0.8,
-      border = "single",
-    },
-    cmd = "lazydocker",
-  }
-
   win_util.toggle_panel(function()
     win_util.focus_main_window()
-    require("nvchad.term").toggle(config)
+    require("utils.lazydocker").open()
   end, "snacks_terminal")
-
-  map_close_terminal(config, "q")
-end, { desc = "Toggle LazyDocker" })
+end, { desc = "Toggle LazyDocker (Snacks)" })
 
 map({ "n", "t" }, "<M-s>", function()
   local config = {

@@ -28,7 +28,7 @@ autocmd("TermOpen", {
   pattern = "*",
   callback = function()
     local term_title = vim.b.term_title
-    if term_title and term_title:match("lazygit") then
+    if term_title and (term_title:match("lazygit") or term_title:match("lazydocker")) then
       map("t", { "<M-g>", "q" }, "<cmd>close<cr>", { buffer = true })
     end
   end,
