@@ -147,10 +147,10 @@ map({ "i" }, "<C-S-Right>", "<C-o>g_<C-o>a", {
 })
 
 -- Emacs style :p
-map("i", "<C-a>", "^", {
+map("i", "<C-a>", "<C-o>^", {
   desc = "Move cursor to the beginning of the line in insert mode",
 })
-map("i", "<C-e>", "g_", {
+map("i", "<C-e>", "<C-o>g_<C-o>a", {
   desc = "Move cursor to the end of the line in insert mode",
 })
 
