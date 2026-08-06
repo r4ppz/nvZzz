@@ -34,13 +34,13 @@ Debugger (DAP)
 <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/5217107a-b253-41ca-ba65-9903c223bc9b" />
 
 Docker Integration (LazyDocker)
-<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/e7caa1b1-d2b2-4391-bfb3-5301349f1d57" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/851ce904-ccdf-4510-83fc-134aa146ab4d" />
 
 LSP References
-<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/f909cd0d-8713-4e7c-8b9d-9cde14b1db55" />
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/4cd7d311-3435-4624-8e59-7997c5c7b0a3" />
 
-LSP Peek Definition
-<img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/80f2c00f-1ec8-4ee2-a742-e3a3a0f907fc" />
+LSP Peek Definition (LSPeek)
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/451b332e-d5a0-4065-b555-19add765986f" />
 
 File Picker (Snacks)
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/ea91167e-228a-49fb-b25b-16fc09527df9" />
@@ -56,6 +56,9 @@ Docs Hover
 
 Completion Menu
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/d3a19bcb-6a0f-471d-931b-f2c7b226209e" />
+
+Search and Replace
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/ca97f34a-d7e7-45d9-9d26-b67c578be5fb" />
 
 File Tree Explorer (NvimTree)
 <img width="1366" height="768" alt="Image" src="https://github.com/user-attachments/assets/b32c6797-94b1-4822-8e75-8abe0302716e" />
