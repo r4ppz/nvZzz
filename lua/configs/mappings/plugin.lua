@@ -131,7 +131,6 @@ map({ "n", "t" }, "<M-S-d>", function()
 
   if not system.is_file_exists("docker-compose.yml", cwd) then
     vim.notify("docker-compose.yml doesn't exist in CWD", vim.log.levels.WARN)
-    return
   end
 
   win_util.toggle_panel(function()
