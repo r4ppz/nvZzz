@@ -1,5 +1,8 @@
 # My Personal Neovim Configuration
 
+> [!NOTE]
+> I no longer maintain my Neovim config in this repo. I've moved it to my [NixOS monolith config](https://github.com/r4ppz/.dotfiles/tree/main/configs/nvim).
+
 _UI powered by [NvChad](https://nvchad.com/)_
 
 <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/b95c6e87-6a39-4e2a-832a-18a650925cb9" />
